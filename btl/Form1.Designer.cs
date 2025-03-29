@@ -37,17 +37,17 @@
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panelDB = new System.Windows.Forms.Panel();
             this.btnDB = new System.Windows.Forms.Button();
+            this.panelSP = new System.Windows.Forms.Panel();
+            this.btnSP = new System.Windows.Forms.Button();
             this.panelLO = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
-            this.panelSP = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHam)).BeginInit();
             this.sidebar.SuspendLayout();
             this.panelDB.SuspendLayout();
-            this.panelLO.SuspendLayout();
             this.panelSP.SuspendLayout();
+            this.panelLO.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -115,6 +115,36 @@
             this.btnDB.UseVisualStyleBackColor = false;
             this.btnDB.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panelSP
+            // 
+            this.panelSP.Controls.Add(this.btnSP);
+            this.panelSP.Location = new System.Drawing.Point(3, 79);
+            this.panelSP.Name = "panelSP";
+            this.panelSP.Size = new System.Drawing.Size(257, 40);
+            this.panelSP.TabIndex = 7;
+            // 
+            // btnSP
+            // 
+            this.btnSP.BackColor = System.Drawing.Color.Black;
+            this.btnSP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSP.FlatAppearance.BorderSize = 0;
+            this.btnSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSP.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnSP.ForeColor = System.Drawing.Color.White;
+            this.btnSP.Image = ((System.Drawing.Image)(resources.GetObject("btnSP.Image")));
+            this.btnSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSP.Location = new System.Drawing.Point(0, 0);
+            this.btnSP.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSP.Name = "btnSP";
+            this.btnSP.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnSP.Size = new System.Drawing.Size(257, 40);
+            this.btnSP.TabIndex = 4;
+            this.btnSP.TabStop = false;
+            this.btnSP.Text = "         Sản phẩm";
+            this.btnSP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSP.UseVisualStyleBackColor = false;
+            this.btnSP.Click += new System.EventHandler(this.btnSP_Click);
+            // 
             // panelLO
             // 
             this.panelLO.Controls.Add(this.button2);
@@ -149,35 +179,6 @@
             this.sidebarTransition.Interval = 10;
             this.sidebarTransition.Tick += new System.EventHandler(this.sidebarTransition_Tick);
             // 
-            // panelSP
-            // 
-            this.panelSP.Controls.Add(this.button3);
-            this.panelSP.Location = new System.Drawing.Point(3, 79);
-            this.panelSP.Name = "panelSP";
-            this.panelSP.Size = new System.Drawing.Size(257, 40);
-            this.panelSP.TabIndex = 7;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Black;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(257, 40);
-            this.button3.TabIndex = 4;
-            this.button3.TabStop = false;
-            this.button3.Text = "         Products";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -193,8 +194,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnHam)).EndInit();
             this.sidebar.ResumeLayout(false);
             this.panelDB.ResumeLayout(false);
-            this.panelLO.ResumeLayout(false);
             this.panelSP.ResumeLayout(false);
+            this.panelLO.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -212,7 +213,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Timer sidebarTransition;
         private System.Windows.Forms.Panel panelSP;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSP;
     }
 }
 

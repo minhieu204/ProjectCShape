@@ -13,6 +13,7 @@ namespace btl
     public partial class Form1 : Form
     {
         Dashboard dashboard;
+        FormSP formSP;
         public Form1()
         {
             InitializeComponent();
@@ -83,6 +84,27 @@ namespace btl
         private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
             dashboard = null;
+        }
+
+        private void btnSP_Click(object sender, EventArgs e)
+        {
+            if (formSP == null)
+            {
+                formSP = new FormSP();
+                formSP.FormClosed += Sanpham_FormClosed;
+                formSP.MdiParent = this;
+                formSP.Dock = DockStyle.Fill;
+                formSP.Show();
+            }
+            else
+            {
+                formSP.Activate();
+            }
+        }
+
+        private void Sanpham_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formSP = null;
         }
     }
 }
