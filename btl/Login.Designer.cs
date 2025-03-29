@@ -105,9 +105,9 @@
             this.txtname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtname.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtname.Location = new System.Drawing.Point(15, 188);
+            this.txtname.Location = new System.Drawing.Point(16, 188);
             this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(294, 22);
+            this.txtname.Size = new System.Drawing.Size(293, 22);
             this.txtname.TabIndex = 5;
             // 
             // txtpass
@@ -116,9 +116,9 @@
             this.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtpass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpass.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtpass.Location = new System.Drawing.Point(12, 288);
+            this.txtpass.Location = new System.Drawing.Point(16, 288);
             this.txtpass.Name = "txtpass";
-            this.txtpass.Size = new System.Drawing.Size(294, 20);
+            this.txtpass.Size = new System.Drawing.Size(290, 20);
             this.txtpass.TabIndex = 6;
             this.txtpass.UseSystemPasswordChar = true;
             // 
