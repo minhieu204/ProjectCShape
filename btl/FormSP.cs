@@ -20,7 +20,11 @@ namespace btl
 
         private void FormSP_Load(object sender, EventArgs e)
         {
+        }
 
+        private void FormSP_Resize(object sender, EventArgs e)
+        {
+            label2.Width = flowLayoutPanel1.Width;
         }
     }
 }
