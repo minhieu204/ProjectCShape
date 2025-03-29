@@ -18,6 +18,18 @@ namespace btl
             this.FormBorderStyle = FormBorderStyle.None;
         }
 
+        private void DrawBorder(TextBox textBox, Color color)
+        {
+            using (Graphics g = textBox.CreateGraphics())
+            {
+                int borderWidth = 2;
+                ControlPaint.DrawBorder(g, textBox.ClientRectangle, color, borderWidth, ButtonBorderStyle.Solid,
+                                                                      color, borderWidth, ButtonBorderStyle.Solid,
+                                                                      color, borderWidth, ButtonBorderStyle.Solid,
+                                                                      color, borderWidth, ButtonBorderStyle.Solid);
+            }
+        }
+
         private void FormSP_Load(object sender, EventArgs e)
         {
         }
@@ -25,6 +37,16 @@ namespace btl
         private void FormSP_Resize(object sender, EventArgs e)
         {
             label2.Width = flowLayoutPanel1.Width;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }
