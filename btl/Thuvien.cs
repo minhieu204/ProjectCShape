@@ -6,13 +6,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace btl
 {
     internal class Thuvien
     {
         private static readonly string connectionString = "Data Source=.;Initial Catalog=QLSIEUTHI;User ID=sa;Password=1306;";
+        public static void CustomDataGridView(DataGridView dataGridView)
+        {
+            // Thiết lập cơ bản
+            dataGridView.BorderStyle = BorderStyle.None;
+            dataGridView.EnableHeadersVisualStyles = false;
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView.RowHeadersVisible = false;
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView.MultiSelect = false;
+            dataGridView.ReadOnly = true;
+            dataGridView.AllowUserToAddRows = false;
 
+            // Thiết lập font
+            dataGridView.Font = new Font("Segoe UI", 10);
+
+            // Màu sắc
+            dataGridView.BackgroundColor = Color.White;
+            dataGridView.GridColor = Color.FromArgb(240, 240, 240);
+
+            // Style cho header cột (KHÔNG thay đổi khi chọn)
+            dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(44, 62, 80);
+            dataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(44, 62, 80); // Giữ nguyên màu khi chọn
+            dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White; // Giữ nguyên màu chữ khi chọn
+
+            // Style cho hàng
+            dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
+            dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(209, 238, 255);
+            dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            // Style cho cell
+            dataGridView.DefaultCellStyle.Padding = new Padding(5);
+            dataGridView.DefaultCellStyle.SelectionBackColor = Color.FromArgb(52, 152, 219);
+            dataGridView.DefaultCellStyle.SelectionForeColor = Color.White;
+
+        }
         public static bool Test()
         {
             try

@@ -52,6 +52,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Acc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\Acc.Designer.cs">
+      <DependentUpon>Acc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Acctb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\Acctb.Designer.cs">
+      <DependentUpon>Acctb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Acctv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\Acctv.Designer.cs">
+      <DependentUpon>Acctv.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +104,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Thuvien.cs" />
+    <EmbeddedResource Include="Account\Acc.resx">
+      <DependentUpon>Acc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\Acctb.resx">
+      <DependentUpon>Acctb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\Acctv.resx">
+      <DependentUpon>Acctv.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>

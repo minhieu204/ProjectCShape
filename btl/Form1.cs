@@ -15,6 +15,7 @@ namespace btl
     {
         Dashboard dashboard;
         FormSP formSP;
+        Account.Acc account;
         public Form1()
         {
             InitializeComponent();
@@ -149,6 +150,21 @@ namespace btl
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (account == null)
+            {
+                account = new Account.Acc();
+                account.MdiParent = this;
+                account.Dock = DockStyle.Fill;
+                account.Show();
+            }
+            else
+            {
+                account.Activate();
+            }
         }
     }
 }
