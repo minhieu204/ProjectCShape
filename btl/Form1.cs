@@ -97,6 +97,7 @@ namespace btl
 
         private void btnSP_Click(object sender, EventArgs e)
         {
+            
             if (formSP == null)
             {
                 formSP = new FormSP();
