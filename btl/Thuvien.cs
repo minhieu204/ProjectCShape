@@ -44,7 +44,9 @@ namespace btl
             // Style cho hàng
             dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
             dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(209, 238, 255);
-            dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            //dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView.RowTemplate.Height = 40;
+
 
             // Style cho cell
             dataGridView.DefaultCellStyle.Padding = new Padding(5);
@@ -128,6 +130,26 @@ namespace btl
             using (SqlDataAdapter da = new SqlDataAdapter(cmd))
             {
                 da.Fill(dt);
+            }
+        }
+        public static void LoadDatatk(string sql1, string sql2, DataGridView dgv)
+        {
+            using (SqlConnection con = GetConnection())
+            using (SqlCommand cmd1 = new SqlCommand(sql1, con))
+            using (SqlCommand cmd2 = new SqlCommand(sql2, con))
+            using (SqlDataAdapter da1 = new SqlDataAdapter(cmd1))
+            using (SqlDataAdapter da2 = new SqlDataAdapter(cmd2))
+            {
+                DataTable dt1 = new DataTable();
+                DataTable dt2 = new DataTable();
+
+                da1.Fill(dt1);
+                da2.Fill(dt2);
+
+                // Gộp dữ liệu 2 bảng vào 1 DataTable
+                dt1.Merge(dt2);
+
+                dgv.DataSource = dt1;
             }
         }
 
