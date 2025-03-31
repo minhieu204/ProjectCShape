@@ -30,14 +30,9 @@ namespace btl.Account
             txtemail.Text = email;
             txtma.Enabled = false;
             btntv.Text = "Cập nhật";
+            header.Text = "Cập nhật tài khoản";
         }
-
-        private void Acctv_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnload_Click(object sender, EventArgs e)
+        private void Reload()
         {
             txtma.Text = "";
             txthoten.Text = "";
@@ -50,6 +45,17 @@ namespace btl.Account
             txtemail.Text = "";
             btntv.Text = "Thêm";
             txtuser.Text = "";
+            header.Text = "Thêm tài khoản";
+        }
+
+        private void Acctv_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnload_Click(object sender, EventArgs e)
+        {
+            Reload();
         }
     }
 }

@@ -56,7 +56,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btntv = new Guna.UI2.WinForms.Guna2Button();
             this.btnload = new Guna.UI2.WinForms.Guna2Button();
-            this.label9 = new System.Windows.Forms.Label();
+            this.header = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -384,24 +384,24 @@
             this.btnload.Text = "ReLoad";
             this.btnload.Click += new System.EventHandler(this.btnload_Click);
             // 
-            // label9
+            // header
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.header.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(12, 4);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(1016, 74);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Thêm/Cập nhật tài khoản";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.header.Font = new System.Drawing.Font("Segoe UI", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header.Location = new System.Drawing.Point(12, 4);
+            this.header.Name = "header";
+            this.header.Size = new System.Drawing.Size(1016, 74);
+            this.header.TabIndex = 8;
+            this.header.Text = "Thêm tài khoản";
+            this.header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Acctv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 581);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.header);
             this.Controls.Add(this.btnload);
             this.Controls.Add(this.btntv);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -458,6 +458,6 @@
         private System.Windows.Forms.TextBox txtma;
         private Guna.UI2.WinForms.Guna2Button btntv;
         private Guna.UI2.WinForms.Guna2Button btnload;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label header;
     }
 }
