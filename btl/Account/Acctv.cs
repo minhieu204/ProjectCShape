@@ -31,6 +31,7 @@ namespace btl.Account
             txtma.Enabled = false;
             btntv.Text = "Cập nhật";
             header.Text = "Cập nhật tài khoản";
+            cbphanquyen.Enabled = false;
         }
         private void Reload()
         {
@@ -46,6 +47,7 @@ namespace btl.Account
             btntv.Text = "Thêm";
             txtuser.Text = "";
             header.Text = "Thêm tài khoản";
+            cbphanquyen.Enabled = true;
         }
 
         private void Acctv_Load(object sender, EventArgs e)
