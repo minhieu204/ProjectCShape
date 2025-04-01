@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,11 +13,13 @@ namespace btl.Account
 {
     public partial class Acctv : Form
     {
-        public Acctv()
+        Acc Acc;
+        public Acctv(Acc parent)
         {
             InitializeComponent();
+            this.Acc = parent;
             comboBox1.SelectedItem = "---Chọn---";
-            Thuvien.LoadComboBox("select * from phanquyen", cbphanquyen , "maphanquyen", "tenphanquyen");
+            Thuvien.LoadComboBox("select * from phanquyen", cbphanquyen, "maphanquyen", "tenphanquyen");
         }
         public void setData(string ma, string ht, string gt, string pq, string un, string pw, string sdt, string email)
         {
@@ -61,8 +64,8 @@ namespace btl.Account
         }
 
         private void btntv_Click(object sender, EventArgs e)
-        {   
-            if(txtma.Text == "" || txthoten.Text == "" || comboBox1.SelectedItem.ToString() == "---Chọn---" || cbphanquyen.SelectedIndex==0 || txtuser.Text == "" || txtpass.Text == "" || txtsdt.Text == "" || txtemail.Text == "")
+        {
+            if (txtma.Text == "" || txthoten.Text == "" || comboBox1.SelectedItem.ToString() == "---Chọn---" || cbphanquyen.SelectedIndex == 0 || txtuser.Text == "" || txtpass.Text == "" || txtsdt.Text == "" || txtemail.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
                 return;
@@ -117,13 +120,52 @@ namespace btl.Account
                 {
                     sql = String.Format("update quanly set hoten = N'{0}', gioitinh = N'{1}', maphanquyen = '{2}', username = '{3}', pass = '{4}', sdt = '{5}', email = '{6}' where maquanly = '{7}'", ht, gt, pq, un, pw, sdt, email, ma);
                 }
-                else {
+                else
+                {
                     sql = String.Format("update nhanvien set hoten = N'{0}', gioitinh = N'{1}', maphanquyen = '{2}', username = '{3}', pass = '{4}', sdt = '{5}', email = '{6}' where manhanvien = '{7}'", ht, gt, pq, un, pw, sdt, email, ma);
                 }
             }
             Thuvien.ExecuteQuery(sql);
-            MessageBox.Show("Thao tác Thành công!!","Thông báo!");
+            Acc.acctb.loadtb();
+            Acc.SwitchToTab(0);
+            MessageBox.Show("Thao tác Thành công!!", "Thông báo!");
             Reload();
+        }
+
+        private void txtsdt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;  // Ngăn không cho nhập
+            }
+        }
+
+        private void txtsdt_Leave(object sender, EventArgs e)
+        {
+            string phoneNumber = txtsdt.Text.Trim();
+
+            // Biểu thức chính quy cho số điện thoại Việt Nam
+            string pattern = @"^0[3|5|7|8|9][0-9]{8}$";
+
+            if (!Regex.IsMatch(phoneNumber, pattern))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập lại.");
+                txtsdt.Text = "";
+            }
+        }
+
+        private void txtemail_Leave(object sender, EventArgs e)
+        {
+            string email = txtemail.Text.Trim();
+
+            // Biểu thức chính quy kiểm tra email hợp lệ
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+            if (!Regex.IsMatch(email, pattern))
+            {
+                MessageBox.Show("Email không hợp lệ. Vui lòng nhập lại.");
+                txtemail.Text = "";
+            }
         }
     }
 }

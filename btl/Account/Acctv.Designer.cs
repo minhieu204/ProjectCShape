@@ -33,7 +33,6 @@
             this.txtemail = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.cbphanquyen = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -112,6 +111,7 @@
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(385, 29);
             this.txtemail.TabIndex = 4;
+            this.txtemail.Leave += new System.EventHandler(this.txtemail_Leave);
             // 
             // label8
             // 
@@ -125,7 +125,6 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.guna2Button1);
             this.panel7.Controls.Add(this.cbphanquyen);
             this.panel7.Controls.Add(this.label4);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -134,28 +133,14 @@
             this.panel7.Size = new System.Drawing.Size(502, 90);
             this.panel7.TabIndex = 6;
             // 
-            // guna2Button1
-            // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(132)))), ((int)(((byte)(50)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(222, 19);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(157, 47);
-            this.guna2Button1.TabIndex = 5;
-            this.guna2Button1.Text = "Thêm phân quyền";
-            // 
             // cbphanquyen
             // 
+            this.cbphanquyen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbphanquyen.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbphanquyen.FormattingEnabled = true;
             this.cbphanquyen.Location = new System.Drawing.Point(95, 34);
             this.cbphanquyen.Name = "cbphanquyen";
-            this.cbphanquyen.Size = new System.Drawing.Size(121, 25);
+            this.cbphanquyen.Size = new System.Drawing.Size(404, 25);
             this.cbphanquyen.TabIndex = 4;
             // 
             // label4
@@ -187,6 +172,8 @@
             this.txtsdt.Name = "txtsdt";
             this.txtsdt.Size = new System.Drawing.Size(385, 29);
             this.txtsdt.TabIndex = 3;
+            this.txtsdt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtsdt_KeyPress);
+            this.txtsdt.Leave += new System.EventHandler(this.txtsdt_Leave);
             // 
             // label7
             // 
@@ -210,15 +197,17 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "---Chọn---",
             "Nam",
             "Nữ"});
-            this.comboBox1.Location = new System.Drawing.Point(95, 33);
+            this.comboBox1.Location = new System.Drawing.Point(95, 34);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 25);
+            this.comboBox1.Size = new System.Drawing.Size(404, 25);
             this.comboBox1.TabIndex = 3;
             // 
             // label3
@@ -449,7 +438,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtemail;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.ComboBox cbphanquyen;
         private System.Windows.Forms.TextBox txtsdt;
         private System.Windows.Forms.ComboBox comboBox1;

@@ -19,7 +19,7 @@ namespace btl.Account
         {
             InitializeComponent();
             acctb = new Acctb(this);
-            acctv = new Acctv();
+            acctv = new Acctv(this);
             EmbedFormInTab(acctb, tabPage1);
             EmbedFormInTab(acctv, tabPage2);
             HideTabHeaders();
