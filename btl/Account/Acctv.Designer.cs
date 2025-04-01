@@ -366,6 +366,7 @@
             this.btntv.Size = new System.Drawing.Size(105, 40);
             this.btntv.TabIndex = 6;
             this.btntv.Text = "Thêm";
+            this.btntv.Click += new System.EventHandler(this.btntv_Click);
             // 
             // btnload
             // 

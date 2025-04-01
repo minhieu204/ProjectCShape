@@ -18,12 +18,16 @@ namespace btl.Account
             InitializeComponent();
             this.Acc = parent;
             Thuvien.CustomDataGridView(dataGridView1);
-            Thuvien.LoadDatatk("select * from quanly","select manhanvien as maquanly, hoten, gioitinh, maphanquyen, username, pass, sdt, email from nhanvien",dataGridView1);
+            loadtb();
         }
 
         private void Acctb_Load(object sender, EventArgs e)
         {
             
+        }
+        public void loadtb()
+        {
+            Thuvien.LoadDatatk("select * from quanly", "select manhanvien as maquanly, hoten, gioitinh, maphanquyen, username, pass, sdt, email from nhanvien", dataGridView1);
         }
 
         private void dataGridView1_MouseDown(object sender, MouseEventArgs e)
@@ -56,6 +60,30 @@ namespace btl.Account
                 Acc.acctv.setData(ma, ht, gt, pq, un, pw, sdt, email);
                 Acc.SwitchToTab(1); // Chuyển sang tab 2
             }
+        }
+
+        private void xoacm_Click(object sender, EventArgs e)
+        {
+            String sql = "";
+            DataGridViewRow row = dataGridView1.SelectedRows[0];
+            string ma = row.Cells["maquanly"].Value.ToString();
+            string pq = row.Cells["maphanquyen"].Value.ToString();
+            DialogResult mess_delete = MessageBox.Show("Bạn có muốn xóa không ?", "Xác nhận: ", MessageBoxButtons.YesNo);
+            if (mess_delete == DialogResult.Yes)
+            {
+                if (pq == "ql")
+                {
+                    sql = "delete from quanly where maquanly = '" + ma + "'";
+                }
+                else
+                {
+                    sql = "delete from nhanvien where manhanvien = '" + ma + "'";
+                }
+            }
+            Thuvien.ExecuteQuery(sql);
+            loadtb();
+            MessageBox.Show("Xóa tài khoản thành công!","Thông báo!");
+
         }
     }
 }

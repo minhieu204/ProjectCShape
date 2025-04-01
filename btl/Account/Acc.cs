@@ -63,6 +63,7 @@ namespace btl.Account
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            acctb.loadtb();
             SwitchToTab(0);
         }
 

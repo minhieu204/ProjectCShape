@@ -59,5 +59,71 @@ namespace btl.Account
         {
             Reload();
         }
+
+        private void btntv_Click(object sender, EventArgs e)
+        {   
+            if(txtma.Text == "" || txthoten.Text == "" || comboBox1.SelectedItem.ToString() == "---Chọn---" || cbphanquyen.SelectedIndex==0 || txtuser.Text == "" || txtpass.Text == "" || txtsdt.Text == "" || txtemail.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                return;
+            }
+            String sql = "";
+            String ma = txtma.Text;
+            String ht = txthoten.Text;
+            String gt = comboBox1.SelectedItem.ToString();
+            String pq = cbphanquyen.SelectedValue.ToString();
+            String un = txtuser.Text;
+            String pw = txtpass.Text;
+            String sdt = txtsdt.Text;
+            String email = txtemail.Text;
+            if (btntv.Text == "Thêm")
+            {
+                if (!Thuvien.CheckExist("SELECT COUNT(*) FROM (SELECT username FROM quanly WHERE username = '" + un + "' UNION ALL SELECT username FROM nhanvien WHERE username = '" + un + "') as temp"))
+                {
+                    if (pq == "ql")
+                    {
+                        if (!Thuvien.CheckExist("select count(*) from quanly where maquanly='" + ma + "' "))
+                        {
+                            sql = String.Format("insert into quanly values('{0}', '{1}', '{2}', '{3}', N'{4}', N'{5}', '{6}', '{7}')", ma, un, pw, pq, ht, gt, sdt, email);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Mã tài khoản đã tồn tại");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        if (!Thuvien.CheckExist("select count(*) from nhanvien where manhanvien='" + ma + "' "))
+                        {
+                            sql = String.Format("insert into nhanvien values('{0}', '{1}', '{2}', '{3}', N'{4}', N'{5}', '{6}', '{7}')", ma, un, pw, pq, ht, gt, sdt, email);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Mã tài khoản đã tồn tại");
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Tên đăng nhập đã tồn tại");
+                    return;
+                }
+            }
+            else
+            {
+                if (pq == "ql")
+                {
+                    sql = String.Format("update quanly set hoten = N'{0}', gioitinh = N'{1}', maphanquyen = '{2}', username = '{3}', pass = '{4}', sdt = '{5}', email = '{6}' where maquanly = '{7}'", ht, gt, pq, un, pw, sdt, email, ma);
+                }
+                else {
+                    sql = String.Format("update nhanvien set hoten = N'{0}', gioitinh = N'{1}', maphanquyen = '{2}', username = '{3}', pass = '{4}', sdt = '{5}', email = '{6}' where manhanvien = '{7}'", ht, gt, pq, un, pw, sdt, email, ma);
+                }
+            }
+            Thuvien.ExecuteQuery(sql);
+            MessageBox.Show("Thao tác Thành công!!","Thông báo!");
+            Reload();
+        }
     }
 }
