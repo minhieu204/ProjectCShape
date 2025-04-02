@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace btl
 {
-    public partial class Dashboard : Form
+    public partial class FormBH : Form
     {
 
-        public Dashboard()
+        public FormBH()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -21,7 +21,7 @@ namespace btl
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            this.ControlBox = false;
+            
         }
     }
 }

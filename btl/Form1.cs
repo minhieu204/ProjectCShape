@@ -13,7 +13,7 @@ namespace btl
 {
     public partial class Form1 : Form
     {
-        Dashboard dashboard;
+        FormBH dashboard;
         FormSP formSP;
         Account.Acc account;
         public Form1()
@@ -92,7 +92,7 @@ namespace btl
         {
             if (dashboard == null)
             {
-                dashboard = new Dashboard();
+                dashboard = new FormBH();
                 dashboard.FormClosed += Dashboard_FormClosed;
                 dashboard.MdiParent = this;
                 dashboard.Dock = DockStyle.Fill;
