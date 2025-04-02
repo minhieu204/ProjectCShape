@@ -12,7 +12,7 @@ namespace btl
 {
     internal class Thuvien
     {
-        private static readonly string connectionString = "Data Source=.;Initial Catalog=QLSIEUTHI;User ID=sa;Password=1306;";
+        private static readonly string connectionString = "Data Source=.;Initial Catalog=db;User ID=sa;Password=3110;";
         public static void CustomDataGridView(DataGridView dataGridView)
         {
             // Thiết lập cơ bản
