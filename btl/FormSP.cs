@@ -12,7 +12,7 @@ namespace btl
 {
     public partial class FormSP : Form
     {
-        public void CustomDataGridView(DataGridView dataGridView)
+        public static void CustomDataGridView(DataGridView dataGridView)
         {
             // Thiết lập cơ bản
             dataGridView.BorderStyle = BorderStyle.None;
@@ -40,10 +40,15 @@ namespace btl
             dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(44, 62, 80); // Giữ nguyên màu khi chọn
             dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White; // Giữ nguyên màu chữ khi chọn
 
+            // Căn giữa dữ liệu trong ô
+            dataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             // Style cho hàng
             dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
             dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(209, 238, 255);
-            dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            //dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView.RowTemplate.Height = 40;
+
 
             // Style cho cell
             dataGridView.DefaultCellStyle.Padding = new Padding(5);
@@ -51,6 +56,8 @@ namespace btl
             dataGridView.DefaultCellStyle.SelectionForeColor = Color.White;
 
         }
+
+
         public FormSP()
         {
             InitializeComponent();
@@ -100,7 +107,8 @@ namespace btl
         private void btnThemmoi_Click(object sender, EventArgs e)
         {
             resetText();
-
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

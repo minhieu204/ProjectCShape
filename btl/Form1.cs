@@ -79,7 +79,7 @@ namespace btl
             }
             else
             {
-                sidebar.Width = 260; // Mở rộng ngay lập tức
+                sidebar.Width = 200; // Mở rộng ngay lập tức
             }
 
             sidebarExpand = !sidebarExpand; // Đảo trạng thái mở rộng
