@@ -153,5 +153,27 @@ namespace btl
             }
         }
 
+        // Hàm tra cứu từ mã thành tên hoặc ngược lại
+        public static string GetValueFromCode(string sql, string inputValue, string valueField, string displayField)
+        {
+            using (SqlConnection con = GetConnection())
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                // Tìm trong DataTable
+                DataRow[] rows = dt.Select($"{displayField} = '{inputValue}'");
+
+                if (rows.Length > 0)
+                {
+                    return rows[0][valueField].ToString();
+                }
+
+                return ""; // Không tìm thấy
+            }
+        }
+
     }
 }

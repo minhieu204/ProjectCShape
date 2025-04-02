@@ -16,7 +16,7 @@ namespace btl
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Loadfrm());
+            Application.Run(new Form1());
         }
     }
 }

@@ -44,35 +44,48 @@ namespace btl
         }
         private void sidebarTransition_Tick(object sender, EventArgs e)
         {
-            if (sidebarExpand)
-            {
-                sidebar.Width -= 10;
-                if (sidebar.Width <= 60)
-                {
-                    sidebarExpand = false;
-                    sidebarTransition.Stop();
-                    panelDB.Width = sidebar.Width;
-                    panelSP.Width = sidebar.Width;
-                    panelLO.Width = sidebar.Width;
-                }
-            }
-            else
-            {
-                sidebar.Width += 10;
-                if (sidebar.Width >= 260)
-                {
-                    sidebarExpand = true;
-                    sidebarTransition.Stop();
-                    panelDB.Width = sidebar.Width;
-                    panelSP.Width = sidebar.Width;
-                    panelLO.Width = sidebar.Width;
-                }
-            }
+            //if (sidebarExpand)
+            //{
+            //    sidebar.Width -= 10;
+            //    if (sidebar.Width <= 60)
+            //    {
+            //        sidebarExpand = false;
+            //        sidebarTransition.Stop();
+            //        panelDB.Width = sidebar.Width;
+            //        panelSP.Width = sidebar.Width;
+            //        panelLO.Width = sidebar.Width;
+            //    }
+            //}
+            //else
+            //{
+            //    sidebar.Width += 10;
+            //    if (sidebar.Width >= 260)
+            //    {
+            //        sidebarExpand = true;
+            //        sidebarTransition.Stop();
+            //        panelDB.Width = sidebar.Width;
+            //        panelSP.Width = sidebar.Width;
+            //        panelLO.Width = sidebar.Width;
+            //    }
+            //}
         }
 
         private void btnHam_Click(object sender, EventArgs e)
         {
-            sidebarTransition.Start();
+            //sidebarTransition.Start();
+            if (sidebarExpand)
+            {
+                sidebar.Width = 60; // Thu nhỏ ngay lập tức
+            }
+            else
+            {
+                sidebar.Width = 260; // Mở rộng ngay lập tức
+            }
+
+            sidebarExpand = !sidebarExpand; // Đảo trạng thái mở rộng
+            panelDB.Width = sidebar.Width;
+            panelSP.Width = sidebar.Width;
+            panelLO.Width = sidebar.Width;
         }
 
         private void button1_Click(object sender, EventArgs e)
