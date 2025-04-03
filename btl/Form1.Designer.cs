@@ -47,13 +47,16 @@
             this.button3 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panelLO = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
+            this.panelDH = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.panelNCC = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,8 +67,10 @@
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.panelLO.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panelDH.SuspendLayout();
+            this.panelNCC.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -119,12 +124,13 @@
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(175)))));
             this.sidebar.Controls.Add(this.panelDB);
             this.sidebar.Controls.Add(this.panelSP);
+            this.sidebar.Controls.Add(this.panelNCC);
+            this.sidebar.Controls.Add(this.panelDH);
             this.sidebar.Controls.Add(this.panel2);
             this.sidebar.Controls.Add(this.panel3);
             this.sidebar.Controls.Add(this.panel4);
             this.sidebar.Controls.Add(this.panel6);
             this.sidebar.Controls.Add(this.panelLO);
-            this.sidebar.Controls.Add(this.panel5);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.sidebar.Location = new System.Drawing.Point(0, 63);
@@ -158,7 +164,7 @@
             this.btnDB.Size = new System.Drawing.Size(197, 40);
             this.btnDB.TabIndex = 4;
             this.btnDB.TabStop = false;
-            this.btnDB.Text = "         Dashboard";
+            this.btnDB.Text = "         Bán hàng";
             this.btnDB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDB.UseVisualStyleBackColor = false;
             this.btnDB.Click += new System.EventHandler(this.button1_Click);
@@ -196,7 +202,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(3, 125);
+            this.panel2.Location = new System.Drawing.Point(3, 217);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(197, 40);
             this.panel2.TabIndex = 7;
@@ -226,7 +232,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.button3);
-            this.panel3.Location = new System.Drawing.Point(3, 171);
+            this.panel3.Location = new System.Drawing.Point(3, 263);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(197, 40);
             this.panel3.TabIndex = 7;
@@ -255,7 +261,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.button4);
-            this.panel4.Location = new System.Drawing.Point(3, 217);
+            this.panel4.Location = new System.Drawing.Point(3, 309);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(197, 40);
             this.panel4.TabIndex = 7;
@@ -280,14 +286,6 @@
             this.button4.Text = "         Khách hàng";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.UseVisualStyleBackColor = false;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.button5);
-            this.panel5.Location = new System.Drawing.Point(3, 355);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(197, 40);
-            this.panel5.TabIndex = 7;
             // 
             // button5
             // 
@@ -322,7 +320,8 @@
             // 
             // panelLO
             // 
-            this.panelLO.Location = new System.Drawing.Point(3, 309);
+            this.panelLO.Controls.Add(this.button5);
+            this.panelLO.Location = new System.Drawing.Point(3, 401);
             this.panelLO.Name = "panelLO";
             this.panelLO.Size = new System.Drawing.Size(197, 40);
             this.panelLO.TabIndex = 6;
@@ -330,7 +329,7 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.button2);
-            this.panel6.Location = new System.Drawing.Point(3, 263);
+            this.panel6.Location = new System.Drawing.Point(3, 355);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(197, 40);
             this.panel6.TabIndex = 8;
@@ -356,6 +355,64 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = false;
             // 
+            // panelDH
+            // 
+            this.panelDH.Controls.Add(this.button6);
+            this.panelDH.Location = new System.Drawing.Point(3, 171);
+            this.panelDH.Name = "panelDH";
+            this.panelDH.Size = new System.Drawing.Size(197, 40);
+            this.panelDH.TabIndex = 8;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(175)))));
+            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(0, 0);
+            this.button6.Margin = new System.Windows.Forms.Padding(0);
+            this.button6.Name = "button6";
+            this.button6.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.button6.Size = new System.Drawing.Size(197, 40);
+            this.button6.TabIndex = 7;
+            this.button6.TabStop = false;
+            this.button6.Text = "         Đơn hàng";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // panelNCC
+            // 
+            this.panelNCC.Controls.Add(this.button7);
+            this.panelNCC.Location = new System.Drawing.Point(3, 125);
+            this.panelNCC.Name = "panelNCC";
+            this.panelNCC.Size = new System.Drawing.Size(197, 40);
+            this.panelNCC.TabIndex = 8;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(175)))));
+            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
+            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.Location = new System.Drawing.Point(0, 0);
+            this.button7.Margin = new System.Windows.Forms.Padding(0);
+            this.button7.Name = "button7";
+            this.button7.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.button7.Size = new System.Drawing.Size(197, 40);
+            this.button7.TabIndex = 7;
+            this.button7.TabStop = false;
+            this.button7.Text = "         Nhà cung cấp";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -378,8 +435,10 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
+            this.panelLO.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.panelDH.ResumeLayout(false);
+            this.panelNCC.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -403,13 +462,16 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panelLO;
+        private System.Windows.Forms.Panel panelNCC;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Panel panelDH;
+        private System.Windows.Forms.Button button6;
     }
 }
 

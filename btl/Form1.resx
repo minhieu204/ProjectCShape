@@ -144,6 +144,27 @@
         k+ykcn4IMzy3XALVyUxr/wT1DeAQCJKXvJTYAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="button7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAFMSURBVDhP1dM9S1ZxGAZw08FBSGgoQkrB1cGgJVD0AwS5+4KbCI4ObUYf4YHmAhcH/QAhurrU
+        FiJoEUFLS0v7Ly69lcPhOaDP5gUX3Oe+Xvift6Ghewk8x1u862C0Z+1cJ9DDT3zuYLReO9cJ7GMXY3iF
+        R8XM2UXbb+c6UYUf8QRfsYzVmh+XNlDhKD7hrJg5u8EKa57AVnGidoMX9sOdCjGH77cojGeurV0CI5jB
+        Af7i3y0K44k3mWRHmoYX+IZjLGKvjE/rTTeZXbR44k0m2dnrsgdYwgUW6rQr+IGjPh91dtHiiTeZZN+k
+        67p0Coc4xfu6nsca1lvMLlo88SaT7GTzlocxjg38wm9s4mGdosnsosUTbzLJDt8UNlG/1g7+4AteVyDM
+        nF20eMba+b6o5zqNDzjHSTFzdtGuntddUL/ZS2wXM4+2ffcL/wGesXLEW8rhWQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="button6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAELSURBVDhP7dSxK4VRHMZx4g4sJhnuajNciyIpSSxCUkwW/4Kd1WKUzY4MJkajxUhZiZJSwkJ9
+        dOqXXude7617R556ejvn/J7vOec973s6Ov6VhE4MYRf7Jd5AT56vUyrCAa5xjKMGPsEzJvJ8ndCLM2yh
+        gu54pv7kStS9YTbP1ykDLmIFa9F3ivWYpCXgOCYxHe1NzLQDTOE5LBUOY7kd4HzAVuMwDmP7rQHzsaKa
+        AtGPGkZxgT0MF5zGquiK+t+BsaoEuMUD3vGC+4Lv4vurRqYUOIBLzZWgtciUAtMKz/N0Az1hBH14xVTO
+        +hYW8IgPfJY4/ZJXuEnvPef8EMaw0+AiyL2NwTz/B/UFAsJYugKDvyQAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -205,6 +226,6 @@
     <value>548, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>44</value>
+    <value>52</value>
   </metadata>
 </root>

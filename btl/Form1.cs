@@ -85,6 +85,8 @@ namespace btl
             sidebarExpand = !sidebarExpand; // Đảo trạng thái mở rộng
             panelDB.Width = sidebar.Width;
             panelSP.Width = sidebar.Width;
+            panelNCC.Width = sidebar.Width;
+            panelDH.Width = sidebar.Width;
             panelLO.Width = sidebar.Width;
         }
 
