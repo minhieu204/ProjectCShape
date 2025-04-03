@@ -49,10 +49,11 @@
             this.button4 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
-            this.panelLO = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.panelLO = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,6 +65,7 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -120,9 +122,9 @@
             this.sidebar.Controls.Add(this.panel2);
             this.sidebar.Controls.Add(this.panel3);
             this.sidebar.Controls.Add(this.panel4);
-            this.sidebar.Controls.Add(this.panel5);
+            this.sidebar.Controls.Add(this.panel6);
             this.sidebar.Controls.Add(this.panelLO);
-            this.sidebar.Controls.Add(this.button2);
+            this.sidebar.Controls.Add(this.panel5);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.sidebar.Location = new System.Drawing.Point(0, 63);
@@ -282,7 +284,7 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.button5);
-            this.panel5.Location = new System.Drawing.Point(3, 263);
+            this.panel5.Location = new System.Drawing.Point(3, 355);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(197, 40);
             this.panel5.TabIndex = 7;
@@ -308,34 +310,6 @@
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // panelLO
-            // 
-            this.panelLO.Location = new System.Drawing.Point(3, 309);
-            this.panelLO.Name = "panelLO";
-            this.panelLO.Size = new System.Drawing.Size(197, 40);
-            this.panelLO.TabIndex = 6;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(175)))));
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 352);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(203, 40);
-            this.button2.TabIndex = 4;
-            this.button2.TabStop = false;
-            this.button2.Text = "         Logout";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // sidebarTransition
             // 
             this.sidebarTransition.Interval = 10;
@@ -345,6 +319,42 @@
             // 
             this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
+            // 
+            // panelLO
+            // 
+            this.panelLO.Location = new System.Drawing.Point(3, 309);
+            this.panelLO.Name = "panelLO";
+            this.panelLO.Size = new System.Drawing.Size(197, 40);
+            this.panelLO.TabIndex = 6;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.button2);
+            this.panel6.Location = new System.Drawing.Point(3, 263);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(197, 40);
+            this.panel6.TabIndex = 8;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(175)))));
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Margin = new System.Windows.Forms.Padding(0);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(197, 40);
+            this.button2.TabIndex = 7;
+            this.button2.TabStop = false;
+            this.button2.Text = "         Thống kê";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -369,6 +379,7 @@
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -382,8 +393,6 @@
         private System.Windows.Forms.FlowLayoutPanel sidebar;
         private System.Windows.Forms.Button btnDB;
         private System.Windows.Forms.Panel panelDB;
-        private System.Windows.Forms.Panel panelLO;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Timer sidebarTransition;
         private System.Windows.Forms.Panel panelSP;
         private System.Windows.Forms.Button btnSP;
@@ -398,6 +407,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panelLO;
     }
 }
 
