@@ -175,5 +175,15 @@ namespace btl
             }
         }
 
+        public static object GetSingleValue(string sql)
+        {
+            using (SqlConnection con = GetConnection())
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                return cmd.ExecuteScalar();
+            }
+        }
+
+
     }
 }

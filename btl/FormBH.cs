@@ -12,13 +12,32 @@ namespace btl
 {
     public partial class FormBH : Form
     {
-
         public FormBH()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Thuvien.CustomDataGridView(dgvSP);
-            
+            Thuvien.CustomDataGridView(dgvHD);
+        }
+
+        private void loadTongtien()
+        {
+            String sql = "select sum(thanhtien) from giohang";
+            txtTongtien.Text = Thuvien.GetSingleValue(sql).ToString();
+            if (txtTongtien.Text.Trim() == "")
+            {
+                txtTongtien.Text = "....................................................";
+            }
+        }
+        private void resetText()
+        {
+            txtMasp.Text = "";
+            txtTensp.Text = "";
+            txtDVT.Text = "";
+            txtGiaban.Text = "";
+            txtSLco.Text = "";
+            txtSLban.Text = "";
+            txtThanhtien.Text = "....................................................";
         }
 
         private void loadSP()
@@ -28,9 +47,45 @@ namespace btl
             Thuvien.LoadData(sql, dgvSP);
         }
 
+        private void loadGiohang()
+        {
+            String sql = "select * from giohang";
+            Thuvien.LoadData(sql, dgvHD);
+        }
+
+        private void insertGiohang()
+        {
+            String masp = txtMasp.Text.Trim();
+            String tensp = txtTensp.Text.Trim();
+            String dvt = txtDVT.Text.Trim();
+            String giaban = txtGiaban.Text.Trim();
+            String slban = txtSLban.Text.Trim();
+            String thanhtien = txtThanhtien.Text.Trim();
+            String check = "select count(*) from giohang where masp = '" + masp + "'";
+            if (!Thuvien.CheckExist(check))
+            {
+                String sql = "insert into giohang values('"+ masp +"', N'"+ tensp +"', '"+ giaban +"', '"+ dvt +"', '"+ slban +"', '"+ thanhtien +"')";
+                Thuvien.ExecuteQuery(sql);
+            }
+            else
+            {
+                String sql = "update giohang set thanhtien=thanhtien+'" + thanhtien + "', soluongnhap=soluongnhap+'" + slban + "' where masp='" + masp + "'";
+                Thuvien.ExecuteQuery(sql);
+            }
+        }
+
+        private void loadMadon()
+        {
+            String sql = "select top 1 madon from donhang order by madon desc";
+            int mahd = int.Parse(Thuvien.GetSingleValue(sql).ToString()) + 1;
+            txtMahd.Text = mahd.ToString();
+        }
+
         private void Dashboard_Load(object sender, EventArgs e)
         {
             loadSP();
+            loadMadon();
+            loadGiohang();
             txtMasp.Enabled = false;
             txtTensp.Enabled = false;
             txtDVT.Enabled = false;
@@ -40,11 +95,18 @@ namespace btl
             txtMahd.Enabled = false;
             txtNgaynhap.Enabled = false;
             txtNguoiban.Enabled = false;
+            btnXoa.Enabled = false;
+            btnNhaplai.Enabled = false;
+            btnThemmoi.Enabled = false;
+            btnThemmoi.Enabled = false;
         }
 
+        String maTemp = "";
         private void dgvSP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtSLban.Enabled = true;
+            btnThemmoi.Enabled = true;
+            btnNhaplai.Enabled = true;
             int i = e.RowIndex;
             txtMasp.Text = dgvSP.Rows[i].Cells[0].Value.ToString();
             txtTensp.Text = dgvSP.Rows[i].Cells[1].Value.ToString();
@@ -72,6 +134,41 @@ namespace btl
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnThemmoi_Click(object sender, EventArgs e)
+        {
+            insertGiohang();
+            loadGiohang();  
+            resetText();
+            btnThemmoi.Enabled = false;
+            btnNhaplai.Enabled = false;
+            dgvSP.ClearSelection();
+            dgvHD.ClearSelection();
+            loadTongtien();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            String sql = "delete from giohang where masp='" + maTemp + "'";
+            Thuvien.ExecuteQuery(sql);
+            loadGiohang();
+            btnXoa.Enabled = false;
+            dgvSP.ClearSelection();
+            dgvHD.ClearSelection();
+            loadTongtien();
+        }
+
+        private void dgvHD_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnXoa.Enabled = true;
+            int i = e.RowIndex;
+            maTemp = dgvHD.Rows[i].Cells[0].Value.ToString();
+        }
+
+        private void btnNhaplai_Click(object sender, EventArgs e)
+        {
+            txtSLban.Text = "";
         }
     }
 }
