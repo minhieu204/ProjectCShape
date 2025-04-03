@@ -59,15 +59,15 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtTensp = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.txtMasp = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtSoluong = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtNgaynhap = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtMasp = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnXuat = new System.Windows.Forms.Button();
             this.btnNhap = new System.Windows.Forms.Button();
@@ -84,9 +84,9 @@
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -439,40 +439,6 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "Tên sản phẩm:";
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.txtMasp);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(23, 2);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(508, 64);
-            this.panel4.TabIndex = 6;
-            // 
-            // txtMasp
-            // 
-            this.txtMasp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMasp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMasp.Location = new System.Drawing.Point(173, 0);
-            this.txtMasp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMasp.Name = "txtMasp";
-            this.txtMasp.Size = new System.Drawing.Size(335, 34);
-            this.txtMasp.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(20, 2, 20, 2);
-            this.label4.Size = new System.Drawing.Size(173, 32);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Mã sản phẩm:";
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.txtSoluong);
@@ -541,6 +507,40 @@
             this.label1.Size = new System.Drawing.Size(172, 32);
             this.label1.TabIndex = 3;
             this.label1.Text = "    Ngày nhập:";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.txtMasp);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(23, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(508, 64);
+            this.panel4.TabIndex = 6;
+            // 
+            // txtMasp
+            // 
+            this.txtMasp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMasp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMasp.Location = new System.Drawing.Point(173, 0);
+            this.txtMasp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMasp.Name = "txtMasp";
+            this.txtMasp.Size = new System.Drawing.Size(335, 34);
+            this.txtMasp.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(20, 2, 20, 2);
+            this.label4.Size = new System.Drawing.Size(173, 32);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Mã sản phẩm:";
             // 
             // tableLayoutPanel2
             // 
@@ -680,12 +680,12 @@
             this.panel7.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
