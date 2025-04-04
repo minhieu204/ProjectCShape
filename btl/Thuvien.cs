@@ -183,7 +183,140 @@ namespace btl
                 return cmd.ExecuteScalar();
             }
         }
+        public static void Login(String username, String password)
+        {
+            using (SqlConnection con = GetConnection())
+            {
+                // Check bảng quản lý
+                string sqlQuanLy = "SELECT maquanly, hoten FROM quanly WHERE username = @username AND pass = @password";
+                using (SqlCommand cmd = new SqlCommand(sqlQuanLy, con))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Datauser.IsSuccess = true;
+                            Datauser.ID = reader["maquanly"].ToString();
+                            Datauser.HoTen = reader["hoten"].ToString();
+                            Datauser.Role = "quanly";
+                            return;
+                        }
+                    }
+                }
+
+                // Check bảng nhân viên
+                string sqlNhanVien = "SELECT manhanvien, hoten FROM nhanvien WHERE username = @username AND pass = @password";
+                using (SqlCommand cmd = new SqlCommand(sqlNhanVien, con))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Datauser.IsSuccess = true;
+                            Datauser.ID = reader["manhanvien"].ToString();
+                            Datauser.HoTen = reader["hoten"].ToString();
+                            Datauser.Role = "nhanvien";
+                            return;
+                        }
+                    }
+                }
+
+                // Nếu không tìm thấy
+                Datauser.IsSuccess = false;
+                return;
+            }
+        }
+        public static void CheckLogin()
+        {
+            using (SqlConnection con = GetConnection()) {
+                String sql = "SELECT * FROM logins";
+                using (SqlCommand cmd = new SqlCommand(sql, con)) {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Datauser.IsSuccess = true;
+                            Datauser.ID = reader["id"].ToString();
+                            Datauser.HoTen = reader["uname"].ToString();
+                            Datauser.Role = reader["pq"].ToString();
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+        public static void LogLogin(string employeeId)
+        {
+            string sql = @"
+                        INSERT INTO lslamviec (manhanvien, logintime, ngay, workstatus)
+                        VALUES (@manhanvien, @logintime, @ngay, @workstatus);
+                        SELECT SCOPE_IDENTITY();";
+
+            using (SqlConnection con = GetConnection())
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@manhanvien", employeeId);
+                cmd.Parameters.AddWithValue("@logintime", DateTime.Now);
+                cmd.Parameters.AddWithValue("@ngay", DateTime.Today);
+                cmd.Parameters.AddWithValue("@workstatus", "IN_PROGRESS");
+
+                object result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    int idMoi = Convert.ToInt32(result);
+                    Datauser.IDLogin = idMoi;
+                    Console.WriteLine("💡 Đăng nhập thành công. ID lịch sử làm việc: " + idMoi);
+                }
+                else
+                {
+                    Console.WriteLine("⚠ Không lấy được ID lịch sử làm việc!");
+                }
+            }
+        }
+        public static void LogLogout(string employeeId)
+        {
+            string sql = @"
+                        UPDATE lslamviec 
+                        SET logouttime = @logouttime, 
+                        workstatus = 'COMPLETED', 
+                        giolamviec = DATEDIFF(MINUTE, logintime, @logouttime) / 60.0
+                        WHERE manhanvien = @manhanvien AND workstatus = 'IN_PROGRESS' and mals = @mals";
+
+            using (SqlConnection con = GetConnection())
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                DateTime logoutTime = DateTime.Now;
+
+                cmd.Parameters.AddWithValue("@logouttime", logoutTime);
+                cmd.Parameters.AddWithValue("@manhanvien", employeeId);
+                cmd.Parameters.AddWithValue("@mals", Datauser.IDLogin);
+
+                int rowsUpdated = cmd.ExecuteNonQuery();
+
+                if (rowsUpdated > 0)
+                {
+                    Console.WriteLine("Đăng xuất thành công cho nhân viên ID: " + employeeId);
+                }
+                else
+                {
+                    Console.WriteLine("Không tìm thấy phiên làm việc đang hoạt động cho nhân viên ID: " + employeeId);
+                }
+            }
+        }
 
 
+    }
+    internal class Datauser {
+        public static bool IsSuccess=false;
+        public static string ID;
+        public static string HoTen;
+        public static string Role;
+        public static int IDLogin;
     }
 }

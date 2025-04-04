@@ -13,11 +13,11 @@ namespace btl
 {
     public partial class Login : Form
     {
+        int temp = 0;
         public Login()
         {
             InitializeComponent();
         }
-        private const int WM_SYSCOMMAND = 0x0112;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HTCAPTION = 0x2;
 
@@ -28,7 +28,6 @@ namespace btl
         public static extern bool ReleaseCapture();
         private void cbshow_CheckedChanged(object sender, EventArgs e)
         {
-            txtpass.UseSystemPasswordChar = !cbshow.Checked;
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -67,9 +66,49 @@ namespace btl
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1();
+            if (txtname.Text == "" || txtpass.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tài khoản và mật khẩu!");
+                return;
+            }
+            String name = txtname.Text;
+            String pass = txtpass.Text;
+            Thuvien.Login(name, pass);
+            if (Datauser.IsSuccess) {
+                MessageBox.Show("Đăng nhập thành công với ID:"+Datauser.ID);
+                if (cbshow.Checked) {
+                    String sql =String.Format("insert into logins values('{0}',N'{1}','{2}')",Datauser.ID,Datauser.HoTen,Datauser.Role);
+                    Thuvien.ExecuteQuery(sql);
+                }
+                if (Datauser.Role == "nhanvien")
+                {
+                    Thuvien.LogLogin(Datauser.ID);
+                }
+                Form1 f = new Form1();
             f.Show();
             this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+            if (temp == 0)
+            {
+                guna2PictureBox1.Image = Properties.Resources.icons8_eye_30;
+                txtpass.UseSystemPasswordChar = false;
+                temp = 1;
+            }
+            else
+            {
+                guna2PictureBox1.Image = Properties.Resources.icons8_hide_password_30;
+                txtpass.UseSystemPasswordChar = true;
+                temp = 0;
+            }
         }
     }
 }

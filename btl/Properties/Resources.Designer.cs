@@ -83,6 +83,26 @@ namespace btl.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_eye_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-eye-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_hide_password_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-hide-password-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_utt_border_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("logo-utt-border-removebg-preview", resourceCulture);

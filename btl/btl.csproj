@@ -173,5 +173,11 @@
   <ItemGroup>
     <None Include="Resources\burger-menu-svgrepo-com.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-hide-password-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-eye-30.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

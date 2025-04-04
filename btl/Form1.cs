@@ -20,6 +20,7 @@ namespace btl
         {
             InitializeComponent();
             //this.FormBorderStyle = FormBorderStyle.None;
+            ChangeUI();
             mdiProp();
         }
         private const int WM_SYSCOMMAND = 0x0112;
@@ -31,6 +32,41 @@ namespace btl
 
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
+        private void ChangeUI()
+        {
+            lbname.Text = "Xin chào, "+Datauser.HoTen+" !";
+            if (dashboard == null)
+            {
+                dashboard = new FormBH();
+                dashboard.FormClosed += Dashboard_FormClosed;
+                dashboard.MdiParent = this;
+                dashboard.Dock = DockStyle.Fill;
+                dashboard.Show();
+            }
+            else
+            {
+                dashboard.Activate();
+            }
+            if (Datauser.Role == "nhanvien")
+            {
+                btnSP.Visible = false;
+                btnncc.Visible = false;
+                btndh.Visible = false;
+                btnacc.Visible = false;
+                btnns.Visible = false;
+                btnkh.Visible = false;
+                btncn.Visible = false;
+                btndt.Visible = false;
+                btnkm.Visible = false;
+                btntk.Visible = false;
+                btnlu.Visible = false;
+                button1.Visible = true;
+            }
+            else {
+                button1.Visible = false;            
+            }
+
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             
@@ -164,6 +200,10 @@ namespace btl
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            if (Datauser.Role == "nhanvien")
+            {
+                Thuvien.LogLogout(Datauser.ID);
+            }
             Application.Exit();
         }
 
@@ -179,6 +219,27 @@ namespace btl
             else
             {
                 account.Activate();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnlu_Click(object sender, EventArgs e)
+        {
+            DialogResult mess_delete = MessageBox.Show("Bạn có muốn đăng xuất không ?", "Xác nhận: ", MessageBoxButtons.YesNo);
+            if (mess_delete == DialogResult.Yes)
+            {
+                Thuvien.ExecuteQuery("delete from logins");
+                if (Datauser.Role == "nhanvien")
+                {
+                    Thuvien.LogLogout(Datauser.ID);
+                }
+                Login login = new Login();
+                login.Show();
+                this.Hide();
             }
         }
     }
