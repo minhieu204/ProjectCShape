@@ -213,12 +213,32 @@ namespace btl
             }
             Application.Exit();
         }
+        public void switchtabacc()
+        {
+            if (account == null)
+            {
+                account = new Account.Acc(this);
+                account.MdiParent = this;
+                account.Dock = DockStyle.Fill;
+                account.Show();
+            }
+            else
+            {
+                account.Activate();
+            }
+        }
+        public void suaacc(string ma, string ht, string gt, string pq, string un, string pw, string sdt, string email)
+        {
+            switchtabacc();
+            int i = 1;
+            account.suacc(ma, ht, gt, pq, un, pw, sdt, email, i);
+        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             if (account == null)
             {
-                account = new Account.Acc();
+                account = new Account.Acc(this);
                 account.MdiParent = this;
                 account.Dock = DockStyle.Fill;
                 account.Show();
@@ -260,12 +280,26 @@ namespace btl
                 this.Hide();
             }
         }
+        public void switchns() {
+            if (nhansu == null)
+            {
+                nhansu = new Nhansu.Nhansu(this);
+                nhansu.MdiParent = this;
+                nhansu.Dock = DockStyle.Fill;
+                nhansu.Show();
+            }
+            else
+            {
+                nhansu.Activate();
+            }
+            nhansu.sw();
+        }
 
         private void btnns_Click(object sender, EventArgs e)
         {
             if (nhansu == null)
             {
-                nhansu = new Nhansu.Nhansu();
+                nhansu = new Nhansu.Nhansu(this);
                 nhansu.FormClosed += Dashboard_FormClosed;
                 nhansu.MdiParent = this;
                 nhansu.Dock = DockStyle.Fill;

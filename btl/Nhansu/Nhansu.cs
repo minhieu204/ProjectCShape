@@ -12,11 +12,13 @@ namespace btl.Nhansu
 {
     public partial class Nhansu : Form
     {
+        public Form1 f;
         public Tacvu tacvu;
         public Nhanvien nhanvien;
         public Luong luong;
-        public Nhansu()
+        public Nhansu(Form1 parent)
         {
+            this.f = parent;
             tacvu = new Tacvu(this);
             nhanvien = new Nhanvien(this);
             luong = new Luong(this);
@@ -52,7 +54,18 @@ namespace btl.Nhansu
                 tabControlMain.SelectedIndex = tabIndex;
             }
         }
-
+        public void toacc()
+        {
+            f.switchtabacc();
+        }
+        public void suanv(string ma, string ht, string gt, string pq, string un, string pw, string sdt, string email)
+        {
+            f.suaacc(ma, ht, gt, pq, un, pw, sdt, email);
+        }
+        public void sw()
+        {
+            nhanvien.loadtb();        
+        }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {

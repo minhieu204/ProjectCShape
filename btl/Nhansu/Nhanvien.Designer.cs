@@ -30,19 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Datanv = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.context = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tinhluong = new System.Windows.Forms.ToolStripMenuItem();
-            this.ls = new System.Windows.Forms.ToolStripMenuItem();
+            this.Datanv = new System.Windows.Forms.DataGridView();
             this.ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.context = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tinhluong = new System.Windows.Forms.ToolStripMenuItem();
+            this.ls = new System.Windows.Forms.ToolStripMenuItem();
+            this.sua = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Datanv)).BeginInit();
             this.panel2.SuspendLayout();
@@ -59,32 +60,6 @@
             this.panel1.Size = new System.Drawing.Size(800, 58);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // Datanv
-            // 
-            this.Datanv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Datanv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ma,
-            this.hoten,
-            this.gt,
-            this.sdt,
-            this.email});
-            this.Datanv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Datanv.Location = new System.Drawing.Point(0, 58);
-            this.Datanv.Name = "Datanv";
-            this.Datanv.Size = new System.Drawing.Size(800, 392);
-            this.Datanv.TabIndex = 1;
-            this.Datanv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.guna2Button1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 407);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 43);
-            this.panel2.TabIndex = 2;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // textBox1
             // 
@@ -108,41 +83,22 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // guna2Button1
+            // Datanv
             // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(132)))), ((int)(((byte)(50)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(12, 3);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(148, 37);
-            this.guna2Button1.TabIndex = 0;
-            this.guna2Button1.Text = "Quản lý tài khoản";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
-            // context
-            // 
-            this.context.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tinhluong,
-            this.ls});
-            this.context.Name = "context";
-            this.context.Size = new System.Drawing.Size(210, 48);
-            // 
-            // tinhluong
-            // 
-            this.tinhluong.Name = "tinhluong";
-            this.tinhluong.Size = new System.Drawing.Size(209, 22);
-            this.tinhluong.Text = "Tính lương cho nhân viên";
-            // 
-            // ls
-            // 
-            this.ls.Name = "ls";
-            this.ls.Size = new System.Drawing.Size(209, 22);
-            this.ls.Text = "Xem lịch sử làm việc";
+            this.Datanv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Datanv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ma,
+            this.hoten,
+            this.gt,
+            this.sdt,
+            this.email});
+            this.Datanv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Datanv.Location = new System.Drawing.Point(0, 58);
+            this.Datanv.Name = "Datanv";
+            this.Datanv.Size = new System.Drawing.Size(800, 392);
+            this.Datanv.TabIndex = 1;
+            this.Datanv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.Datanv.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Datanv_MouseDown);
             // 
             // ma
             // 
@@ -173,6 +129,61 @@
             this.email.DataPropertyName = "email";
             this.email.HeaderText = "Email";
             this.email.Name = "email";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.guna2Button1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 407);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(800, 43);
+            this.panel2.TabIndex = 2;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(132)))), ((int)(((byte)(50)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(12, 3);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(148, 37);
+            this.guna2Button1.TabIndex = 0;
+            this.guna2Button1.Text = "Quản lý tài khoản";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // context
+            // 
+            this.context.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tinhluong,
+            this.ls,
+            this.sua});
+            this.context.Name = "context";
+            this.context.Size = new System.Drawing.Size(210, 92);
+            // 
+            // tinhluong
+            // 
+            this.tinhluong.Name = "tinhluong";
+            this.tinhluong.Size = new System.Drawing.Size(209, 22);
+            this.tinhluong.Text = "Tính lương cho nhân viên";
+            this.tinhluong.Click += new System.EventHandler(this.tinhluong_Click);
+            // 
+            // ls
+            // 
+            this.ls.Name = "ls";
+            this.ls.Size = new System.Drawing.Size(209, 22);
+            this.ls.Text = "Xem lịch sử làm việc";
+            // 
+            // sua
+            // 
+            this.sua.Name = "sua";
+            this.sua.Size = new System.Drawing.Size(209, 22);
+            this.sua.Text = "Sửa thông tin nhân viên";
+            this.sua.Click += new System.EventHandler(this.sua_Click);
             // 
             // Nhanvien
             // 
@@ -210,5 +221,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gt;
         private System.Windows.Forms.DataGridViewTextBoxColumn sdt;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.ToolStripMenuItem sua;
     }
 }

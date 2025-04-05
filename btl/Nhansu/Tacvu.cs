@@ -21,6 +21,13 @@ namespace btl.Nhansu
             nhanduoc.Text = "0";
             lbluong.Text = "0";
             dateTimePicker1.Value = DateTime.Now;
+           
+        } 
+        String ma = "";
+        public void SetData(String ht, String ma)
+        {
+            label3.Text = ht;
+            this.ma = ma;
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

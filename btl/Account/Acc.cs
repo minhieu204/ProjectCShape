@@ -13,9 +13,10 @@ namespace btl.Account
 {
     public partial class Acc : Form
     {
+        public Form1 f;
         public Acctb acctb;
         public Acctv acctv;
-        public Acc()
+        public Acc(Form1 f)
         {
             InitializeComponent();
             acctb = new Acctb(this);
@@ -24,6 +25,7 @@ namespace btl.Account
             EmbedFormInTab(acctv, tabPage2);
             HideTabHeaders();
             SwitchToTab(0);
+            this.f = f;
         }
         private void HideTabHeaders()
         {
@@ -50,10 +52,14 @@ namespace btl.Account
                 tabControlMain.SelectedIndex = tabIndex;
             }
         }
-       
+        public void suacc(string ma, string ht, string gt, string pq, string un, string pw, string sdt, string email, int i)
+        {
+            acctv.setData(ma, ht, gt, pq, un, pw, sdt, email, i);
+            SwitchToTab(1);
+        }
         private void Acc_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,6 +76,9 @@ namespace btl.Account
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             SwitchToTab(1);
+        }
+        public void switchns(){
+            f.switchns();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -285,7 +286,8 @@ namespace btl.Account
                 string pw = row.Cells["pass"].Value.ToString();
                 string sdt = row.Cells["sdt"].Value.ToString();
                 string email = row.Cells["email"].Value.ToString();
-                Acc.acctv.setData(ma, ht, gt, pq, un, pw, sdt, email);
+                int i = 0;
+                Acc.acctv.setData(ma, ht, gt, pq, un, pw, sdt, email, i);
                 Acc.SwitchToTab(1);
             }
         }

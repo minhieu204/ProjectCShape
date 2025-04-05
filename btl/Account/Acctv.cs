@@ -21,7 +21,8 @@ namespace btl.Account
             comboBox1.SelectedItem = "---Chọn---";
             Thuvien.LoadComboBox("select * from phanquyen", cbphanquyen, "maphanquyen", "tenphanquyen");
         }
-        public void setData(string ma, string ht, string gt, string pq, string un, string pw, string sdt, string email)
+        int i;
+        public void setData(string ma, string ht, string gt, string pq, string un, string pw, string sdt, string email , int i)
         {
             txtma.Text = ma;
             txthoten.Text = ht;
@@ -35,6 +36,7 @@ namespace btl.Account
             btntv.Text = "Cập nhật";
             header.Text = "Cập nhật tài khoản";
             cbphanquyen.Enabled = false;
+            this.i = i;
         }
         private void Reload()
         {
@@ -126,10 +128,15 @@ namespace btl.Account
                 }
             }
             Thuvien.ExecuteQuery(sql);
+            if (i != 1) 
+            {
             Acc.acctb.loadtb();
             Acc.SwitchToTab(0);
-            MessageBox.Show("Thao tác Thành công!!", "Thông báo!");
-            Reload();
+            
+            }
+            else { Acc.switchns(); }
+           MessageBox.Show("Thao tác Thành công!!", "Thông báo!");
+            Reload(); 
         }
 
         private void txtsdt_KeyPress(object sender, KeyPressEventArgs e)

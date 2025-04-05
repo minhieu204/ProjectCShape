@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using btl.Account;
 
 namespace btl.Nhansu
 {
@@ -19,15 +20,19 @@ namespace btl.Nhansu
             InitializeComponent();
             loadtb();
             Thuvien.CustomDataGridView(Datanv);
+            Datanv.Columns["pass"].Visible = false;
+            Datanv.Columns["maphanquyen"].Visible = false;
+            Datanv.Columns["username"].Visible = false;
         }
-        private void loadtb()
+        public void loadtb()
         {
-            String sql = "select manhanvien,hoten,gioitinh,sdt,email from nhanvien";
+            String sql = "select * from nhanvien";
             Thuvien.LoadData(sql, Datanv);
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            nhansu.toacc();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -53,6 +58,51 @@ namespace btl.Nhansu
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Datanv_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right) // Chỉ xử lý chuột phải
+            {
+                var hitTest = Datanv.HitTest(e.X, e.Y); // Kiểm tra vị trí chuột
+                if (hitTest.RowIndex >= 0) // Kiểm tra có bấm vào hàng hợp lệ
+                {
+                    Datanv.ClearSelection();
+                    Datanv.Rows[hitTest.RowIndex].Selected = true; // Chọn hàng được click
+                    context.Show(Datanv, new Point(e.X, e.Y)); // Hiển thị menu tại vị trí chuột
+                }
+            }
+        }
+
+        private void tinhluong_Click(object sender, EventArgs e)
+        {
+            if (Datanv.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = Datanv.SelectedRows[0];
+                string ma = row.Cells["ma"].Value.ToString();
+                string ht = row.Cells["hoten"].Value.ToString();
+                nhansu.tacvu.SetData(ht, ma);
+                nhansu.SwitchToTab(2);
+            }
+        
+
+        }
+
+        private void sua_Click(object sender, EventArgs e)
+        {
+            if (Datanv.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = Datanv.SelectedRows[0];
+                string ma = row.Cells["ma"].Value.ToString();
+                string ht = row.Cells["hoten"].Value.ToString();
+                string gt = row.Cells["gt"].Value.ToString();
+                string pq = row.Cells["maphanquyen"].Value.ToString();
+                string un = row.Cells["username"].Value.ToString();
+                string pw = row.Cells["pass"].Value.ToString();
+                string sdt = row.Cells["sdt"].Value.ToString();
+                string email = row.Cells["email"].Value.ToString();
+                nhansu.suanv(ma, ht, gt, pq, un, pw, sdt, email);
+            }
         }
     }
 }
