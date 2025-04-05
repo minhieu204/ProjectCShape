@@ -13,7 +13,7 @@ namespace btl
 {
     public partial class frmThongKe : Form
     {
-        private string connectionString = "Data Source=.;Initial Catalog=db;User ID=sa;Password=3110;"; // Đặt chuỗi kết nối của bạn ở đây.
+        private string connectionString = "Data Source=NCTOAN;Initial Catalog=QLSIEUTHI;Persist Security Info=True;User ID=sa;Password=1306;";
         public frmThongKe()
         {
             InitializeComponent();
@@ -34,16 +34,6 @@ namespace btl
             }
         }
 
-        // Phương thức thực thi câu lệnh SQL không trả về kết quả
-        private void ExecuteNonQuery(string query)
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(query, conn);
-                conn.Open();
-                command.ExecuteNonQuery();
-            }
-        }
         private void frmThongKe_Load(object sender, EventArgs e)
         {
             //DataTable dt = ExecuteQuery("Select maquanly from sanpham");
@@ -59,7 +49,31 @@ namespace btl
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int check = comboBox1.SelectedIndex;
+
             if (check == 0)
+            {
+                string query = "SELECT sp.masp AS MaHang, sp.tensp AS TenHang, ncc.mancc AS MaNCC, sp.giaban AS GiaBan," +
+                               "SUM(ctdh.soluong) AS TongSoLuongBan, (sp.soluong - SUM(ctdh.soluong)) AS SoLuongTon " +
+                               "FROM chitietdonhang ctdh " +
+                               "JOIN sanpham sp ON ctdh.masp = sp.masp " +
+                               "JOIN nhacungcap ncc ON sp.mancc = ncc.mancc " +
+                               "GROUP BY sp.masp, sp.tensp, ncc.mancc, sp.giaban, sp.soluong;";
+
+
+                DataTable dt = ExecuteQuery(query);
+                listView1.Items.Clear();
+                foreach (DataRow row in dt.Rows)
+                {
+                    ListViewItem item = new ListViewItem(row[0].ToString());
+                    item.SubItems.Add(row[1].ToString());
+                    item.SubItems.Add(row[2].ToString());
+                    item.SubItems.Add(row[3].ToString());
+                    item.SubItems.Add(row[4].ToString());
+                    item.SubItems.Add(row[5].ToString());
+                    listView1.Items.Add(item);
+                }
+            }
+            else if (check == 1)
             {
                 string query = "SELECT  s.masp,  s.tensp, s.mancc, s.gianhap, s.giaban, s.soluong, s.ngaynhap, s.donvitinh, s.maquanly FROM sanpham AS s WHERE s.soluong > 100;";
                 DataTable dt = ExecuteQuery(query);
@@ -76,7 +90,7 @@ namespace btl
                     listView1.Items.Add(item);
                 }
             }
-            else if (check == 1)
+            else if (check == 2)
             {
                 listView1.Items.Clear();
             }
