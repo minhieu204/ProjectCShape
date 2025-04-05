@@ -52,12 +52,12 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtDVT = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtTensp = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtMasp = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtTensp = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.dgvHD = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,8 +96,8 @@
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHD)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -408,40 +408,6 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "          Đơn vị tính:";
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.txtTensp);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 48);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(395, 42);
-            this.panel2.TabIndex = 9;
-            // 
-            // txtTensp
-            // 
-            this.txtTensp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTensp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTensp.Location = new System.Drawing.Point(204, 0);
-            this.txtTensp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTensp.Name = "txtTensp";
-            this.txtTensp.Size = new System.Drawing.Size(191, 34);
-            this.txtTensp.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(20, 2, 20, 2);
-            this.label2.Size = new System.Drawing.Size(204, 32);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "      Tên sản phẩm:";
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.txtMasp);
@@ -475,6 +441,40 @@
             this.label4.Size = new System.Drawing.Size(203, 32);
             this.label4.TabIndex = 3;
             this.label4.Text = "      Mã sản phẩm:";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.txtTensp);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 48);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(395, 42);
+            this.panel2.TabIndex = 9;
+            // 
+            // txtTensp
+            // 
+            this.txtTensp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTensp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTensp.Location = new System.Drawing.Point(204, 0);
+            this.txtTensp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTensp.Name = "txtTensp";
+            this.txtTensp.Size = new System.Drawing.Size(191, 34);
+            this.txtTensp.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(20, 2, 20, 2);
+            this.label2.Size = new System.Drawing.Size(204, 32);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "      Tên sản phẩm:";
             // 
             // dgvHD
             // 
@@ -832,10 +832,10 @@
             this.panel5.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHD)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);

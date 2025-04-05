@@ -86,11 +86,7 @@ namespace btl
             loadSP();
             loadMadon();
             loadGiohang();
-            //txtMasp.Enabled = false;
-            txtMasp.ReadOnly = true;
-            txtMasp.TabStop = false;
-            txtMasp.BackColor = Color.White;
-            txtMasp.ForeColor = Color.Black;
+            txtMasp.Enabled = false;
             txtTensp.Enabled = false;
             txtDVT.Enabled = false;
             txtGiaban.Enabled = false;
@@ -109,8 +105,8 @@ namespace btl
         private void dgvSP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtSLban.Enabled = true;
-            Thuvien.CustomEnabledTButton(btnThemmoi);
-            Thuvien.CustomEnabledTButton(btnNhaplai);
+            Thuvien.CustomEnabledButton(btnThemmoi);
+            Thuvien.CustomEnabledButton(btnNhaplai);
             int i = e.RowIndex;
             txtMasp.Text = dgvSP.Rows[i].Cells[0].Value.ToString();
             txtTensp.Text = dgvSP.Rows[i].Cells[1].Value.ToString();
@@ -166,7 +162,7 @@ namespace btl
 
         private void dgvHD_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Thuvien.CustomEnabledTButton(btnXoa);
+            Thuvien.CustomEnabledButton(btnXoa);
             int i = e.RowIndex;
             maTemp = dgvHD.Rows[i].Cells[0].Value.ToString();
         }
