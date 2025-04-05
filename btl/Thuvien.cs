@@ -13,6 +13,20 @@ namespace btl
     internal class Thuvien
     {
         private static readonly string connectionString = "Data Source=.;Initial Catalog=QLSIEUTHI;User ID=sa;Password=1306;";
+        
+        public static void CustomDisabledButton (Button button)
+        {
+            button.BackColor = Color.FromArgb(180, 210, 235); 
+            button.ForeColor = Color.DarkGray; 
+            button.Enabled = false;
+        }
+
+        public static void CustomEnabledTButton(Button button)
+        {
+            button.BackColor = Color.FromArgb(52, 152, 219);
+            button.ForeColor = Color.White;
+            button.Enabled = true;
+        }
         public static void CustomDataGridView(DataGridView dataGridView)
         {
             // Thiết lập cơ bản
