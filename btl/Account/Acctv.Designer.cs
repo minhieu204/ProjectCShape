@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Acctv));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txtemail = new System.Windows.Forms.TextBox();
@@ -367,11 +368,11 @@
             this.btnload.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(132)))), ((int)(((byte)(50)))));
             this.btnload.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnload.ForeColor = System.Drawing.Color.White;
+            this.btnload.Image = ((System.Drawing.Image)(resources.GetObject("btnload.Image")));
             this.btnload.Location = new System.Drawing.Point(126, 529);
             this.btnload.Name = "btnload";
             this.btnload.Size = new System.Drawing.Size(105, 40);
             this.btnload.TabIndex = 7;
-            this.btnload.Text = "ReLoad";
             this.btnload.Click += new System.EventHandler(this.btnload_Click);
             // 
             // header

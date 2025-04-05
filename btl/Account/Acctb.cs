@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace btl.Account
             InitializeComponent();
             this.Acc = parent;
             Thuvien.CustomDataGridView(dataGridView1);
+            dataGridView1.Columns["pass"].Visible=false;
             paneltk.Visible = false;
             cbgioitinhtk.SelectedItem = "---Chọn---";
             loadtb();
@@ -32,6 +34,96 @@ namespace btl.Account
         public void loadtb()
         {
             Thuvien.LoadDatatk("select * from quanly", "select manhanvien as maquanly, hoten, gioitinh, maphanquyen, username, pass, sdt, email from nhanvien", dataGridView1);
+        }
+        public void ExportExcel_QuanLy(DataTable tb)
+        {
+            if (tb == null || tb.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Workbook|*.xlsx";
+            sfd.Title = "Lưu file Excel";
+            sfd.FileName = "DanhSachTaiKhoan.xlsx";
+
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
+
+            var oExcel = new Microsoft.Office.Interop.Excel.Application();
+            var oBooks = oExcel.Workbooks;
+            var oBook = oBooks.Add(Type.Missing);
+            var oSheets = oBook.Worksheets;
+            var oSheet = (Microsoft.Office.Interop.Excel.Worksheet)oSheets.get_Item(1);
+            oExcel.Visible = false;
+            oExcel.DisplayAlerts = false;
+            oSheet.Name = "QL";
+
+            var head = oSheet.get_Range("A1", "G1");
+            head.MergeCells = true;
+            head.Value2 = "DANH SÁCH TÀI KHOẢN";
+            head.Font.Bold = true;
+            head.Font.Name = "Tahoma";
+            head.Font.Size = 18;
+            head.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+            string[] columnNames = { "MÃ QUẢN LÝ", "TÊN ĐĂNG NHẬP", "MÃ PHÂN QUYỀN", "HỌ TÊN", "GIỚI TÍNH", "SỐ ĐIỆN THOẠI", "EMAIL" };
+            string[] columnLetters = { "A", "B", "C", "D", "E", "F", "G" };
+            double[] columnWidths = { 15, 25, 20, 25, 15, 20, 30 };
+
+            for (int i = 0; i < columnNames.Length; i++)
+            {
+                var col = oSheet.get_Range(columnLetters[i] + "3");
+                col.Value2 = columnNames[i];
+                col.ColumnWidth = columnWidths[i];
+                col.Font.Bold = true;
+                col.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+                col.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+            }
+
+            oSheet.get_Range("F4", "F1000").NumberFormat = "@"; // SDT định dạng Text
+
+            object[,] arr = new object[tb.Rows.Count, columnNames.Length];
+            for (int r = 0; r < tb.Rows.Count; r++)
+            {
+                arr[r, 0] = tb.Rows[r]["maquanly"];
+                arr[r, 1] = tb.Rows[r]["username"];
+                arr[r, 2] = tb.Rows[r]["maphanquyen"];
+                arr[r, 3] = tb.Rows[r]["hoten"];
+                arr[r, 4] = tb.Rows[r]["gioitinh"];
+                arr[r, 5] = tb.Rows[r]["sdt"];
+                arr[r, 6] = tb.Rows[r]["email"];
+            }
+
+            int rowStart = 4;
+            int rowEnd = rowStart + tb.Rows.Count - 1;
+
+            var c1 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowStart, 1];
+            var c2 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, columnNames.Length];
+            var range = oSheet.get_Range(c1, c2);
+            range.Value2 = arr;
+            range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+
+            try
+            {
+                oBook.SaveAs(sfd.FileName);
+                MessageBox.Show("Xuất Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Process.Start(sfd.FileName); // Mở file sau khi lưu
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lưu file: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                oBook.Close(false);
+                oExcel.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oSheet);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oBook);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oBooks);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oExcel);
+            }
         }
         private void ReadExcel(string filename)
         {
@@ -286,7 +378,7 @@ namespace btl.Account
 
         private void sdttk_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
@@ -305,6 +397,15 @@ namespace btl.Account
                 ReadExcel(filePath);
                 loadtb();
             }
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+           String sql1 = "select * from quanly";
+            string sql2 = "select manhanvien as maquanly, hoten, gioitinh, maphanquyen, username, pass, sdt, email from nhanvien";
+            Thuvien.LoadExceltk(sql1, sql2, dt);
+            ExportExcel_QuanLy(dt);
         }
     }
 }

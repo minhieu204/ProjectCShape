@@ -134,9 +134,9 @@ namespace btl.Account
 
         private void txtsdt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
-                e.Handled = true;  // Ngăn không cho nhập
+                e.Handled = true;
             }
         }
 

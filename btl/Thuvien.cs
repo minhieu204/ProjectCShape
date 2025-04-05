@@ -146,6 +146,20 @@ namespace btl
                 da.Fill(dt);
             }
         }
+        public static void LoadExceltk(string sql, string sql2, DataTable dt)
+        {
+            using (SqlConnection con = GetConnection())
+            using (SqlCommand cmd1 = new SqlCommand(sql, con))
+            using (SqlCommand cmd2 = new SqlCommand(sql2, con))
+            using (SqlDataAdapter da1 = new SqlDataAdapter(cmd1))
+            using (SqlDataAdapter da2 = new SqlDataAdapter(cmd2))
+            {
+                DataTable dt2 = new DataTable();
+                da1.Fill(dt);
+                da2.Fill(dt2);
+                dt.Merge(dt2);
+            }
+        }
         public static void LoadDatatk(string sql1, string sql2, DataGridView dgv)
         {
             using (SqlConnection con = GetConnection())
