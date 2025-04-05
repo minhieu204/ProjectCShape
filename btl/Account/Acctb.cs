@@ -50,7 +50,7 @@ namespace btl.Account
             loadingForm.SetMessage("Đang đọc file...");
 
             xls.Application Excel = new xls.Application();
-            Excel.Workbooks.Open(filename);
+            xls.Workbook workbook = Excel.Workbooks.Open(filename);
 
             // Giai đoạn 1: Kiểm tra các lỗi và ghi vào log
             int totalRows = 0;
@@ -149,6 +149,8 @@ namespace btl.Account
                 MessageBox.Show("Dữ liệu đã được thêm vào cơ sở dữ liệu thành công.");
             }
             loadingForm.Close();
+            workbook.Close(false); 
+            Excel.Quit();
         }
         private void Themmoitaikhoan(String ma, String un, String pq, String pass, String ht, String gt, String sdt, String email)
         {
