@@ -163,7 +163,7 @@
             this.ls,
             this.sua});
             this.context.Name = "context";
-            this.context.Size = new System.Drawing.Size(210, 92);
+            this.context.Size = new System.Drawing.Size(216, 70);
             // 
             // tinhluong
             // 
@@ -175,8 +175,8 @@
             // ls
             // 
             this.ls.Name = "ls";
-            this.ls.Size = new System.Drawing.Size(209, 22);
-            this.ls.Text = "Xem lịch sử làm việc";
+            this.ls.Size = new System.Drawing.Size(215, 22);
+            this.ls.Text = "Xem lịch sử phiên làm việc";
             // 
             // sua
             // 

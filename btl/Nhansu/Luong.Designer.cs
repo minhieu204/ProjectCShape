@@ -34,11 +34,15 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.manv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tongh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.luongh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nhan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -46,6 +50,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -59,15 +64,15 @@
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(118, 13);
+            this.textBox1.Location = new System.Drawing.Point(313, 13);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(670, 27);
+            this.textBox1.Size = new System.Drawing.Size(475, 27);
             this.textBox1.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(207, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 34);
             this.label1.TabIndex = 3;
@@ -103,50 +108,89 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ma,
-            this.hoten,
-            this.gt,
-            this.sdt,
-            this.email});
+            this.id,
+            this.manv,
+            this.tongh,
+            this.luongh,
+            this.tam,
+            this.thuong,
+            this.nhan,
+            this.Column1});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 58);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(800, 450);
+            this.dataGridView1.Size = new System.Drawing.Size(800, 349);
             this.dataGridView1.TabIndex = 4;
             // 
-            // ma
+            // dateTimePicker1
             // 
-            this.ma.HeaderText = "Mã NV";
-            this.ma.Name = "ma";
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.CustomFormat = "MM/yyyy";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 13);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.ShowUpDown = true;
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 27);
+            this.dateTimePicker1.TabIndex = 5;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // hoten
+            // id
             // 
-            this.hoten.HeaderText = "Họ và Tên";
-            this.hoten.Name = "hoten";
+            this.id.DataPropertyName = "maluong";
+            this.id.HeaderText = "Mã";
+            this.id.Name = "id";
             // 
-            // gt
+            // manv
             // 
-            this.gt.HeaderText = "Giới tính";
-            this.gt.Name = "gt";
+            this.manv.DataPropertyName = "manhanvien";
+            this.manv.HeaderText = "Mã NV";
+            this.manv.Name = "manv";
             // 
-            // sdt
+            // tongh
             // 
-            this.sdt.HeaderText = "Điện thoại";
-            this.sdt.Name = "sdt";
+            this.tongh.DataPropertyName = "tonggio";
+            this.tongh.HeaderText = "Tổng TG";
+            this.tongh.Name = "tongh";
             // 
-            // email
+            // luongh
             // 
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
+            this.luongh.DataPropertyName = "luongtheogio";
+            this.luongh.HeaderText = "Lương/h";
+            this.luongh.Name = "luongh";
+            // 
+            // tam
+            // 
+            this.tam.DataPropertyName = "tongluong";
+            this.tam.HeaderText = "Tạm Tính";
+            this.tam.Name = "tam";
+            // 
+            // thuong
+            // 
+            this.thuong.DataPropertyName = "thuong";
+            this.thuong.HeaderText = "Thưởng";
+            this.thuong.Name = "thuong";
+            // 
+            // nhan
+            // 
+            this.nhan.DataPropertyName = "tienduocnhan";
+            this.nhan.HeaderText = "Nhận được";
+            this.nhan.Name = "nhan";
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "ngaynhan";
+            this.Column1.HeaderText = "Ngày nhận";
+            this.Column1.Name = "Column1";
             // 
             // Luong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Luong";
             this.Text = "Luong";
@@ -166,10 +210,14 @@
         private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hoten;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sdt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn manv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tongh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn luongh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nhan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

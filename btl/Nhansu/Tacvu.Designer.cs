@@ -148,10 +148,10 @@
             this.lbluong.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbluong.Location = new System.Drawing.Point(169, 2);
             this.lbluong.Name = "lbluong";
-            this.lbluong.Size = new System.Drawing.Size(110, 80);
+            this.lbluong.Size = new System.Drawing.Size(222, 80);
             this.lbluong.TabIndex = 4;
             this.lbluong.Text = "18.9";
-            this.lbluong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbluong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label9
             // 
@@ -161,7 +161,7 @@
             this.label9.Size = new System.Drawing.Size(160, 80);
             this.label9.TabIndex = 3;
             this.label9.Text = "Tổng số giờ làm việc:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel7
             // 
@@ -178,10 +178,10 @@
             this.nhanduoc.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nhanduoc.Location = new System.Drawing.Point(135, 0);
             this.nhanduoc.Name = "nhanduoc";
-            this.nhanduoc.Size = new System.Drawing.Size(110, 80);
+            this.nhanduoc.Size = new System.Drawing.Size(250, 80);
             this.nhanduoc.TabIndex = 6;
             this.nhanduoc.Text = "100000";
-            this.nhanduoc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.nhanduoc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
@@ -191,7 +191,7 @@
             this.label5.Size = new System.Drawing.Size(126, 80);
             this.label5.TabIndex = 2;
             this.label5.Text = "Nhận được:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel6
             // 
@@ -210,6 +210,8 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(255, 27);
             this.textBox2.TabIndex = 3;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label8
             // 
@@ -218,8 +220,8 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(127, 80);
             this.label8.TabIndex = 1;
-            this.label8.Text = "Tên nhân viên:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.Text = "Thưởng:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel5
             // 
@@ -236,10 +238,10 @@
             this.luongtt.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.luongtt.Location = new System.Drawing.Point(135, 0);
             this.luongtt.Name = "luongtt";
-            this.luongtt.Size = new System.Drawing.Size(110, 80);
+            this.luongtt.Size = new System.Drawing.Size(250, 80);
             this.luongtt.TabIndex = 5;
             this.luongtt.Text = "1000000";
-            this.luongtt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.luongtt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label7
             // 
@@ -249,7 +251,7 @@
             this.label7.Size = new System.Drawing.Size(126, 80);
             this.label7.TabIndex = 4;
             this.label7.Text = "Lương tạm tính:";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel4
             // 
@@ -268,6 +270,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(255, 27);
             this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label4
             // 
@@ -277,7 +281,7 @@
             this.label4.Size = new System.Drawing.Size(127, 80);
             this.label4.TabIndex = 1;
             this.label4.Text = "Lương theo giờ:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel3
             // 
@@ -299,6 +303,7 @@
             this.dateTimePicker1.ShowUpDown = true;
             this.dateTimePicker1.Size = new System.Drawing.Size(272, 27);
             this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label6
             // 
@@ -308,7 +313,7 @@
             this.label6.Size = new System.Drawing.Size(110, 80);
             this.label6.TabIndex = 3;
             this.label6.Text = "Chọn Tháng:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel2
             // 
@@ -338,7 +343,7 @@
             this.label2.Size = new System.Drawing.Size(127, 80);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên nhân viên:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Tacvu
             // 
