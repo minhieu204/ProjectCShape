@@ -21,7 +21,7 @@ namespace btl
             button.Enabled = false;
         }
 
-        public static void CustomEnabledTButton(Button button)
+        public static void CustomEnabledButton(Button button)
         {
             button.BackColor = Color.FromArgb(52, 152, 219);
             button.ForeColor = Color.White;
