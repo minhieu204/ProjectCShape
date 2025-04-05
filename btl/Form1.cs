@@ -17,6 +17,7 @@ namespace btl
         FormSP formSP;
         Account.Acc account;
         frmThongKe thongke;
+        Nhansu.Nhansu nhansu;
         public Form1()
         {
             InitializeComponent();
@@ -252,6 +253,22 @@ namespace btl
                 Login login = new Login();
                 login.Show();
                 this.Hide();
+            }
+        }
+
+        private void btnns_Click(object sender, EventArgs e)
+        {
+            if (nhansu == null)
+            {
+                nhansu = new Nhansu.Nhansu();
+                nhansu.FormClosed += Dashboard_FormClosed;
+                nhansu.MdiParent = this;
+                nhansu.Dock = DockStyle.Fill;
+                nhansu.Show();
+            }
+            else
+            {
+                nhansu.Activate();
             }
         }
     }
