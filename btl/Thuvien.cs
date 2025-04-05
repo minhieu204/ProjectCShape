@@ -7,13 +7,108 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using iText.Kernel.Font;
+using iText.Kernel.Pdf;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using iText.Layout;
+using iText.IO.Font;
+using System.Diagnostics;
 
 namespace btl
 {
     internal class Thuvien
     {
         private static readonly string connectionString = "Data Source=.;Initial Catalog=QLSIEUTHI;User ID=sa;Password=1306;";
-        
+
+        public static void GenerateInvoice(string filePath, string tenkh)
+        {
+            // Kết nối cơ sở dữ liệu và truy vấn thông tin đơn hàng
+            string query = "select tensp, soluongnhap, donvitinh, giaban, thanhtien from giohang";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                // Khởi tạo PdfWriter và PdfDocument
+                using (PdfWriter writer = new PdfWriter(filePath))
+                using (PdfDocument pdf = new PdfDocument(writer))
+                {
+                    // Tạo đối tượng Document để thêm nội dung vào PDF
+                    Document document = new Document(pdf);
+
+                    // Chỉ định font có hỗ trợ tiếng Việt (vd: Arial hoặc Times New Roman)
+                    string fontPath = @"C:\Windows\Fonts\arial.ttf";  // Đường dẫn tới font Arial
+                    PdfFont font = PdfFontFactory.CreateFont(fontPath, PdfEncodings.IDENTITY_H);  // Sử dụng font Arial có hỗ trợ Unicode
+
+                    // Font in đậm (Arial-Bold)
+                    string boldFontPath = @"C:\Windows\Fonts\arialbd.ttf";  // Đường dẫn tới font Arial-Bold
+                    PdfFont boldFont = PdfFontFactory.CreateFont(boldFontPath, PdfEncodings.IDENTITY_H);  // Sử dụng font Arial-Bold có hỗ trợ Unicode
+
+                    // Thêm tiêu đề cho hóa đơn
+                    document.Add(new Paragraph("HÓA ĐƠN")
+                        .SetTextAlignment(TextAlignment.CENTER)
+                        .SetFontSize(20)
+                        .SetFont(boldFont));  // Sử dụng font in đậm cho tiêu đề
+
+                    document.Add(new Paragraph("Ngày: " + DateTime.Now.ToString("dd/MM/yyyy"))
+                        .SetTextAlignment(TextAlignment.RIGHT)
+                        .SetFontSize(12)
+                        .SetFont(font));  // Sử dụng font hỗ trợ tiếng Việt
+
+                    document.Add(new Paragraph("Khách hàng: " + tenkh)
+                        .SetTextAlignment(TextAlignment.LEFT)
+                        .SetFontSize(12)
+                        .SetFont(font));  // Sử dụng font hỗ trợ tiếng Việt
+
+                    // Tạo bảng cho chi tiết đơn hàng
+                    float[] columnWidths = { 3, 2, 3, 2, 2 };  // Định nghĩa chiều rộng cột
+                    Table table = new Table(columnWidths);
+
+                    // Thêm tiêu đề cột cho bảng
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Tên Sản Phẩm").SetTextAlignment(TextAlignment.CENTER).SetFont(boldFont)));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Số Lượng").SetTextAlignment(TextAlignment.CENTER).SetFont(boldFont)));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Đơn Vị Tính").SetTextAlignment(TextAlignment.CENTER).SetFont(boldFont)));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Đơn Giá").SetTextAlignment(TextAlignment.CENTER).SetFont(boldFont)));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Thành Tiền").SetTextAlignment(TextAlignment.CENTER).SetFont(boldFont)));
+
+                    // Duyệt qua từng dòng dữ liệu và thêm vào bảng
+                    decimal totalAmount = 0;
+                    while (reader.Read())
+                    {
+                        string tensp = reader["tensp"].ToString();
+                        string soluong = reader["soluongnhap"].ToString();
+                        string dvt = reader["donvitinh"].ToString();
+                        decimal giaban = Convert.ToDecimal(reader["giaban"]);
+                        decimal thanhtien = Convert.ToDecimal(reader["thanhtien"]);
+
+                        // Thêm dữ liệu vào bảng
+                        table.AddCell(new Cell().Add(new Paragraph(tensp).SetTextAlignment(TextAlignment.LEFT).SetFont(font)));
+                        table.AddCell(new Cell().Add(new Paragraph(soluong).SetTextAlignment(TextAlignment.CENTER).SetFont(font)));
+                        table.AddCell(new Cell().Add(new Paragraph(dvt).SetTextAlignment(TextAlignment.CENTER).SetFont(font)));
+                        table.AddCell(new Cell().Add(new Paragraph(String.Format("{0:N0}", giaban) + " VNĐ").SetTextAlignment(TextAlignment.RIGHT).SetFont(font)));
+                        table.AddCell(new Cell().Add(new Paragraph(String.Format("{0:N0}", thanhtien) + " VNĐ").SetTextAlignment(TextAlignment.RIGHT).SetFont(font)));
+
+                        totalAmount += thanhtien; // Cộng dồn tổng tiền
+                    }
+
+                    // Thêm bảng vào tài liệu PDF
+                    document.Add(table);
+
+                    // Thêm tổng tiền vào tài liệu
+                    document.Add(new Paragraph("Tổng cộng: " + String.Format("{0:N0}", totalAmount) + " VNĐ")
+                        .SetTextAlignment(TextAlignment.RIGHT)
+                        .SetFontSize(14)
+                        .SetFont(boldFont));  // Sử dụng font in đậm cho tổng tiền
+                }
+            }
+
+            Console.WriteLine("Hóa đơn đã được tạo thành công!");
+
+            Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
+        }
         public static void CustomDisabledButton (Button button)
         {
             button.BackColor = Color.FromArgb(180, 210, 235); 

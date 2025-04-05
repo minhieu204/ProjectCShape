@@ -20,6 +20,33 @@ namespace btl
             Thuvien.CustomDataGridView(dgvHD);
         }
 
+        private void checkSL()
+        {   
+            if (txtSLban.Text.Trim() == "")
+            {
+                return;
+            }
+            int slban = int.Parse(txtSLban.Text.Trim());
+            int slco = int.Parse(txtSLco.Text.Trim());
+            if (Thuvien.CheckExist("select count(*) from giohang where masp='" + txtMasp.Text.Trim() + "'"))
+            {
+                String sql = "select soluongnhap from giohang where masp='" + txtMasp.Text.Trim() + "'";
+                int sldachon = int.Parse(Thuvien.GetSingleValue(sql).ToString());
+                if (slban > slco - sldachon)
+                {
+                    MessageBox.Show("Số lượng bán không được lớn hơn số lượng có", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtSLban.Text = "";
+                    return;
+                }
+            }
+            if (slban > slco)
+            {
+                MessageBox.Show("Số lượng bán không được lớn hơn số lượng có", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSLban.Text = "";
+                return;
+            }
+        }
+
         private void loadTongtien()
         {
             String sql = "select sum(thanhtien) from giohang";
@@ -43,7 +70,8 @@ namespace btl
         private void loadSP()
         {
             String sql = "select masp, tensp, donvitinh, giaban, soluong " +
-                         "from sanpham ";
+                         "from sanpham " +
+                         "where soluong > 0";
             Thuvien.LoadData(sql, dgvSP);
         }
 
@@ -61,6 +89,11 @@ namespace btl
             String giaban = txtGiaban.Text.Trim();
             String slban = txtSLban.Text.Trim();
             String thanhtien = txtThanhtien.Text.Trim();
+            if (slban == "")
+            {
+                MessageBox.Show("Bạn chưa nhập số lượng bán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             String check = "select count(*) from giohang where masp = '" + masp + "'";
             if (!Thuvien.CheckExist(check))
             {
@@ -95,8 +128,8 @@ namespace btl
             txtMahd.Enabled = false;
             txtNgaynhap.Enabled = false;
             txtNguoiban.Enabled = false;
+            txtNguoiban.Text = Datauser.HoTen;
             Thuvien.CustomDisabledButton(btnXoa);
-            Thuvien.CustomDisabledButton(btnThanhtoan);
             Thuvien.CustomDisabledButton(btnThemmoi);
             Thuvien.CustomDisabledButton(btnNhaplai);
         }
@@ -117,7 +150,7 @@ namespace btl
 
         private void txtSLban_TextChanged(object sender, EventArgs e)
         {
-
+            checkSL();
             if (txtSLban.Text.Trim() == "")
             {
                 txtThanhtien.Text = "....................................................";
@@ -170,6 +203,30 @@ namespace btl
         private void btnNhaplai_Click(object sender, EventArgs e)
         {
             txtSLban.Text = "";
+        }
+
+        private void btnThanhtoan_Click(object sender, EventArgs e)
+        {
+            if (!Thuvien.CheckExist("select count(*) from giohang"))
+            {
+                MessageBox.Show("Giỏ hàng trống, không thể thanh toán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            Thuvien.GenerateInvoice(@"D:\Downloads\invoice2.pdf", Datauser.HoTen);
+            return;
+            String sql = "insert into donhang(ngayban, tongtien, manhanvien) " +
+                         "values('" + DateTime.Now.ToString() + "', '" + txtTongtien.Text.Trim() + "', '" + Datauser.ID + "')";
+            Thuvien.ExecuteQuery(sql);
+            String madon = txtMahd.Text.Trim();
+            String sql1 = "insert into chitietdonhang(madon, masp, soluong, giaban, thanhtien) " +
+                          "select '" + madon + "', masp, soluongnhap, giaban, thanhtien from giohang";
+            Thuvien.ExecuteQuery(sql1);
+            String sql2 = "delete from giohang";
+            Thuvien.ExecuteQuery(sql2);
+            MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            loadGiohang();
+            loadSP();
+            loadMadon();
         }
     }
 }

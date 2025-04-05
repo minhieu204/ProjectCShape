@@ -130,6 +130,11 @@ namespace btl
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //if (dashboard != null)
+            //{
+            //    dashboard.Close(); // Đóng form cũ
+            //    dashboard = null;  // Reset biến
+            //}
             if (dashboard == null)
             {
                 dashboard = new FormBH();
