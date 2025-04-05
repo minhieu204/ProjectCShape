@@ -212,6 +212,8 @@ namespace btl
                 MessageBox.Show("Giỏ hàng trống, không thể thanh toán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            Thuvien.GenerateInvoice(@"D:\Downloads\invoice2.pdf", Datauser.HoTen);
+            return;
             String sql = "insert into donhang(ngayban, tongtien, manhanvien) " +
                          "values('" + DateTime.Now.ToString() + "', '" + txtTongtien.Text.Trim() + "', '" + Datauser.ID + "')";
             Thuvien.ExecuteQuery(sql);
