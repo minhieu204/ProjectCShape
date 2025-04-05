@@ -86,7 +86,11 @@ namespace btl
             loadSP();
             loadMadon();
             loadGiohang();
-            txtMasp.Enabled = false;
+            //txtMasp.Enabled = false;
+            txtMasp.ReadOnly = true;
+            txtMasp.TabStop = false;
+            txtMasp.BackColor = Color.White;
+            txtMasp.ForeColor = Color.Black;
             txtTensp.Enabled = false;
             txtDVT.Enabled = false;
             txtGiaban.Enabled = false;
@@ -95,18 +99,18 @@ namespace btl
             txtMahd.Enabled = false;
             txtNgaynhap.Enabled = false;
             txtNguoiban.Enabled = false;
-            btnXoa.Enabled = false;
-            btnNhaplai.Enabled = false;
-            btnThemmoi.Enabled = false;
-            btnThemmoi.Enabled = false;
+            Thuvien.CustomDisabledButton(btnXoa);
+            Thuvien.CustomDisabledButton(btnThanhtoan);
+            Thuvien.CustomDisabledButton(btnThemmoi);
+            Thuvien.CustomDisabledButton(btnNhaplai);
         }
 
         String maTemp = "";
         private void dgvSP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtSLban.Enabled = true;
-            btnThemmoi.Enabled = true;
-            btnNhaplai.Enabled = true;
+            Thuvien.CustomEnabledTButton(btnThemmoi);
+            Thuvien.CustomEnabledTButton(btnNhaplai);
             int i = e.RowIndex;
             txtMasp.Text = dgvSP.Rows[i].Cells[0].Value.ToString();
             txtTensp.Text = dgvSP.Rows[i].Cells[1].Value.ToString();
@@ -141,8 +145,9 @@ namespace btl
             insertGiohang();
             loadGiohang();  
             resetText();
-            btnThemmoi.Enabled = false;
-            btnNhaplai.Enabled = false;
+            Thuvien.CustomDisabledButton(btnThemmoi);
+            Thuvien.CustomDisabledButton(btnNhaplai);
+            txtSLban.Enabled = false;
             dgvSP.ClearSelection();
             dgvHD.ClearSelection();
             loadTongtien();
@@ -153,7 +158,7 @@ namespace btl
             String sql = "delete from giohang where masp='" + maTemp + "'";
             Thuvien.ExecuteQuery(sql);
             loadGiohang();
-            btnXoa.Enabled = false;
+            Thuvien.CustomDisabledButton(btnXoa);
             dgvSP.ClearSelection();
             dgvHD.ClearSelection();
             loadTongtien();
@@ -161,7 +166,7 @@ namespace btl
 
         private void dgvHD_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnXoa.Enabled = true;
+            Thuvien.CustomEnabledTButton(btnXoa);
             int i = e.RowIndex;
             maTemp = dgvHD.Rows[i].Cells[0].Value.ToString();
         }
