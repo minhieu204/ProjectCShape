@@ -167,5 +167,10 @@ namespace btl.Account
                 txtemail.Text = "";
             }
         }
+
+        private void header_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

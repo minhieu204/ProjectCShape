@@ -385,6 +385,7 @@
             this.header.TabIndex = 8;
             this.header.Text = "Thêm tài khoản";
             this.header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.header.Click += new System.EventHandler(this.header_Click);
             // 
             // Acctv
             // 

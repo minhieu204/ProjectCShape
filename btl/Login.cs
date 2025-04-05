@@ -110,5 +110,10 @@ namespace btl
                 temp = 0;
             }
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
