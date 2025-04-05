@@ -13,7 +13,7 @@ namespace btl
 {
     public partial class frmThongKe : Form
     {
-        private string connectionString = "Data Source=NCTOAN;Initial Catalog=QLSIEUTHI;Persist Security Info=True;User ID=sa;Password=1306;";
+        private string connectionString = "Data Source=.;Initial Catalog=QLSIEUTHI;User ID=sa;Password=1306;";
         public frmThongKe()
         {
             InitializeComponent();

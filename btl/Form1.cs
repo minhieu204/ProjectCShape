@@ -16,6 +16,7 @@ namespace btl
         FormBH dashboard;
         FormSP formSP;
         Account.Acc account;
+        frmThongKe thongke;
         public Form1()
         {
             InitializeComponent();
@@ -224,7 +225,18 @@ namespace btl
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            if (thongke == null)
+            {
+                thongke = new frmThongKe();
+                thongke.MdiParent = this;
+                thongke.Dock = DockStyle.Fill;
+                thongke.FormBorderStyle = FormBorderStyle.None;
+                thongke.Show();
+            }
+            else
+            {
+                thongke.Activate();
+            }
         }
 
         private void btnlu_Click(object sender, EventArgs e)
