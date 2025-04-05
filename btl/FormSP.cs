@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,6 +31,32 @@ namespace btl
             txtSoluong.Text = "";
             txtNgaynhap.Value = DateTime.Now;
             txtDVT.Text = "";
+            txtNguoinhap.Text = Datauser.HoTen;
+        }
+
+        private void setDisable()
+        {
+            txtMasp.Enabled = false;
+            txtTensp.Enabled = false;
+            cbbNCC.Enabled = false;
+            txtGianhap.Enabled = false;
+            txtGiaban.Enabled = false;
+            txtSoluong.Enabled = false;
+            txtNgaynhap.Enabled = false;
+            txtDVT.Enabled = false;
+            txtNguoinhap.Enabled = false;
+        }
+
+        private void setEnable()
+        {
+            txtMasp.Enabled = true;
+            txtTensp.Enabled = true;
+            cbbNCC.Enabled = true;
+            txtGianhap.Enabled = true;
+            txtGiaban.Enabled = true;
+            txtSoluong.Enabled = true;
+            txtNgaynhap.Enabled = true;
+            txtDVT.Enabled = true;
         }
 
         private void loadSP()
@@ -52,7 +79,10 @@ namespace btl
             loadSP();
             loadCbbNCC();
             txtNguoinhap.Text = Datauser.HoTen;
-            txtNguoinhap.Enabled = false;
+            setDisable();
+            Thuvien.CustomDisabledButton(btnXoa);
+            Thuvien.CustomDisabledButton(btnSua);
+            Thuvien.CustomDisabledButton(btnLuu);
         }
 
         private void FormSP_Resize(object sender, EventArgs e)
@@ -62,6 +92,11 @@ namespace btl
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            Thuvien.CustomEnabledButton(btnXoa);
+            Thuvien.CustomEnabledButton(btnSua);
+            Thuvien.CustomDisabledButton(btnLuu);
+            setEnable();
+            txtMasp.Enabled = false;
             int i = e.RowIndex;
             txtMasp.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
             txtTensp.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
@@ -80,6 +115,69 @@ namespace btl
             Thuvien.CustomDisabledButton(btnXoa);
             Thuvien.CustomDisabledButton(btnSua);
             Thuvien.CustomEnabledButton(btnLuu);
+            setEnable();
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            String masp = txtMasp.Text.Trim();
+            String tensp = txtTensp.Text.Trim();
+            String mancc = cbbNCC.SelectedValue.ToString();
+            String gianhap = txtGianhap.Text.Trim();
+            String giaban = txtGiaban.Text.Trim();
+            String soluong = txtSoluong.Text.Trim();
+            String ngaynhap = txtNgaynhap.Value.ToString();
+            String donvitinh = txtDVT.Text.Trim();
+            String maquanly = Datauser.ID;
+            if (masp == "" || tensp == "" || mancc == "" || gianhap == "" || giaban == "" || soluong == "" || donvitinh == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            String sql = "insert into sanpham values('" + masp + "', N'" + tensp + "', '" + mancc + "', '" + gianhap + "', '" + giaban + "', '" + soluong + "', '" + ngaynhap + "', N'" + donvitinh + "', '" + maquanly + "')";
+            Thuvien.ExecuteQuery(sql);
+            MessageBox.Show("Lưu sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            loadSP();
+            resetText();
+            setDisable();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            String masp = txtMasp.Text.Trim();
+            String tensp = txtTensp.Text.Trim();
+            String mancc = cbbNCC.SelectedValue.ToString();
+            String gianhap = txtGianhap.Text.Trim();
+            String giaban = txtGiaban.Text.Trim();
+            String soluong = txtSoluong.Text.Trim();
+            String ngaynhap = txtNgaynhap.Value.ToString();
+            String donvitinh = txtDVT.Text.Trim();
+            if (tensp == "" || mancc == "" || gianhap == "" || giaban == "" || soluong == "" || donvitinh == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            String sql = "update sanpham set tensp = N'" + tensp + "', mancc = '" + mancc + "', gianhap = '" + gianhap + "', giaban = '" + giaban + "', soluong = '" + soluong + "', ngaynhap = '" + ngaynhap + "', donvitinh = N'" + donvitinh + "' where masp = '" + masp + "'";
+            Thuvien.ExecuteQuery(sql);
+            MessageBox.Show("Sửa sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            loadSP();
+            resetText();
+            setDisable();
+            Thuvien.CustomDisabledButton(btnXoa);
+            Thuvien.CustomDisabledButton(btnSua);
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            String masp = txtMasp.Text.Trim();
+            String sql = "delete from sanpham where masp = '" + masp + "'";
+            Thuvien.ExecuteQuery(sql);
+            MessageBox.Show("Xóa sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            loadSP();
+            resetText();
+            setDisable();
+            Thuvien.CustomDisabledButton(btnXoa);
+            Thuvien.CustomDisabledButton(btnSua);
         }
     }
 }

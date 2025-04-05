@@ -576,6 +576,7 @@
             this.btnThanhtoan.TabIndex = 4;
             this.btnThanhtoan.Text = "Thanh toán";
             this.btnThanhtoan.UseVisualStyleBackColor = false;
+            this.btnThanhtoan.Click += new System.EventHandler(this.btnThanhtoan_Click);
             // 
             // btnXoa
             // 
