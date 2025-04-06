@@ -294,6 +294,15 @@
     <EmbeddedResource Include="Account\loadingForm.resx">
       <DependentUpon>loadingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Chinhanh\Chinhanh.resx">
+      <DependentUpon>Chinhanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chinhanh\Chinhanhtb.resx">
+      <DependentUpon>Chinhanhtb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chinhanh\Chinhanhtv.resx">
+      <DependentUpon>Chinhanhtv.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Doitac\Doitac.resx">
       <DependentUpon>Doitac.cs</DependentUpon>
     </EmbeddedResource>
