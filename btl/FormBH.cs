@@ -138,7 +138,7 @@ namespace btl
         private void dgvSP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = e.RowIndex;
-            if (i > 0)
+            if (i >= 0)
             {
                 txtMasp.Text = dgvSP.Rows[i].Cells[0].Value.ToString();
                 txtTensp.Text = dgvSP.Rows[i].Cells[1].Value.ToString();
@@ -200,7 +200,7 @@ namespace btl
         {
             Thuvien.CustomEnabledButton(btnXoa);
             int i = e.RowIndex;
-            if (i > 0)
+            if (i >= 0)
             {
                 maTemp = dgvHD.Rows[i].Cells[0].Value.ToString();
             }
