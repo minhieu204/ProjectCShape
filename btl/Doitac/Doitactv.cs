@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace btl.Doitac
 {
@@ -70,25 +71,21 @@ namespace btl.Doitac
             DateTime bd = dateTimeBD.Value;
             DateTime kt = dateTimeKT.Value;
             string cp = txtcp.Text;
-            if (btntv.Text == "Nhập")
+            if (btntv.Text == "Thêm")
             {
-                if (!Thuvien.CheckExist("SELECT COUNT(*) FROM (SELECT username FROM Doitac WHERE username = '\" + un + \"' as temp"))
-                {
-                    if (!Thuvien.CheckExist("select count(*) from Doitac where maquanly='" + ma + "' "))
+                if (!Thuvien.CheckExist("select count(*) from Doitac where Madoitac='" + ma + "' "))
                     {
                         sql = String.Format("insert into Doitac values('{0}', N'{1}', '{2}', '{3}', '{4}')", ma, ten, bd, kt, cp);
                     }
                     else
                     {
-                        MessageBox.Show("Mã tài khoản đã tồn tại");
+                        MessageBox.Show("Mã khuyến mại đã tồn tại");
                         return;
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Tên đăng nhập đã tồn tại");
-                    return;
-                }
+            }
+            else
+            {
+                sql = String.Format("update DoiTac set Tenquangcao = N'{0}', Ngaybatdau = '{1}', Ngayketthuc = '{2}', Chiphi = '{3}' where Madoitac = '{4}'", ten, bd, kt, cp, ma);
             }
             Thuvien.ExecuteQuery(sql);
             Doitac.doitactb.loadtb();

@@ -61,8 +61,9 @@ namespace btl.Doitac
         {
             String sql = "";
             DataGridViewRow row = dataGridView1.SelectedRows[0];
-            string ma = row.Cells["maquanly"].Value.ToString();
+            string ma = row.Cells["Madoitac"].Value.ToString();
             DialogResult mess_delete = MessageBox.Show("Bạn có muốn xóa không ?", "Xác nhận: ", MessageBoxButtons.YesNo);
+            sql = "delete from DoiTac where Madoitac = '"+ ma +"'";
             Thuvien.ExecuteQuery(sql);
             loadtb();
             MessageBox.Show("Xóa tài khoản thành công!", "Thông báo!");
