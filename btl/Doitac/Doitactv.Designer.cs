@@ -161,6 +161,7 @@
             this.txtcp.Name = "txtcp";
             this.txtcp.Size = new System.Drawing.Size(544, 39);
             this.txtcp.TabIndex = 11;
+            this.txtcp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcp_KeyPress);
             // 
             // label6
             // 

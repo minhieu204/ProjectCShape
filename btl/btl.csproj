@@ -164,6 +164,24 @@
     <Compile Include="Account\loadingForm.Designer.cs">
       <DependentUpon>loadingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Chinhanh\Chinhanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chinhanh\Chinhanh.Designer.cs">
+      <DependentUpon>Chinhanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chinhanh\Chinhanhtb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chinhanh\Chinhanhtb.Designer.cs">
+      <DependentUpon>Chinhanhtb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chinhanh\Chinhanhtv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chinhanh\Chinhanhtv.Designer.cs">
+      <DependentUpon>Chinhanhtv.cs</DependentUpon>
+    </Compile>
     <Compile Include="Doitac\Doitac.cs">
       <SubType>Form</SubType>
     </Compile>
