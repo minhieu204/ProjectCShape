@@ -79,8 +79,8 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -719,16 +719,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tìm kiếm sản phẩm";
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.groupBox3);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 385);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.panel6.Size = new System.Drawing.Size(1088, 127);
-            this.panel6.TabIndex = 9;
-            // 
             // txtSearch
             // 
             this.txtSearch.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -739,6 +729,16 @@
             this.txtSearch.Size = new System.Drawing.Size(1032, 34);
             this.txtSearch.TabIndex = 5;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.groupBox3);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 385);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.panel6.Size = new System.Drawing.Size(1088, 127);
+            this.panel6.TabIndex = 9;
             // 
             // FormSP
             // 

@@ -92,21 +92,24 @@ namespace btl
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Thuvien.CustomEnabledButton(btnXoa);
-            Thuvien.CustomEnabledButton(btnSua);
-            Thuvien.CustomDisabledButton(btnLuu);
-            setEnable();
-            txtMasp.Enabled = false;
             int i = e.RowIndex;
-            txtMasp.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
-            txtTensp.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
-            cbbNCC.SelectedValue = Thuvien.GetValueFromCode("select * from nhacungcap", dataGridView1.Rows[i].Cells[2].Value.ToString(), "mancc", "tenncc");
-            txtGianhap.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
-            txtGiaban.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
-            txtSoluong.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
-            txtNgaynhap.Value = DateTime.Parse(dataGridView1.Rows[i].Cells[6].Value.ToString());
-            txtDVT.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();
-            txtNguoinhap.Text = dataGridView1.Rows[i].Cells[8].Value.ToString();
+            if (i > 0)
+            {
+                txtMasp.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                txtTensp.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                cbbNCC.SelectedValue = Thuvien.GetValueFromCode("select * from nhacungcap", dataGridView1.Rows[i].Cells[2].Value.ToString(), "mancc", "tenncc");
+                txtGianhap.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                txtGiaban.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                txtSoluong.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
+                txtNgaynhap.Value = DateTime.Parse(dataGridView1.Rows[i].Cells[6].Value.ToString());
+                txtDVT.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();
+                txtNguoinhap.Text = dataGridView1.Rows[i].Cells[8].Value.ToString();
+                Thuvien.CustomEnabledButton(btnXoa);
+                Thuvien.CustomEnabledButton(btnSua);
+                Thuvien.CustomDisabledButton(btnLuu);
+                setEnable();
+                txtMasp.Enabled = false;
+            }
         }
 
         private void btnThemmoi_Click(object sender, EventArgs e)
@@ -132,6 +135,11 @@ namespace btl
             if (masp == "" || tensp == "" || mancc == "" || gianhap == "" || giaban == "" || soluong == "" || donvitinh == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (Thuvien.CheckExist("select count(*) from sanpham where masp = '" + masp + "'"))
+            {
+                MessageBox.Show("Mã sản phẩm không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             String sql = "insert into sanpham values('" + masp + "', N'" + tensp + "', '" + mancc + "', '" + gianhap + "', '" + giaban + "', '" + soluong + "', '" + ngaynhap + "', N'" + donvitinh + "', '" + maquanly + "')";
