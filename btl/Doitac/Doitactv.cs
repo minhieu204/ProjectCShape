@@ -93,5 +93,13 @@ namespace btl.Doitac
             MessageBox.Show("Thao tác Thành công!!", "Thông báo!");
             Reload();
         }
+
+        private void txtcp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
