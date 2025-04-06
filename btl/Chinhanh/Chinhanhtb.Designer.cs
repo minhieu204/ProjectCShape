@@ -70,6 +70,7 @@
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(1098, 479);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
             // 
             // panel2
             // 
@@ -179,6 +180,7 @@
             this.suacm.Name = "suacm";
             this.suacm.Size = new System.Drawing.Size(248, 34);
             this.suacm.Text = "Sửa chi nhánh";
+            this.suacm.Click += new System.EventHandler(this.suacm_Click);
             // 
             // xoacm
             // 
@@ -187,6 +189,7 @@
             this.xoacm.Name = "xoacm";
             this.xoacm.Size = new System.Drawing.Size(248, 34);
             this.xoacm.Text = "Xóa chi nhánh";
+            this.xoacm.Click += new System.EventHandler(this.xoacm_Click);
             // 
             // Chinhanhtb
             // 

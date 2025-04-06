@@ -21,6 +21,7 @@ namespace btl
         frmThongKe thongke;
         Nhansu.Nhansu nhansu;
         Doitac.Doitac DT;
+        Chinhanh.Chinhanh CN;
         public Form1()
         {
             InitializeComponent();
@@ -370,6 +371,22 @@ namespace btl
         private void formDH_FormClosed(object sender, FormClosedEventArgs e)
         {
             formDH = null;
+        }
+
+        private void btncn_Click(object sender, EventArgs e)
+        {
+            if (CN == null)
+            {
+                CN = new Chinhanh.Chinhanh();
+                CN.FormClosed += formNCC_FormClosed;
+                CN.MdiParent = this;
+                CN.Dock = DockStyle.Fill;
+                CN.Show();
+            }
+            else
+            {
+                CN.Activate();
+            }
         }
     }
 }

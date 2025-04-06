@@ -427,6 +427,7 @@
             this.btncn.Text = "         Chi Nhánh";
             this.btncn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncn.UseVisualStyleBackColor = false;
+            this.btncn.Click += new System.EventHandler(this.btncn_Click);
             // 
             // panelLO
             // 
