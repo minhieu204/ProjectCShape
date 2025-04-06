@@ -398,6 +398,7 @@
             this.btnkh.Text = "         Khách hàng";
             this.btnkh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnkh.UseVisualStyleBackColor = false;
+            this.btnkh.Click += new System.EventHandler(this.btnkh_Click);
             // 
             // panel6
             // 

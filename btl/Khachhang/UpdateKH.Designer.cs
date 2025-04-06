@@ -44,7 +44,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btntv = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -77,6 +77,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(542, 35);
             this.panel1.TabIndex = 5;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // panel2
             // 
@@ -120,7 +121,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.guna2Button2);
-            this.panel3.Controls.Add(this.guna2Button1);
+            this.panel3.Controls.Add(this.btntv);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 211);
             this.panel3.Name = "panel3";
@@ -187,6 +188,7 @@
             this.checkBox1.Text = "Điểm tích lũy:";
             this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // textBox1
             // 
@@ -195,6 +197,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(400, 27);
             this.textBox1.TabIndex = 1;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // textBox2
             // 
@@ -211,20 +215,22 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(400, 27);
             this.textBox3.TabIndex = 3;
+            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
-            // guna2Button1
+            // btntv
             // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(306, 6);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(109, 42);
-            this.guna2Button1.TabIndex = 0;
-            this.guna2Button1.Text = "Thêm";
+            this.btntv.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btntv.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btntv.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btntv.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btntv.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btntv.ForeColor = System.Drawing.Color.White;
+            this.btntv.Location = new System.Drawing.Point(306, 6);
+            this.btntv.Name = "btntv";
+            this.btntv.Size = new System.Drawing.Size(109, 42);
+            this.btntv.TabIndex = 0;
+            this.btntv.Text = "Thêm";
+            this.btntv.Click += new System.EventHandler(this.btntv_Click);
             // 
             // guna2Button2
             // 
@@ -250,6 +256,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UpdateKH";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateKH";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -283,7 +290,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btntv;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }

@@ -22,6 +22,7 @@ namespace btl
         Nhansu.Nhansu nhansu;
         Doitac.Doitac DT;
         Chinhanh.Chinhanh CN;
+        Khachhang.Khachhang khachhang;
         public Form1()
         {
             InitializeComponent();
@@ -386,6 +387,22 @@ namespace btl
             else
             {
                 CN.Activate();
+            }
+        }
+
+        private void btnkh_Click(object sender, EventArgs e)
+        {
+            if (khachhang == null)
+            {
+                khachhang = new Khachhang.Khachhang();
+                khachhang.FormClosed += formNCC_FormClosed;
+                khachhang.MdiParent = this;
+                khachhang.Dock = DockStyle.Fill;
+                khachhang.Show();
+            }
+            else
+            {
+                khachhang.Activate();
             }
         }
     }

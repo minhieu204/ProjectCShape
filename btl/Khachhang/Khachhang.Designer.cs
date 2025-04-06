@@ -37,7 +37,7 @@
             this.paneltk = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txttk = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -46,19 +46,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.matk = new System.Windows.Forms.TextBox();
+            this.httk = new System.Windows.Forms.TextBox();
+            this.diembd = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.diemkt = new System.Windows.Forms.TextBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.context = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.suacm = new System.Windows.Forms.ToolStripMenuItem();
             this.xoacm = new System.Windows.Forms.ToolStripMenuItem();
+            this.hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -87,6 +88,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.guna2Button3);
             this.panel1.Controls.Add(this.guna2Button2);
             this.panel1.Controls.Add(this.guna2Button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -108,7 +110,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txttk);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -148,6 +150,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1129, 333);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
             // 
             // label2
             // 
@@ -159,13 +162,13 @@
             this.label2.Text = "Tìm kiếm:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // txttk
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(115, 11);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1002, 33);
-            this.textBox1.TabIndex = 1;
+            this.txttk.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttk.Location = new System.Drawing.Point(115, 11);
+            this.txttk.Name = "txttk";
+            this.txttk.Size = new System.Drawing.Size(1002, 33);
+            this.txttk.TabIndex = 1;
             // 
             // label3
             // 
@@ -177,6 +180,9 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Tìm kiếm nâng cao";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.MouseLeave += new System.EventHandler(this.label3_MouseLeave);
+            this.label3.MouseHover += new System.EventHandler(this.label3_MouseHover);
             // 
             // tableLayoutPanel1
             // 
@@ -195,7 +201,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.textBox2);
+            this.panel5.Controls.Add(this.matk);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 3);
@@ -205,9 +211,9 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.textBox5);
+            this.panel6.Controls.Add(this.diemkt);
             this.panel6.Controls.Add(this.label7);
-            this.panel6.Controls.Add(this.textBox4);
+            this.panel6.Controls.Add(this.diembd);
             this.panel6.Controls.Add(this.label6);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 71);
@@ -217,7 +223,7 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.textBox3);
+            this.panel8.Controls.Add(this.httk);
             this.panel8.Controls.Add(this.label5);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(567, 3);
@@ -255,29 +261,29 @@
             this.label6.Text = "Khoảng điểm cần tìm:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // matk
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(166, 17);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(389, 33);
-            this.textBox2.TabIndex = 2;
+            this.matk.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matk.Location = new System.Drawing.Point(166, 17);
+            this.matk.Name = "matk";
+            this.matk.Size = new System.Drawing.Size(389, 33);
+            this.matk.TabIndex = 2;
             // 
-            // textBox3
+            // httk
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(110, 17);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(442, 33);
-            this.textBox3.TabIndex = 3;
+            this.httk.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.httk.Location = new System.Drawing.Point(110, 17);
+            this.httk.Name = "httk";
+            this.httk.Size = new System.Drawing.Size(442, 33);
+            this.httk.TabIndex = 3;
             // 
-            // textBox4
+            // diembd
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(494, 24);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(139, 33);
-            this.textBox4.TabIndex = 4;
+            this.diembd.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.diembd.Location = new System.Drawing.Point(494, 24);
+            this.diembd.Name = "diembd";
+            this.diembd.Size = new System.Drawing.Size(139, 33);
+            this.diembd.TabIndex = 4;
             // 
             // label7
             // 
@@ -289,13 +295,13 @@
             this.label7.Text = "-";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox5
+            // diemkt
             // 
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(663, 24);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(139, 33);
-            this.textBox5.TabIndex = 6;
+            this.diemkt.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.diemkt.Location = new System.Drawing.Point(663, 24);
+            this.diemkt.Name = "diemkt";
+            this.diemkt.Size = new System.Drawing.Size(139, 33);
+            this.diemkt.TabIndex = 6;
             // 
             // guna2Button1
             // 
@@ -309,24 +315,9 @@
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Location = new System.Drawing.Point(7, 6);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(115, 57);
+            this.guna2Button1.Size = new System.Drawing.Size(126, 57);
             this.guna2Button1.TabIndex = 0;
-            this.guna2Button1.Text = "Xuất Excel";
-            // 
-            // hoten
-            // 
-            this.hoten.HeaderText = "Họ và Tên";
-            this.hoten.Name = "hoten";
-            // 
-            // sdt
-            // 
-            this.sdt.HeaderText = "Số điện thoại";
-            this.sdt.Name = "sdt";
-            // 
-            // diem
-            // 
-            this.diem.HeaderText = "Điểm tích lũy";
-            this.diem.Name = "diem";
+            this.guna2Button1.Text = "Nhập từ Excel";
             // 
             // guna2Button2
             // 
@@ -338,11 +329,12 @@
             this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(132)))), ((int)(((byte)(50)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(128, 6);
+            this.guna2Button2.Location = new System.Drawing.Point(260, 6);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(164, 57);
             this.guna2Button2.TabIndex = 1;
             this.guna2Button2.Text = "Thêm Khách hàng";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // context
             // 
@@ -357,12 +349,48 @@
             this.suacm.Name = "suacm";
             this.suacm.Size = new System.Drawing.Size(180, 22);
             this.suacm.Text = "Sửa khách hàng";
+            this.suacm.Click += new System.EventHandler(this.suacm_Click);
             // 
             // xoacm
             // 
             this.xoacm.Name = "xoacm";
             this.xoacm.Size = new System.Drawing.Size(180, 22);
             this.xoacm.Text = "Xóa khách hàng";
+            this.xoacm.Click += new System.EventHandler(this.xoacm_Click);
+            // 
+            // hoten
+            // 
+            this.hoten.DataPropertyName = "hoten";
+            this.hoten.HeaderText = "Họ và Tên";
+            this.hoten.Name = "hoten";
+            // 
+            // sdt
+            // 
+            this.sdt.DataPropertyName = "sdt";
+            this.sdt.HeaderText = "Số điện thoại";
+            this.sdt.Name = "sdt";
+            // 
+            // diem
+            // 
+            this.diem.DataPropertyName = "diem";
+            this.diem.HeaderText = "Điểm tích lũy";
+            this.diem.Name = "diem";
+            // 
+            // guna2Button3
+            // 
+            this.guna2Button3.BorderRadius = 10;
+            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(132)))), ((int)(((byte)(50)))));
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.guna2Button3.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.Location = new System.Drawing.Point(139, 6);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.Size = new System.Drawing.Size(115, 57);
+            this.guna2Button3.TabIndex = 2;
+            this.guna2Button3.Text = "Xuất Excel";
             // 
             // Khachhang
             // 
@@ -405,26 +433,27 @@
         private System.Windows.Forms.Panel paneltk;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txttk;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox matk;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox diemkt;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox diembd;
+        private System.Windows.Forms.TextBox httk;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hoten;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sdt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn diem;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private System.Windows.Forms.ContextMenuStrip context;
         private System.Windows.Forms.ToolStripMenuItem suacm;
         private System.Windows.Forms.ToolStripMenuItem xoacm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hoten;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sdt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diem;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }
 }

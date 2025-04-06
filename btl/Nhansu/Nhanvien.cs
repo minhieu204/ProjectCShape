@@ -43,10 +43,10 @@ namespace btl.Nhansu
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            String ma = textBox1.Text;
-            String ht = textBox1.Text;
-            String sdt = textBox1.Text;
-            String email = textBox1.Text;
+            String ma = txttk.Text;
+            String ht = txttk.Text;
+            String sdt = txttk.Text;
+            String email = txttk.Text;
             String sql = "select * from nhanvien where manhanvien like '%" + ma + "%' or hoten like N'%" + ht + "%' or sdt like '%" + sdt + "%' or email like '%" + email + "%'";
             Thuvien.LoadData(sql, Datanv);
         }
@@ -137,14 +137,14 @@ namespace btl.Nhansu
         private void label6_Click(object sender, EventArgs e)
         {
             paneltk.Visible= !paneltk.Visible;
-            textBox1.Text = "";
-            textBox1.Visible = !textBox1.Visible;
+            txttk.Text = "";
+            txttk.Visible = !txttk.Visible;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            String ma = textBox2.Text;
-            String ht = textBox4.Text;
+            String ma = matk.Text;
+            String ht = httk.Text;
             String sdt = textBox3.Text;
             String email = textBox5.Text;
             String sql = "select * from nhanvien where manhanvien like '%" + ma + "%' and hoten like N'%" + ht + "%' and sdt like '%" + sdt + "%' and email like '%" + email + "%'";
