@@ -236,6 +236,18 @@
     <Compile Include="frmThongKe.Designer.cs">
       <DependentUpon>frmThongKe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Khachhang\Khachhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Khachhang\Khachhang.Designer.cs">
+      <DependentUpon>Khachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Khachhang\UpdateKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Khachhang\UpdateKH.Designer.cs">
+      <DependentUpon>UpdateKH.cs</DependentUpon>
+    </Compile>
     <Compile Include="Loadfrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -431,8 +443,6 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Khachhang\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
