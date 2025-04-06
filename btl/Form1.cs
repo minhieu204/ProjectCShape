@@ -16,6 +16,7 @@ namespace btl
         FormBH dashboard;
         FormSP formSP;
         FormNCC formNCC;  
+        FormDH formDH;
         Account.Acc account;
         frmThongKe thongke;
         Nhansu.Nhansu nhansu;
@@ -348,6 +349,27 @@ namespace btl
             {
                 DT.Activate();
             }
+        }
+
+        private void btndh_Click(object sender, EventArgs e)
+        {
+            if (formDH == null)
+            {
+                formDH = new FormDH();
+                formDH.FormClosed += formDH_FormClosed;
+                formDH.MdiParent = this;
+                formDH.Dock = DockStyle.Fill;
+                formDH.Show();
+            }
+            else
+            {
+                formDH.Activate();
+            }
+        }
+
+        private void formDH_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formDH = null;
         }
     }
 }

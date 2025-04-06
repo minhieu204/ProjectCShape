@@ -212,6 +212,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDH.Designer.cs">
+      <DependentUpon>FormDH.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNCC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDH.resx">
+      <DependentUpon>FormDH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNCC.resx">
       <DependentUpon>FormNCC.cs</DependentUpon>
