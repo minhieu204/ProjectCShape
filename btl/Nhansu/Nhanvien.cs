@@ -150,5 +150,13 @@ namespace btl.Nhansu
             String sql = "select * from nhanvien where manhanvien like '%" + ma + "%' and hoten like N'%" + ht + "%' and sdt like '%" + sdt + "%' and email like '%" + email + "%'";
             Thuvien.LoadData(sql, Datanv);
         }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
