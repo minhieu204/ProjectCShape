@@ -170,23 +170,23 @@
             this.suacm,
             this.xoacm});
             this.context.Name = "context";
-            this.context.Size = new System.Drawing.Size(213, 72);
+            this.context.Size = new System.Drawing.Size(249, 105);
             // 
             // suacm
             // 
             this.suacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suacm.Image = ((System.Drawing.Image)(resources.GetObject("suacm.Image")));
             this.suacm.Name = "suacm";
-            this.suacm.Size = new System.Drawing.Size(212, 34);
-            this.suacm.Text = "Sửa tài khoản";
+            this.suacm.Size = new System.Drawing.Size(248, 34);
+            this.suacm.Text = "Sửa chi nhánh";
             // 
             // xoacm
             // 
             this.xoacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xoacm.Image = ((System.Drawing.Image)(resources.GetObject("xoacm.Image")));
             this.xoacm.Name = "xoacm";
-            this.xoacm.Size = new System.Drawing.Size(212, 34);
-            this.xoacm.Text = "Xóa tài khoản";
+            this.xoacm.Size = new System.Drawing.Size(248, 34);
+            this.xoacm.Text = "Xóa chi nhánh";
             // 
             // Chinhanhtb
             // 
