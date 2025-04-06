@@ -44,15 +44,12 @@
             this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.context = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.suacm = new System.Windows.Forms.ToolStripMenuItem();
-            this.xoacm = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.paneltk = new System.Windows.Forms.TableLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.cbgioitinhtk = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -71,6 +68,8 @@
             this.matk = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.suacm = new System.Windows.Forms.ToolStripMenuItem();
+            this.xoacm = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.context.SuspendLayout();
@@ -208,24 +207,6 @@
             this.context.Name = "context";
             this.context.Size = new System.Drawing.Size(156, 48);
             // 
-            // suacm
-            // 
-            this.suacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.suacm.Image = ((System.Drawing.Image)(resources.GetObject("suacm.Image")));
-            this.suacm.Name = "suacm";
-            this.suacm.Size = new System.Drawing.Size(155, 22);
-            this.suacm.Text = "Sửa tài khoản";
-            this.suacm.Click += new System.EventHandler(this.suacm_Click);
-            // 
-            // xoacm
-            // 
-            this.xoacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xoacm.Image = ((System.Drawing.Image)(resources.GetObject("xoacm.Image")));
-            this.xoacm.Name = "xoacm";
-            this.xoacm.Size = new System.Drawing.Size(155, 22);
-            this.xoacm.Text = "Xóa tài khoản";
-            this.xoacm.Click += new System.EventHandler(this.xoacm_Click);
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -308,31 +289,12 @@
             // 
             this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel9.Controls.Add(this.guna2Button3);
             this.panel9.Controls.Add(this.cbgioitinhtk);
             this.panel9.Controls.Add(this.label8);
             this.panel9.Location = new System.Drawing.Point(403, 99);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(394, 43);
             this.panel9.TabIndex = 4;
-            // 
-            // guna2Button3
-            // 
-            this.guna2Button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(132)))), ((int)(((byte)(50)))));
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(260, 7);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(125, 28);
-            this.guna2Button3.TabIndex = 3;
-            this.guna2Button3.Text = "Tìm kiếm";
-            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // cbgioitinhtk
             // 
@@ -346,8 +308,10 @@
             "Nữ"});
             this.cbgioitinhtk.Location = new System.Drawing.Point(111, 7);
             this.cbgioitinhtk.Name = "cbgioitinhtk";
-            this.cbgioitinhtk.Size = new System.Drawing.Size(143, 28);
+            this.cbgioitinhtk.Size = new System.Drawing.Size(274, 28);
             this.cbgioitinhtk.TabIndex = 2;
+            this.cbgioitinhtk.TextChanged += new System.EventHandler(this.matk_TextChanged);
+            this.cbgioitinhtk.VisibleChanged += new System.EventHandler(this.matk_TextChanged);
             // 
             // label8
             // 
@@ -379,6 +343,7 @@
             this.emailtk.Name = "emailtk";
             this.emailtk.Size = new System.Drawing.Size(253, 25);
             this.emailtk.TabIndex = 2;
+            this.emailtk.TextChanged += new System.EventHandler(this.matk_TextChanged);
             // 
             // label5
             // 
@@ -410,6 +375,7 @@
             this.sdttk.Name = "sdttk";
             this.sdttk.Size = new System.Drawing.Size(274, 25);
             this.sdttk.TabIndex = 2;
+            this.sdttk.TextChanged += new System.EventHandler(this.matk_TextChanged);
             this.sdttk.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sdttk_KeyPress);
             this.sdttk.Leave += new System.EventHandler(this.sdttk_Leave);
             // 
@@ -443,6 +409,7 @@
             this.unametk.Name = "unametk";
             this.unametk.Size = new System.Drawing.Size(253, 25);
             this.unametk.TabIndex = 2;
+            this.unametk.TextChanged += new System.EventHandler(this.matk_TextChanged);
             // 
             // label4
             // 
@@ -474,6 +441,7 @@
             this.httk.Name = "httk";
             this.httk.Size = new System.Drawing.Size(274, 25);
             this.httk.TabIndex = 2;
+            this.httk.TextChanged += new System.EventHandler(this.matk_TextChanged);
             // 
             // label6
             // 
@@ -505,6 +473,7 @@
             this.matk.Name = "matk";
             this.matk.Size = new System.Drawing.Size(253, 25);
             this.matk.TabIndex = 1;
+            this.matk.TextChanged += new System.EventHandler(this.matk_TextChanged);
             // 
             // label3
             // 
@@ -525,6 +494,24 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(800, 332);
             this.panel3.TabIndex = 5;
+            // 
+            // suacm
+            // 
+            this.suacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.suacm.Image = ((System.Drawing.Image)(resources.GetObject("suacm.Image")));
+            this.suacm.Name = "suacm";
+            this.suacm.Size = new System.Drawing.Size(155, 22);
+            this.suacm.Text = "Sửa tài khoản";
+            this.suacm.Click += new System.EventHandler(this.suacm_Click);
+            // 
+            // xoacm
+            // 
+            this.xoacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xoacm.Image = ((System.Drawing.Image)(resources.GetObject("xoacm.Image")));
+            this.xoacm.Name = "xoacm";
+            this.xoacm.Size = new System.Drawing.Size(155, 22);
+            this.xoacm.Text = "Xóa tài khoản";
+            this.xoacm.Click += new System.EventHandler(this.xoacm_Click);
             // 
             // Acctb
             // 
@@ -604,6 +591,5 @@
         private System.Windows.Forms.TextBox matk;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbgioitinhtk;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }
 }

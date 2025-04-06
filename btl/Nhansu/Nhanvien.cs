@@ -23,6 +23,7 @@ namespace btl.Nhansu
             Datanv.Columns["pass"].Visible = false;
             Datanv.Columns["maphanquyen"].Visible = false;
             Datanv.Columns["username"].Visible = false;
+            paneltk.Visible = false;
         }
         public void loadtb()
         {
@@ -103,6 +104,34 @@ namespace btl.Nhansu
                 string email = row.Cells["email"].Value.ToString();
                 nhansu.suanv(ma, ht, gt, pq, un, pw, sdt, email);
             }
+        }
+
+        private void ls_Click(object sender, EventArgs e)
+        {
+            if (Datanv.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = Datanv.SelectedRows[0];
+                string ma = row.Cells["ma"].Value.ToString();
+                string ht = row.Cells["hoten"].Value.ToString();
+                LSlamviec lSlamviec = new LSlamviec();
+                lSlamviec.SetData(ht, ma);
+                lSlamviec.ShowDialog();
+            }
+        }
+
+        private void label6_MouseHover(object sender, EventArgs e)
+        {
+            label6.ForeColor = Color.FromArgb(234, 132, 50);
+        }
+
+        private void label6_MouseLeave(object sender, EventArgs e)
+        {
+            label6.ForeColor = Color.FromArgb(74, 125, 175);
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            paneltk.Visible= !paneltk.Visible;
         }
     }
 }

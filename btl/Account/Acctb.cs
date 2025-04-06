@@ -409,5 +409,22 @@ namespace btl.Account
             Thuvien.LoadExceltk(sql1, sql2, dt);
             ExportExcel_QuanLy(dt);
         }
+
+        private void matk_TextChanged(object sender, EventArgs e)
+        {
+            String ma = matk.Text;
+            String ht = httk.Text;
+            String gt = cbgioitinhtk.SelectedItem.ToString();
+            if (gt == "---Chọn---")
+            {
+                gt = "";
+            }
+            String un = unametk.Text;
+            String sdt = sdttk.Text;
+            String email = emailtk.Text;
+            String sql1 = "select * from quanly where hoten like N'%" + ht + "%' and maquanly like N'%" + ma + "%' and username like N'%" + un + "%' and sdt like N'%" + sdt + "%' and email like N'%" + email + "%' and gioitinh like N'%" + gt + "%'";
+            String sql2 = "select manhanvien as maquanly, hoten, gioitinh, maphanquyen, username, pass, sdt, email from nhanvien where hoten like N'%" + ht + "%' and manhanvien like N'%" + ma + "%' and username like N'%" + un + "%' and sdt like N'%" + sdt + "%' and email like N'%" + email + "%' and gioitinh like N'%" + gt + "%'";
+            Thuvien.LoadDatatk(sql1, sql2, dataGridView1);
+        }
     }
 }

@@ -137,15 +137,18 @@ namespace btl
         String maTemp = "";
         private void dgvSP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtSLban.Enabled = true;
-            Thuvien.CustomEnabledButton(btnThemmoi);
-            Thuvien.CustomEnabledButton(btnNhaplai);
             int i = e.RowIndex;
-            txtMasp.Text = dgvSP.Rows[i].Cells[0].Value.ToString();
-            txtTensp.Text = dgvSP.Rows[i].Cells[1].Value.ToString();
-            txtDVT.Text = dgvSP.Rows[i].Cells[2].Value.ToString();
-            txtGiaban.Text = dgvSP.Rows[i].Cells[3].Value.ToString();
-            txtSLco.Text = dgvSP.Rows[i].Cells[4].Value.ToString();   
+            if (i > 0)
+            {
+                txtMasp.Text = dgvSP.Rows[i].Cells[0].Value.ToString();
+                txtTensp.Text = dgvSP.Rows[i].Cells[1].Value.ToString();
+                txtDVT.Text = dgvSP.Rows[i].Cells[2].Value.ToString();
+                txtGiaban.Text = dgvSP.Rows[i].Cells[3].Value.ToString();
+                txtSLco.Text = dgvSP.Rows[i].Cells[4].Value.ToString();
+                txtSLban.Enabled = true;
+                Thuvien.CustomEnabledButton(btnThemmoi);
+                Thuvien.CustomEnabledButton(btnNhaplai);
+            }
         }
 
         private void txtSLban_TextChanged(object sender, EventArgs e)
@@ -197,7 +200,10 @@ namespace btl
         {
             Thuvien.CustomEnabledButton(btnXoa);
             int i = e.RowIndex;
-            maTemp = dgvHD.Rows[i].Cells[0].Value.ToString();
+            if (i > 0)
+            {
+                maTemp = dgvHD.Rows[i].Cells[0].Value.ToString();
+            }
         }
 
         private void btnNhaplai_Click(object sender, EventArgs e)
