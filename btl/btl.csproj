@@ -348,6 +348,12 @@
     <EmbeddedResource Include="frmThongKe.resx">
       <DependentUpon>frmThongKe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Khachhang\Khachhang.resx">
+      <DependentUpon>Khachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Khachhang\UpdateKH.resx">
+      <DependentUpon>UpdateKH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Loadfrm.resx">
       <DependentUpon>Loadfrm.cs</DependentUpon>
     </EmbeddedResource>
