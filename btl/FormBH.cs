@@ -97,7 +97,7 @@ namespace btl
             String check = "select count(*) from giohang where masp = '" + masp + "'";
             if (!Thuvien.CheckExist(check))
             {
-                String sql = "insert into giohang values('"+ masp +"', N'"+ tensp +"', '"+ giaban +"', '"+ dvt +"', '"+ slban +"', '"+ thanhtien +"')";
+                String sql = "insert into giohang values('"+ masp +"', N'"+ tensp +"', '"+ giaban +"', N'"+ dvt +"', '"+ slban +"', '"+ thanhtien +"')";
                 Thuvien.ExecuteQuery(sql);
             }
             else
@@ -212,7 +212,8 @@ namespace btl
                 MessageBox.Show("Giỏ hàng trống, không thể thanh toán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            Thuvien.GenerateInvoice(@"D:\Downloads\invoice2.pdf", Datauser.HoTen);
+            String tenpdf = "donhang" +txtMahd.Text.Trim() + ".pdf";
+            Thuvien.GenerateInvoice(@"D:\Downloads\" + tenpdf, Datauser.HoTen);
             return;
             String sql = "insert into donhang(ngayban, tongtien, manhanvien) " +
                          "values('" + DateTime.Now.ToString() + "', '" + txtTongtien.Text.Trim() + "', '" + Datauser.ID + "')";
@@ -227,6 +228,15 @@ namespace btl
             loadGiohang();
             loadSP();
             loadMadon();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            String search = txtSearch.Text;
+            String sql = "select masp, tensp, donvitinh, giaban, soluong " +
+                         "from sanpham " +
+                         "where soluong > 0 and tensp like N'%"+ search +"%'";
+            Thuvien.LoadData(sql, dgvSP);
         }
     }
 }

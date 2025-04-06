@@ -15,9 +15,12 @@ namespace btl
     {
         FormBH dashboard;
         FormSP formSP;
+        FormNCC formNCC;  
+        FormDH formDH;
         Account.Acc account;
         frmThongKe thongke;
         Nhansu.Nhansu nhansu;
+        Doitac.Doitac DT;
         public Form1()
         {
             InitializeComponent();
@@ -309,6 +312,64 @@ namespace btl
             {
                 nhansu.Activate();
             }
+        }
+
+        private void btnncc_Click(object sender, EventArgs e)
+        {
+            if (formNCC == null)
+            {
+                formNCC = new FormNCC();
+                formNCC.FormClosed += formNCC_FormClosed;
+                formNCC.MdiParent = this;
+                formNCC.Dock = DockStyle.Fill;
+                formNCC.Show();
+            }
+            else
+            {
+                formNCC.Activate();
+            }
+        }
+
+        private void formNCC_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formNCC = null;
+        }
+
+        private void btndt_Click(object sender, EventArgs e)
+        {
+            if (DT == null)
+            {
+                DT = new Doitac.Doitac();
+                DT.FormClosed += formNCC_FormClosed;
+                DT.MdiParent = this;
+                DT.Dock = DockStyle.Fill;
+                DT.Show();
+            }
+            else
+            {
+                DT.Activate();
+            }
+        }
+
+        private void btndh_Click(object sender, EventArgs e)
+        {
+            if (formDH == null)
+            {
+                formDH = new FormDH();
+                formDH.FormClosed += formDH_FormClosed;
+                formDH.MdiParent = this;
+                formDH.Dock = DockStyle.Fill;
+                formDH.Show();
+            }
+            else
+            {
+                formDH.Activate();
+            }
+        }
+
+        private void formDH_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formDH = null;
         }
     }
 }

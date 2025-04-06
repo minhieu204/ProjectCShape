@@ -154,7 +154,7 @@
             this.btnShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShow.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnShow.Location = new System.Drawing.Point(872, 38);
-            this.btnShow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnShow.Margin = new System.Windows.Forms.Padding(4);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(167, 27);
             this.btnShow.TabIndex = 3;
@@ -170,7 +170,7 @@
             this.tableLayoutPanel10.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(4, 73);
-            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -214,7 +214,7 @@
             this.tableLayoutPanel11.Controls.Add(this.listViewXuat, 1, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel11.Location = new System.Drawing.Point(4, 119);
-            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -364,7 +364,7 @@
             // 
             this.txtTienBan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTienBan.Location = new System.Drawing.Point(918, 12);
-            this.txtTienBan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTienBan.Margin = new System.Windows.Forms.Padding(4);
             this.txtTienBan.Name = "txtTienBan";
             this.txtTienBan.Size = new System.Drawing.Size(116, 23);
             this.txtTienBan.TabIndex = 7;
@@ -373,7 +373,7 @@
             // 
             this.txtSLBan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSLBan.Location = new System.Drawing.Point(787, 12);
-            this.txtSLBan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSLBan.Margin = new System.Windows.Forms.Padding(4);
             this.txtSLBan.Name = "txtSLBan";
             this.txtSLBan.Size = new System.Drawing.Size(116, 23);
             this.txtSLBan.TabIndex = 6;
@@ -382,7 +382,7 @@
             // 
             this.txtSoSPBan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoSPBan.Location = new System.Drawing.Point(657, 12);
-            this.txtSoSPBan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSoSPBan.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoSPBan.Name = "txtSoSPBan";
             this.txtSoSPBan.Size = new System.Drawing.Size(116, 23);
             this.txtSoSPBan.TabIndex = 5;
@@ -391,7 +391,7 @@
             // 
             this.txtTienNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTienNhap.Location = new System.Drawing.Point(397, 12);
-            this.txtTienNhap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTienNhap.Margin = new System.Windows.Forms.Padding(4);
             this.txtTienNhap.Name = "txtTienNhap";
             this.txtTienNhap.Size = new System.Drawing.Size(116, 23);
             this.txtTienNhap.TabIndex = 4;
@@ -400,7 +400,7 @@
             // 
             this.txtSLNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSLNhap.Location = new System.Drawing.Point(267, 12);
-            this.txtSLNhap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSLNhap.Margin = new System.Windows.Forms.Padding(4);
             this.txtSLNhap.Name = "txtSLNhap";
             this.txtSLNhap.Size = new System.Drawing.Size(116, 23);
             this.txtSLNhap.TabIndex = 3;
@@ -435,7 +435,7 @@
             // 
             this.txtSoSPNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoSPNhap.Location = new System.Drawing.Point(137, 12);
-            this.txtSoSPNhap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSoSPNhap.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoSPNhap.Name = "txtSoSPNhap";
             this.txtSoSPNhap.Size = new System.Drawing.Size(116, 23);
             this.txtSoSPNhap.TabIndex = 2;
@@ -447,7 +447,7 @@
             this.cbLoaiHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLoaiHang.FormattingEnabled = true;
             this.cbLoaiHang.Location = new System.Drawing.Point(216, 4);
-            this.cbLoaiHang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbLoaiHang.Margin = new System.Windows.Forms.Padding(4);
             this.cbLoaiHang.Name = "cbLoaiHang";
             this.cbLoaiHang.Size = new System.Drawing.Size(629, 25);
             this.cbLoaiHang.TabIndex = 1;
@@ -479,7 +479,7 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.835052F));
@@ -511,7 +511,7 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(4, 47);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -523,7 +523,7 @@
             this.tabTKHang.Controls.Add(this.tableLayoutPanel2);
             this.tabTKHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabTKHang.Location = new System.Drawing.Point(4, 29);
-            this.tabTKHang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabTKHang.Margin = new System.Windows.Forms.Padding(4);
             this.tabTKHang.Name = "tabTKHang";
             this.tabTKHang.Size = new System.Drawing.Size(1051, 470);
             this.tabTKHang.TabIndex = 0;
@@ -593,7 +593,7 @@
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(4, 51);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(1043, 368);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
@@ -647,7 +647,7 @@
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(4, 427);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -686,9 +686,9 @@
             this.tabNhapXuat.Controls.Add(this.tableLayoutPanel5);
             this.tabNhapXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabNhapXuat.Location = new System.Drawing.Point(4, 29);
-            this.tabNhapXuat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabNhapXuat.Margin = new System.Windows.Forms.Padding(4);
             this.tabNhapXuat.Name = "tabNhapXuat";
-            this.tabNhapXuat.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabNhapXuat.Padding = new System.Windows.Forms.Padding(4);
             this.tabNhapXuat.Size = new System.Drawing.Size(1051, 470);
             this.tabNhapXuat.TabIndex = 1;
             this.tabNhapXuat.Text = "Thống kê nhập bán";
@@ -705,7 +705,7 @@
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel12, 0, 3);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 4;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
@@ -761,7 +761,7 @@
             this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(710, 5);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(135, 23);
             this.dateTimePicker2.TabIndex = 3;
@@ -798,7 +798,7 @@
             this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(215, 5);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(133, 23);
             this.dateTimePicker1.TabIndex = 2;
@@ -846,9 +846,9 @@
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.dtpThangNam);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1051, 470);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Chi phí ";
@@ -872,7 +872,7 @@
             this.dateTimePicker4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker4.Location = new System.Drawing.Point(691, 86);
-            this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(245, 32);
             this.dateTimePicker4.TabIndex = 23;
@@ -881,7 +881,7 @@
             // 
             this.txtTongTienNuoc.ForeColor = System.Drawing.Color.Black;
             this.txtTongTienNuoc.Location = new System.Drawing.Point(883, 432);
-            this.txtTongTienNuoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTongTienNuoc.Margin = new System.Windows.Forms.Padding(4);
             this.txtTongTienNuoc.Name = "txtTongTienNuoc";
             this.txtTongTienNuoc.Size = new System.Drawing.Size(132, 26);
             this.txtTongTienNuoc.TabIndex = 22;
@@ -890,7 +890,7 @@
             // 
             this.txtTongTienDien.ForeColor = System.Drawing.Color.Black;
             this.txtTongTienDien.Location = new System.Drawing.Point(696, 432);
-            this.txtTongTienDien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTongTienDien.Margin = new System.Windows.Forms.Padding(4);
             this.txtTongTienDien.Name = "txtTongTienDien";
             this.txtTongTienDien.Size = new System.Drawing.Size(132, 26);
             this.txtTongTienDien.TabIndex = 21;
@@ -899,7 +899,7 @@
             // 
             this.txtTongSuaChua.ForeColor = System.Drawing.Color.Black;
             this.txtTongSuaChua.Location = new System.Drawing.Point(489, 432);
-            this.txtTongSuaChua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTongSuaChua.Margin = new System.Windows.Forms.Padding(4);
             this.txtTongSuaChua.Name = "txtTongSuaChua";
             this.txtTongSuaChua.Size = new System.Drawing.Size(132, 26);
             this.txtTongSuaChua.TabIndex = 20;
@@ -927,7 +927,7 @@
             this.Column3,
             this.Column4});
             this.dataGridView1.Location = new System.Drawing.Point(8, 190);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(1032, 224);
@@ -978,7 +978,7 @@
             // 
             this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(220, 91);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(244, 29);
             this.textBox4.TabIndex = 17;
@@ -1000,7 +1000,7 @@
             this.button7.BackColor = System.Drawing.Color.DodgerBlue;
             this.button7.ForeColor = System.Drawing.SystemColors.Window;
             this.button7.Location = new System.Drawing.Point(793, 130);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(112, 52);
             this.button7.TabIndex = 14;
@@ -1012,7 +1012,7 @@
             this.button6.BackColor = System.Drawing.Color.DodgerBlue;
             this.button6.ForeColor = System.Drawing.SystemColors.Window;
             this.button6.Location = new System.Drawing.Point(640, 130);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(112, 50);
             this.button6.TabIndex = 13;
@@ -1025,7 +1025,7 @@
             this.button5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.Window;
             this.button5.Location = new System.Drawing.Point(173, 129);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 50);
             this.button5.TabIndex = 12;
@@ -1039,7 +1039,7 @@
             this.button4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.Window;
             this.button4.Location = new System.Drawing.Point(21, 130);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 50);
             this.button4.TabIndex = 11;
@@ -1052,7 +1052,7 @@
             this.button3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.Window;
             this.button3.Location = new System.Drawing.Point(477, 130);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(107, 50);
             this.button3.TabIndex = 10;
@@ -1066,7 +1066,7 @@
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.Window;
             this.button2.Location = new System.Drawing.Point(323, 129);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 50);
             this.button2.TabIndex = 9;
@@ -1080,7 +1080,7 @@
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Window;
             this.button1.Location = new System.Drawing.Point(933, 130);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 50);
             this.button1.TabIndex = 8;
@@ -1091,7 +1091,7 @@
             // 
             this.txtTienNuoc.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTienNuoc.Location = new System.Drawing.Point(691, 44);
-            this.txtTienNuoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTienNuoc.Margin = new System.Windows.Forms.Padding(4);
             this.txtTienNuoc.Name = "txtTienNuoc";
             this.txtTienNuoc.Size = new System.Drawing.Size(245, 32);
             this.txtTienNuoc.TabIndex = 7;
@@ -1100,7 +1100,7 @@
             // 
             this.txtTienDien.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTienDien.Location = new System.Drawing.Point(691, 4);
-            this.txtTienDien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTienDien.Margin = new System.Windows.Forms.Padding(4);
             this.txtTienDien.Name = "txtTienDien";
             this.txtTienDien.Size = new System.Drawing.Size(245, 32);
             this.txtTienDien.TabIndex = 6;
@@ -1109,7 +1109,7 @@
             // 
             this.txtPhiSuaChua.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhiSuaChua.Location = new System.Drawing.Point(219, 47);
-            this.txtPhiSuaChua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPhiSuaChua.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhiSuaChua.Name = "txtPhiSuaChua";
             this.txtPhiSuaChua.Size = new System.Drawing.Size(245, 32);
             this.txtPhiSuaChua.TabIndex = 5;
@@ -1168,7 +1168,7 @@
             this.dtpThangNam.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpThangNam.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpThangNam.Location = new System.Drawing.Point(219, 6);
-            this.dtpThangNam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpThangNam.Margin = new System.Windows.Forms.Padding(4);
             this.dtpThangNam.Name = "dtpThangNam";
             this.dtpThangNam.Size = new System.Drawing.Size(245, 32);
             this.dtpThangNam.TabIndex = 0;
@@ -1176,9 +1176,9 @@
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1051, 470);
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "Thống kê";
@@ -1190,7 +1190,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmThongKe";
             this.Text = "frmThongKe";
             this.Load += new System.EventHandler(this.frmThongKe_Load);

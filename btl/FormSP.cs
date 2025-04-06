@@ -179,5 +179,16 @@ namespace btl
             Thuvien.CustomDisabledButton(btnXoa);
             Thuvien.CustomDisabledButton(btnSua);
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            String search = txtSearch.Text;
+            String sql = "select masp, tensp, tenncc, gianhap, giaban, soluong, ngaynhap, donvitinh, hoten " +
+                         "from sanpham, nhacungcap, quanly " +
+                         "where sanpham.mancc = nhacungcap.mancc and sanpham.maquanly = quanly.maquanly "+
+                         "and tensp like N'%"+ search +"%'";
+            Thuvien.LoadData(sql, dataGridView1);
+            dataGridView1.ClearSelection();
+        }
     }
 }

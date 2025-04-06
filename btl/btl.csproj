@@ -164,6 +164,24 @@
     <Compile Include="Account\loadingForm.Designer.cs">
       <DependentUpon>loadingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Doitac\Doitac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doitac\Doitac.Designer.cs">
+      <DependentUpon>Doitac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doitac\Doitactb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doitac\Doitactb.Designer.cs">
+      <DependentUpon>Doitactb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doitac\Doitactv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doitac\Doitactv.Designer.cs">
+      <DependentUpon>Doitactv.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +193,18 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDH.Designer.cs">
+      <DependentUpon>FormDH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNCC.Designer.cs">
+      <DependentUpon>FormNCC.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSP.cs">
       <SubType>Form</SubType>
@@ -246,11 +276,26 @@
     <EmbeddedResource Include="Account\loadingForm.resx">
       <DependentUpon>loadingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Doitac\Doitac.resx">
+      <DependentUpon>Doitac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doitac\Doitactb.resx">
+      <DependentUpon>Doitactb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doitac\Doitactv.resx">
+      <DependentUpon>Doitactv.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBH.resx">
       <DependentUpon>FormBH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDH.resx">
+      <DependentUpon>FormDH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNCC.resx">
+      <DependentUpon>FormNCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSP.resx">
       <DependentUpon>FormSP.cs</DependentUpon>
