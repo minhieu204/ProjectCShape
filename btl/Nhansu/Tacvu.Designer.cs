@@ -145,10 +145,11 @@
             // 
             // lbluong
             // 
+            this.lbluong.BackColor = System.Drawing.Color.White;
             this.lbluong.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbluong.Location = new System.Drawing.Point(169, 2);
+            this.lbluong.Location = new System.Drawing.Point(169, 29);
             this.lbluong.Name = "lbluong";
-            this.lbluong.Size = new System.Drawing.Size(222, 80);
+            this.lbluong.Size = new System.Drawing.Size(222, 26);
             this.lbluong.TabIndex = 4;
             this.lbluong.Text = "18.9";
             this.lbluong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -175,10 +176,11 @@
             // 
             // nhanduoc
             // 
+            this.nhanduoc.BackColor = System.Drawing.Color.White;
             this.nhanduoc.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nhanduoc.Location = new System.Drawing.Point(135, 0);
+            this.nhanduoc.Location = new System.Drawing.Point(135, 27);
             this.nhanduoc.Name = "nhanduoc";
-            this.nhanduoc.Size = new System.Drawing.Size(250, 80);
+            this.nhanduoc.Size = new System.Drawing.Size(250, 27);
             this.nhanduoc.TabIndex = 6;
             this.nhanduoc.Text = "100000";
             this.nhanduoc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -235,10 +237,11 @@
             // 
             // luongtt
             // 
+            this.luongtt.BackColor = System.Drawing.Color.White;
             this.luongtt.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.luongtt.Location = new System.Drawing.Point(135, 0);
+            this.luongtt.Location = new System.Drawing.Point(135, 27);
             this.luongtt.Name = "luongtt";
-            this.luongtt.Size = new System.Drawing.Size(250, 80);
+            this.luongtt.Size = new System.Drawing.Size(250, 27);
             this.luongtt.TabIndex = 5;
             this.luongtt.Text = "1000000";
             this.luongtt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -327,10 +330,11 @@
             // 
             // label3
             // 
+            this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(136, 0);
+            this.label3.Location = new System.Drawing.Point(136, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(255, 80);
+            this.label3.Size = new System.Drawing.Size(255, 27);
             this.label3.TabIndex = 1;
             this.label3.Text = "Đỗ Minh Khoa";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
