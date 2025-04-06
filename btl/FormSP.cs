@@ -193,7 +193,7 @@ namespace btl
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = e.RowIndex;
-            if (i > 0)
+            if (i >= 0)
             {
                 txtMasp.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
                 txtTensp.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();

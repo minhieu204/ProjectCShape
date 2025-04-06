@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace btl
 {
@@ -161,6 +164,130 @@ namespace btl
             String search = txtSearch.Text;
             String sql = "select * from nhacungcap where tenncc like N'%" + search + "%'";
             Thuvien.LoadData(sql, dataGridView1);
+        }
+
+        private void ThemmoiNCC(String mancc, String tenncc, String diachi, String email, String sdt)
+        {
+            // Kiểm tra mã nhà cung cấp đã tồn tại chưa
+            String sqlcheck = "select count(*) from nhacungcap where mancc = '" + mancc + "'";
+            if (Thuvien.CheckExist(sqlcheck))
+            {
+                return; // Nếu đã tồn tại, dừng lại không thực hiện thêm mới
+            }
+            String sql = "insert into nhacungcap values('" + mancc + "', N'" + tenncc + "', N'" + diachi + "', '" + email + "', '" + sdt + "')";
+            Thuvien.ExecuteQuery(sql);
+        }
+
+        private void ReadExcel(string filename)
+        {
+            if (string.IsNullOrEmpty(filename))
+            {
+                MessageBox.Show("Chưa chọn file");
+                return;
+            }
+
+            Microsoft.Office.Interop.Excel.Application Excel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Workbook workbook = Excel.Workbooks.Open(filename);
+
+            List<string> duplicateCodes = new List<string>();
+
+            try
+            {
+                foreach (Microsoft.Office.Interop.Excel.Worksheet wsheet in workbook.Worksheets)
+                {
+                    int i = 2;  // Bắt đầu đọc từ dòng 2 (bỏ dòng tiêu đề)
+                    while (!IsRowEmpty(wsheet, i))
+                    {
+                        
+                        // Xử lý số điện thoại (cột 5 - có thể mất số 0 đầu tiên)
+                        string sdt = GetCellString(wsheet.Cells[i, 5].Value);
+                        if (!string.IsNullOrEmpty(sdt) && double.TryParse(sdt, out double phoneNumber))
+                        {
+                            sdt = phoneNumber.ToString("0"); // Giữ nguyên số 0 đầu nếu có
+                        }
+
+                        string mancc = GetCellString(wsheet.Cells[i, 1].Value);  // Mã nhà cung cấp
+                        String sql = "select count(*) from nhacungcap where mancc = '" + mancc + "'";
+                        if (Thuvien.CheckExist(sql))
+                        {
+                            // Nếu mã nhà cung cấp đã tồn tại, lưu vào danh sách trùng
+                            duplicateCodes.Add(mancc);
+                        }
+
+                        // Đưa dữ liệu vào DB
+                        ThemmoiNCC(
+                            GetCellString(wsheet.Cells[i, 1].Value), // Mã nhà cung cấp
+                            GetCellString(wsheet.Cells[i, 2].Value), // Tên nhà cung cấp
+                            GetCellString(wsheet.Cells[i, 3].Value), // Địa chỉ                       
+                            GetCellString(wsheet.Cells[i, 4].Value), // Email
+                            sdt  // Số điện thoại
+                        );
+
+                        i++; // Chuyển sang dòng tiếp theo
+                    }
+                }
+                // Hiển thị thông báo tổng kết
+                if (duplicateCodes.Count > 0)
+                {
+                    string duplicateMessage = "Các mã nhà cung cấp sau đã tồn tại và không được thêm mới:\n" + string.Join("\n", duplicateCodes);
+                    MessageBox.Show(duplicateMessage, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("Nhập liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            finally
+            {
+                // Đóng Workbook và Application
+                if (workbook != null)
+                {
+                    workbook.Close(false);
+                    Marshal.ReleaseComObject(workbook);
+                }
+                if (Excel != null)
+                {
+                    Excel.Quit();
+                    Marshal.ReleaseComObject(Excel);
+                }
+
+                GC.Collect();  // Dọn dẹp bộ nhớ
+                GC.WaitForPendingFinalizers();
+            }
+        }
+
+        // Kiểm tra hàng có trống không
+        private bool IsRowEmpty(Microsoft.Office.Interop.Excel.Worksheet sheet, int row)
+        {
+            for (int col = 1; col <= 6; col++) // Kiểm tra 6 cột
+            {
+                if (sheet.Cells[row, col].Value != null)
+                {
+                    return false; // Có dữ liệu
+                }
+            }
+            return true; // Cả hàng trống
+        }
+
+        // Chuyển dữ liệu về string, tránh lỗi null
+        private string GetCellString(object value)
+        {
+            return value?.ToString() ?? string.Empty;
+        }
+
+        private void btnNhap_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "excel file |*.xls;*.xlsx";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+            openFileDialog1.Multiselect = false;
+            DialogResult kq = openFileDialog1.ShowDialog();
+            if (kq == DialogResult.OK)
+            {
+                string tenfile = openFileDialog1.FileName;
+                ReadExcel(tenfile);
+                loadNCC();
+            }
         }
     }
 }
