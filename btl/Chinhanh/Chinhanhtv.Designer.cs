@@ -41,13 +41,13 @@
             this.txtten = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtsdt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtemail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtdc = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -75,6 +75,7 @@
             this.btnload.Size = new System.Drawing.Size(177, 78);
             this.btnload.TabIndex = 8;
             this.btnload.Text = "Reload";
+            this.btnload.Click += new System.EventHandler(this.btnload_Click);
             // 
             // btntv
             // 
@@ -92,6 +93,7 @@
             this.btntv.Size = new System.Drawing.Size(176, 78);
             this.btntv.TabIndex = 7;
             this.btntv.Text = "Thêm";
+            this.btntv.Click += new System.EventHandler(this.btntv_Click);
             // 
             // panel2
             // 
@@ -153,7 +155,7 @@
             // txtma
             // 
             this.txtma.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtma.Location = new System.Drawing.Point(191, 51);
+            this.txtma.Location = new System.Drawing.Point(191, 61);
             this.txtma.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtma.Name = "txtma";
             this.txtma.Size = new System.Drawing.Size(461, 39);
@@ -162,12 +164,12 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(-8, -3);
+            this.label2.Location = new System.Drawing.Point(-3, -3);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 148);
+            this.label2.Size = new System.Drawing.Size(178, 166);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Mã đối tác";
+            this.label2.Text = "Mã chi nhánh";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel4
@@ -183,7 +185,7 @@
             // txtten
             // 
             this.txtten.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtten.Location = new System.Drawing.Point(191, 51);
+            this.txtten.Location = new System.Drawing.Point(191, 61);
             this.txtten.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtten.Name = "txtten";
             this.txtten.Size = new System.Drawing.Size(461, 39);
@@ -195,14 +197,14 @@
             this.label3.Location = new System.Drawing.Point(0, -3);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(174, 148);
+            this.label3.Size = new System.Drawing.Size(174, 166);
             this.label3.TabIndex = 6;
             this.label3.Text = "Tên chi nhánh";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.txtsdt);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 172);
@@ -210,14 +212,14 @@
             this.panel5.Size = new System.Drawing.Size(656, 163);
             this.panel5.TabIndex = 2;
             // 
-            // textBox1
+            // txtsdt
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(191, 58);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(461, 39);
-            this.textBox1.TabIndex = 7;
+            this.txtsdt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtsdt.Location = new System.Drawing.Point(191, 64);
+            this.txtsdt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtsdt.Name = "txtsdt";
+            this.txtsdt.Size = new System.Drawing.Size(461, 39);
+            this.txtsdt.TabIndex = 7;
             // 
             // label1
             // 
@@ -225,14 +227,14 @@
             this.label1.Location = new System.Drawing.Point(-2, 4);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 148);
+            this.label1.Size = new System.Drawing.Size(177, 159);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Mã đối tác";
+            this.label1.Text = "Số điện thoại";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.textBox2);
+            this.panel6.Controls.Add(this.txtemail);
             this.panel6.Controls.Add(this.label4);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(665, 172);
@@ -240,14 +242,14 @@
             this.panel6.Size = new System.Drawing.Size(656, 163);
             this.panel6.TabIndex = 3;
             // 
-            // textBox2
+            // txtemail
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(191, 58);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(461, 39);
-            this.textBox2.TabIndex = 7;
+            this.txtemail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtemail.Location = new System.Drawing.Point(191, 64);
+            this.txtemail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtemail.Name = "txtemail";
+            this.txtemail.Size = new System.Drawing.Size(461, 39);
+            this.txtemail.TabIndex = 7;
             // 
             // label4
             // 
@@ -255,28 +257,28 @@
             this.label4.Location = new System.Drawing.Point(-2, 4);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(183, 148);
+            this.label4.Size = new System.Drawing.Size(183, 159);
             this.label4.TabIndex = 6;
             this.label4.Text = "Email";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.textBox3);
+            this.panel7.Controls.Add(this.txtdc);
             this.panel7.Controls.Add(this.label5);
             this.panel7.Location = new System.Drawing.Point(0, 486);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1324, 186);
             this.panel7.TabIndex = 5;
             // 
-            // textBox3
+            // txtdc
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(295, 72);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(861, 39);
-            this.textBox3.TabIndex = 7;
+            this.txtdc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdc.Location = new System.Drawing.Point(295, 72);
+            this.txtdc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtdc.Name = "txtdc";
+            this.txtdc.Size = new System.Drawing.Size(861, 39);
+            this.txtdc.TabIndex = 7;
             // 
             // label5
             // 
@@ -332,13 +334,13 @@
         private System.Windows.Forms.TextBox txtten;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtsdt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtemail;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtdc;
         private System.Windows.Forms.Label label5;
     }
 }

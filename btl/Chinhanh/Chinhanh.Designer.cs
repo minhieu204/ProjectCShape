@@ -94,6 +94,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(587, 88);
             this.guna2Button1.TabIndex = 2;
             this.guna2Button1.Text = "Quản lý chi nhánh";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -127,6 +128,7 @@
             this.guna2Button2.Size = new System.Drawing.Size(588, 88);
             this.guna2Button2.TabIndex = 3;
             this.guna2Button2.Text = "Tác vụ";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // Chinhanh
             // 
