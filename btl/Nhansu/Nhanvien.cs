@@ -23,6 +23,7 @@ namespace btl.Nhansu
             Datanv.Columns["pass"].Visible = false;
             Datanv.Columns["maphanquyen"].Visible = false;
             Datanv.Columns["username"].Visible = false;
+            paneltk.Visible = false;
         }
         public void loadtb()
         {
@@ -116,6 +117,21 @@ namespace btl.Nhansu
                 lSlamviec.SetData(ht, ma);
                 lSlamviec.ShowDialog();
             }
+        }
+
+        private void label6_MouseHover(object sender, EventArgs e)
+        {
+            label6.ForeColor = Color.FromArgb(234, 132, 50);
+        }
+
+        private void label6_MouseLeave(object sender, EventArgs e)
+        {
+            label6.ForeColor = Color.FromArgb(74, 125, 175);
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            paneltk.Visible= !paneltk.Visible;
         }
     }
 }
