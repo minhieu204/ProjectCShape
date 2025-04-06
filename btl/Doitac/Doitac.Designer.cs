@@ -93,7 +93,7 @@
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(588, 88);
             this.guna2Button1.TabIndex = 2;
-            this.guna2Button1.Text = "Quản lý tài khoản";
+            this.guna2Button1.Text = "Quản lý đối tác";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // tableLayoutPanel1

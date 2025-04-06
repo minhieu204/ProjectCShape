@@ -31,23 +31,23 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Doitactb));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.context = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.suacm = new System.Windows.Forms.ToolStripMenuItem();
+            this.xoacm = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.suacm = new System.Windows.Forms.ToolStripMenuItem();
-            this.xoacm = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.context.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -59,6 +59,18 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1091, 484);
             this.panel3.TabIndex = 8;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(1091, 484);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
             // 
             // panel1
             // 
@@ -101,6 +113,24 @@
             this.xoacm});
             this.context.Name = "context";
             this.context.Size = new System.Drawing.Size(249, 105);
+            // 
+            // suacm
+            // 
+            this.suacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.suacm.Image = ((System.Drawing.Image)(resources.GetObject("suacm.Image")));
+            this.suacm.Name = "suacm";
+            this.suacm.Size = new System.Drawing.Size(248, 34);
+            this.suacm.Text = "Sửa đối tác";
+            this.suacm.Click += new System.EventHandler(this.suacm_Click);
+            // 
+            // xoacm
+            // 
+            this.xoacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xoacm.Image = ((System.Drawing.Image)(resources.GetObject("xoacm.Image")));
+            this.xoacm.Name = "xoacm";
+            this.xoacm.Size = new System.Drawing.Size(248, 34);
+            this.xoacm.Text = "Xóa đối tác";
+            this.xoacm.Click += new System.EventHandler(this.xoacm_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -161,36 +191,6 @@
             this.panel2.Size = new System.Drawing.Size(1091, 80);
             this.panel2.TabIndex = 7;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1091, 484);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
-            // 
-            // suacm
-            // 
-            this.suacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.suacm.Image = ((System.Drawing.Image)(resources.GetObject("suacm.Image")));
-            this.suacm.Name = "suacm";
-            this.suacm.Size = new System.Drawing.Size(248, 34);
-            this.suacm.Text = "Sửa tài khoản";
-            this.suacm.Click += new System.EventHandler(this.suacm_Click);
-            // 
-            // xoacm
-            // 
-            this.xoacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xoacm.Image = ((System.Drawing.Image)(resources.GetObject("xoacm.Image")));
-            this.xoacm.Name = "xoacm";
-            this.xoacm.Size = new System.Drawing.Size(248, 34);
-            this.xoacm.Text = "Xóa tài khoản";
-            this.xoacm.Click += new System.EventHandler(this.xoacm_Click);
-            // 
             // Doitactb
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -202,12 +202,12 @@
             this.Name = "Doitactb";
             this.Text = "Doitactb";
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.context.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -56,7 +56,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(1194, 531);
+            this.tabPage2.Size = new System.Drawing.Size(1184, 529);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tác vụ";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -93,7 +93,7 @@
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(587, 88);
             this.guna2Button1.TabIndex = 2;
-            this.guna2Button1.Text = "Quản lý tài khoản";
+            this.guna2Button1.Text = "Quản lý chi nhánh";
             // 
             // tableLayoutPanel1
             // 
