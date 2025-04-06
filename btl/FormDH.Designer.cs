@@ -63,6 +63,8 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "FormDH";
             this.Text = "FormDH";
+            this.Load += new System.EventHandler(this.FormDH_Load);
+            this.Resize += new System.EventHandler(this.FormDH_Resize);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

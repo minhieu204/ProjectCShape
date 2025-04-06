@@ -308,6 +308,7 @@
             this.btndh.Text = "         Đơn hàng";
             this.btndh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btndh.UseVisualStyleBackColor = false;
+            this.btndh.Click += new System.EventHandler(this.btndh_Click);
             // 
             // panel2
             // 

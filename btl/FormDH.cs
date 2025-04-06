@@ -15,6 +15,17 @@ namespace btl
         public FormDH()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+        }
+
+        private void FormDH_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormDH_Resize(object sender, EventArgs e)
+        {
+
         }
     }
 }
