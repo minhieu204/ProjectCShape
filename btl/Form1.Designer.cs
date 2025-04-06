@@ -455,6 +455,7 @@
             this.btndt.Text = "         Đối tác";
             this.btndt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btndt.UseVisualStyleBackColor = false;
+            this.btndt.Click += new System.EventHandler(this.btndt_Click);
             // 
             // panel5
             // 

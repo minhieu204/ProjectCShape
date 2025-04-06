@@ -19,6 +19,7 @@ namespace btl
         Account.Acc account;
         frmThongKe thongke;
         Nhansu.Nhansu nhansu;
+        Doitac.Doitac DT;
         public Form1()
         {
             InitializeComponent();
@@ -331,6 +332,22 @@ namespace btl
         private void formNCC_FormClosed(object sender, FormClosedEventArgs e)
         {
             formNCC = null;
+        }
+
+        private void btndt_Click(object sender, EventArgs e)
+        {
+            if (DT == null)
+            {
+                DT = new Doitac.Doitac();
+                DT.FormClosed += formNCC_FormClosed;
+                DT.MdiParent = this;
+                DT.Dock = DockStyle.Fill;
+                DT.Show();
+            }
+            else
+            {
+                DT.Activate();
+            }
         }
     }
 }
