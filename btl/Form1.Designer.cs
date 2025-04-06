@@ -33,39 +33,42 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbname = new System.Windows.Forms.Label();
-            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelDB = new System.Windows.Forms.Panel();
-            this.panelSP = new System.Windows.Forms.Panel();
-            this.panelNCC = new System.Windows.Forms.Panel();
-            this.panelDH = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panelLO = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.btnDB = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnSP = new System.Windows.Forms.Button();
-            this.btnncc = new System.Windows.Forms.Button();
-            this.btndh = new System.Windows.Forms.Button();
-            this.btnacc = new System.Windows.Forms.Button();
-            this.btnns = new System.Windows.Forms.Button();
-            this.btnkh = new System.Windows.Forms.Button();
-            this.btncn = new System.Windows.Forms.Button();
-            this.btndt = new System.Windows.Forms.Button();
-            this.btnkm = new System.Windows.Forms.Button();
-            this.btntk = new System.Windows.Forms.Button();
-            this.btnlu = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnHam = new System.Windows.Forms.PictureBox();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelDB = new System.Windows.Forms.Panel();
+            this.btnDB = new System.Windows.Forms.Button();
+            this.panelSP = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnSP = new System.Windows.Forms.Button();
+            this.panelNCC = new System.Windows.Forms.Panel();
+            this.btnncc = new System.Windows.Forms.Button();
+            this.panelDH = new System.Windows.Forms.Panel();
+            this.btndh = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnacc = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnns = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnkh = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btncn = new System.Windows.Forms.Button();
+            this.panelLO = new System.Windows.Forms.Panel();
+            this.btndt = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnkm = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.btntk = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnlu = new System.Windows.Forms.Button();
+            this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHam)).BeginInit();
             this.sidebar.SuspendLayout();
             this.panelDB.SuspendLayout();
             this.panelSP.SuspendLayout();
@@ -79,9 +82,6 @@
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHam)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -109,6 +109,39 @@
             this.lbname.Text = "Xin chào,!";
             this.lbname.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbname.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::btl.Properties.Resources.minimize_square_minimalistic_svgrepo_com__1_;
+            this.pictureBox2.Location = new System.Drawing.Point(1242, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(44, 43);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::btl.Properties.Resources.close_square_svgrepo_com__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(1292, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(44, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // btnHam
+            // 
+            this.btnHam.Image = global::btl.Properties.Resources.burger_menu_svgrepo_com;
+            this.btnHam.Location = new System.Drawing.Point(3, 12);
+            this.btnHam.Name = "btnHam";
+            this.btnHam.Size = new System.Drawing.Size(52, 43);
+            this.btnHam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnHam.TabIndex = 1;
+            this.btnHam.TabStop = false;
+            this.btnHam.Click += new System.EventHandler(this.btnHam_Click);
             // 
             // sidebar
             // 
@@ -142,108 +175,6 @@
             this.panelDB.Size = new System.Drawing.Size(197, 40);
             this.panelDB.TabIndex = 5;
             // 
-            // panelSP
-            // 
-            this.panelSP.Controls.Add(this.button1);
-            this.panelSP.Controls.Add(this.btnSP);
-            this.panelSP.Location = new System.Drawing.Point(3, 79);
-            this.panelSP.Name = "panelSP";
-            this.panelSP.Size = new System.Drawing.Size(197, 40);
-            this.panelSP.TabIndex = 7;
-            // 
-            // panelNCC
-            // 
-            this.panelNCC.Controls.Add(this.btnncc);
-            this.panelNCC.Location = new System.Drawing.Point(3, 125);
-            this.panelNCC.Name = "panelNCC";
-            this.panelNCC.Size = new System.Drawing.Size(197, 40);
-            this.panelNCC.TabIndex = 8;
-            // 
-            // panelDH
-            // 
-            this.panelDH.Controls.Add(this.btndh);
-            this.panelDH.Location = new System.Drawing.Point(3, 171);
-            this.panelDH.Name = "panelDH";
-            this.panelDH.Size = new System.Drawing.Size(197, 40);
-            this.panelDH.TabIndex = 8;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnacc);
-            this.panel2.Location = new System.Drawing.Point(3, 217);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(197, 40);
-            this.panel2.TabIndex = 7;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnns);
-            this.panel3.Location = new System.Drawing.Point(3, 263);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(197, 40);
-            this.panel3.TabIndex = 7;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.btnkh);
-            this.panel4.Location = new System.Drawing.Point(3, 309);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(197, 40);
-            this.panel4.TabIndex = 7;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.btncn);
-            this.panel6.Location = new System.Drawing.Point(3, 355);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(197, 40);
-            this.panel6.TabIndex = 8;
-            // 
-            // panelLO
-            // 
-            this.panelLO.Controls.Add(this.btndt);
-            this.panelLO.Location = new System.Drawing.Point(3, 401);
-            this.panelLO.Name = "panelLO";
-            this.panelLO.Size = new System.Drawing.Size(197, 40);
-            this.panelLO.TabIndex = 6;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.btnkm);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 447);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(197, 40);
-            this.panel5.TabIndex = 9;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.btntk);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(3, 493);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(197, 40);
-            this.panel7.TabIndex = 10;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.btnlu);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(3, 539);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(197, 40);
-            this.panel8.TabIndex = 11;
-            // 
-            // sidebarTransition
-            // 
-            this.sidebarTransition.Interval = 10;
-            this.sidebarTransition.Tick += new System.EventHandler(this.sidebarTransition_Tick);
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 20;
-            this.guna2Elipse1.TargetControl = this;
-            // 
             // btnDB
             // 
             this.btnDB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(175)))));
@@ -265,6 +196,15 @@
             this.btnDB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDB.UseVisualStyleBackColor = false;
             this.btnDB.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panelSP
+            // 
+            this.panelSP.Controls.Add(this.button1);
+            this.panelSP.Controls.Add(this.btnSP);
+            this.panelSP.Location = new System.Drawing.Point(3, 79);
+            this.panelSP.Name = "panelSP";
+            this.panelSP.Size = new System.Drawing.Size(197, 40);
+            this.panelSP.TabIndex = 7;
             // 
             // button1
             // 
@@ -310,6 +250,14 @@
             this.btnSP.UseVisualStyleBackColor = false;
             this.btnSP.Click += new System.EventHandler(this.btnSP_Click);
             // 
+            // panelNCC
+            // 
+            this.panelNCC.Controls.Add(this.btnncc);
+            this.panelNCC.Location = new System.Drawing.Point(3, 125);
+            this.panelNCC.Name = "panelNCC";
+            this.panelNCC.Size = new System.Drawing.Size(197, 40);
+            this.panelNCC.TabIndex = 8;
+            // 
             // btnncc
             // 
             this.btnncc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(175)))));
@@ -330,6 +278,15 @@
             this.btnncc.Text = "         Nhà cung cấp";
             this.btnncc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnncc.UseVisualStyleBackColor = false;
+            this.btnncc.Click += new System.EventHandler(this.btnncc_Click);
+            // 
+            // panelDH
+            // 
+            this.panelDH.Controls.Add(this.btndh);
+            this.panelDH.Location = new System.Drawing.Point(3, 171);
+            this.panelDH.Name = "panelDH";
+            this.panelDH.Size = new System.Drawing.Size(197, 40);
+            this.panelDH.TabIndex = 8;
             // 
             // btndh
             // 
@@ -351,6 +308,14 @@
             this.btndh.Text = "         Đơn hàng";
             this.btndh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btndh.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnacc);
+            this.panel2.Location = new System.Drawing.Point(3, 217);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(197, 40);
+            this.panel2.TabIndex = 7;
             // 
             // btnacc
             // 
@@ -374,6 +339,14 @@
             this.btnacc.UseVisualStyleBackColor = false;
             this.btnacc.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnns);
+            this.panel3.Location = new System.Drawing.Point(3, 263);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(197, 40);
+            this.panel3.TabIndex = 7;
+            // 
             // btnns
             // 
             this.btnns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(175)))));
@@ -396,6 +369,14 @@
             this.btnns.UseVisualStyleBackColor = false;
             this.btnns.Click += new System.EventHandler(this.btnns_Click);
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnkh);
+            this.panel4.Location = new System.Drawing.Point(3, 309);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(197, 40);
+            this.panel4.TabIndex = 7;
+            // 
             // btnkh
             // 
             this.btnkh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(175)))));
@@ -416,6 +397,14 @@
             this.btnkh.Text = "         Khách hàng";
             this.btnkh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnkh.UseVisualStyleBackColor = false;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.btncn);
+            this.panel6.Location = new System.Drawing.Point(3, 355);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(197, 40);
+            this.panel6.TabIndex = 8;
             // 
             // btncn
             // 
@@ -438,6 +427,14 @@
             this.btncn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncn.UseVisualStyleBackColor = false;
             // 
+            // panelLO
+            // 
+            this.panelLO.Controls.Add(this.btndt);
+            this.panelLO.Location = new System.Drawing.Point(3, 401);
+            this.panelLO.Name = "panelLO";
+            this.panelLO.Size = new System.Drawing.Size(197, 40);
+            this.panelLO.TabIndex = 6;
+            // 
             // btndt
             // 
             this.btndt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(175)))));
@@ -459,6 +456,15 @@
             this.btndt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btndt.UseVisualStyleBackColor = false;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btnkm);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(3, 447);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(197, 40);
+            this.panel5.TabIndex = 9;
+            // 
             // btnkm
             // 
             this.btnkm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(175)))));
@@ -479,6 +485,15 @@
             this.btnkm.Text = "         Khuyến mại";
             this.btnkm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnkm.UseVisualStyleBackColor = false;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.btntk);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(3, 493);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(197, 40);
+            this.panel7.TabIndex = 10;
             // 
             // btntk
             // 
@@ -502,6 +517,15 @@
             this.btntk.UseVisualStyleBackColor = false;
             this.btntk.Click += new System.EventHandler(this.button2_Click);
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.btnlu);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(3, 539);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(197, 40);
+            this.panel8.TabIndex = 11;
+            // 
             // btnlu
             // 
             this.btnlu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(175)))));
@@ -524,38 +548,15 @@
             this.btnlu.UseVisualStyleBackColor = false;
             this.btnlu.Click += new System.EventHandler(this.btnlu_Click);
             // 
-            // pictureBox2
+            // sidebarTransition
             // 
-            this.pictureBox2.Image = global::btl.Properties.Resources.minimize_square_minimalistic_svgrepo_com__1_;
-            this.pictureBox2.Location = new System.Drawing.Point(1242, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(44, 43);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.sidebarTransition.Interval = 10;
+            this.sidebarTransition.Tick += new System.EventHandler(this.sidebarTransition_Tick);
             // 
-            // pictureBox1
+            // guna2Elipse1
             // 
-            this.pictureBox1.Image = global::btl.Properties.Resources.close_square_svgrepo_com__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(1292, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(44, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // btnHam
-            // 
-            this.btnHam.Image = global::btl.Properties.Resources.burger_menu_svgrepo_com;
-            this.btnHam.Location = new System.Drawing.Point(3, 12);
-            this.btnHam.Name = "btnHam";
-            this.btnHam.Size = new System.Drawing.Size(52, 43);
-            this.btnHam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnHam.TabIndex = 1;
-            this.btnHam.TabStop = false;
-            this.btnHam.Click += new System.EventHandler(this.btnHam_Click);
+            this.guna2Elipse1.BorderRadius = 20;
+            this.guna2Elipse1.TargetControl = this;
             // 
             // Form1
             // 
@@ -570,6 +571,9 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHam)).EndInit();
             this.sidebar.ResumeLayout(false);
             this.panelDB.ResumeLayout(false);
             this.panelSP.ResumeLayout(false);
@@ -583,9 +587,6 @@
             this.panel5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHam)).EndInit();
             this.ResumeLayout(false);
 
         }
