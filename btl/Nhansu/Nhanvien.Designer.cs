@@ -163,12 +163,12 @@
             this.ls,
             this.sua});
             this.context.Name = "context";
-            this.context.Size = new System.Drawing.Size(216, 70);
+            this.context.Size = new System.Drawing.Size(216, 92);
             // 
             // tinhluong
             // 
             this.tinhluong.Name = "tinhluong";
-            this.tinhluong.Size = new System.Drawing.Size(209, 22);
+            this.tinhluong.Size = new System.Drawing.Size(215, 22);
             this.tinhluong.Text = "Tính lương cho nhân viên";
             this.tinhluong.Click += new System.EventHandler(this.tinhluong_Click);
             // 
@@ -177,11 +177,12 @@
             this.ls.Name = "ls";
             this.ls.Size = new System.Drawing.Size(215, 22);
             this.ls.Text = "Xem lịch sử phiên làm việc";
+            this.ls.Click += new System.EventHandler(this.ls_Click);
             // 
             // sua
             // 
             this.sua.Name = "sua";
-            this.sua.Size = new System.Drawing.Size(209, 22);
+            this.sua.Size = new System.Drawing.Size(215, 22);
             this.sua.Text = "Sửa thông tin nhân viên";
             this.sua.Click += new System.EventHandler(this.sua_Click);
             // 

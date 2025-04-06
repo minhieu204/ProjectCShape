@@ -104,5 +104,18 @@ namespace btl.Nhansu
                 nhansu.suanv(ma, ht, gt, pq, un, pw, sdt, email);
             }
         }
+
+        private void ls_Click(object sender, EventArgs e)
+        {
+            if (Datanv.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = Datanv.SelectedRows[0];
+                string ma = row.Cells["ma"].Value.ToString();
+                string ht = row.Cells["hoten"].Value.ToString();
+                LSlamviec lSlamviec = new LSlamviec();
+                lSlamviec.SetData(ht, ma);
+                lSlamviec.ShowDialog();
+            }
+        }
     }
 }
