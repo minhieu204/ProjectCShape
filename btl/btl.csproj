@@ -255,6 +255,12 @@
     <Compile Include="Nhansu\Nhanvien.Designer.cs">
       <DependentUpon>Nhanvien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nhansu\Sualuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nhansu\Sualuong.Designer.cs">
+      <DependentUpon>Sualuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Nhansu\Tacvu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Nhansu\Nhanvien.resx">
       <DependentUpon>Nhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nhansu\Sualuong.resx">
+      <DependentUpon>Sualuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nhansu\Tacvu.resx">
       <DependentUpon>Tacvu.cs</DependentUpon>
