@@ -52,41 +52,40 @@ namespace btl
 
             if (check == 0)
             {
-                string query = "SELECT sp.masp AS MaHang, sp.tensp AS TenHang, ncc.mancc AS MaNCC, sp.giaban AS GiaBan," +
-                               "SUM(ctdh.soluong) AS TongSoLuongBan, (sp.soluong - SUM(ctdh.soluong)) AS SoLuongTon " +
+                string query = "SELECT sp.masp AS MaHang, sp.tensp AS TenHang, ncc.mancc AS MaNCC, sp.giaban AS GiaBan, " +
+                               "SUM(ctdh.soluong) AS TongSoLuongBan, sp.soluong AS SoLuongTon " +
                                "FROM chitietdonhang ctdh " +
                                "JOIN sanpham sp ON ctdh.masp = sp.masp " +
                                "JOIN nhacungcap ncc ON sp.mancc = ncc.mancc " +
                                "GROUP BY sp.masp, sp.tensp, ncc.mancc, sp.giaban, sp.soluong;";
 
-
                 DataTable dt = ExecuteQuery(query);
                 listView1.Items.Clear();
                 foreach (DataRow row in dt.Rows)
                 {
-                    ListViewItem item = new ListViewItem(row[0].ToString());
-                    item.SubItems.Add(row[1].ToString());
-                    item.SubItems.Add(row[2].ToString());
-                    item.SubItems.Add(row[3].ToString());
-                    item.SubItems.Add(row[4].ToString());
-                    item.SubItems.Add(row[5].ToString());
+                    ListViewItem item = new ListViewItem(row[0].ToString()); // MaHang
+                    item.SubItems.Add(row[1].ToString()); // TenHang
+                    item.SubItems.Add(row[2].ToString()); // MaNCC
+                    item.SubItems.Add(row[3].ToString()); // GiaBan
+                    item.SubItems.Add(row[4].ToString()); // TongSoLuongBan
+                    item.SubItems.Add(row[5].ToString()); // SoLuongTon (hiện tại)
                     listView1.Items.Add(item);
                 }
             }
             else if (check == 1)
             {
-                string query = "SELECT  s.masp,  s.tensp, s.mancc, s.gianhap, s.giaban, s.soluong, s.ngaynhap, s.donvitinh, s.maquanly FROM sanpham AS s WHERE s.soluong > 100;";
+                string query = "SELECT s.masp, s.tensp, s.mancc, s.gianhap, s.giaban, s.soluong, s.ngaynhap, s.donvitinh, s.maquanly FROM sanpham AS s WHERE s.soluong > 100;";
                 DataTable dt = ExecuteQuery(query);
 
                 listView1.Items.Clear();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    ListViewItem item = new ListViewItem(dt.Rows[i][0].ToString());
-                    item.SubItems.Add(dt.Rows[i][1].ToString());
-                    item.SubItems.Add(dt.Rows[i][2].ToString());
-                    item.SubItems.Add(dt.Rows[i][3].ToString());
-                    item.SubItems.Add(dt.Rows[i][4].ToString());
-                    item.SubItems.Add(dt.Rows[i][5].ToString());
+                    ListViewItem item = new ListViewItem(dt.Rows[i][0].ToString()); // masp
+                    item.SubItems.Add(dt.Rows[i][1].ToString()); // tensp
+                    item.SubItems.Add(dt.Rows[i][2].ToString()); // mancc
+                    item.SubItems.Add(dt.Rows[i][3].ToString()); // gianhap
+                    item.SubItems.Add(dt.Rows[i][4].ToString()); // giaban
+                    item.SubItems.Add(dt.Rows[i][5].ToString()); // soluong
                     listView1.Items.Add(item);
                 }
             }
@@ -166,9 +165,18 @@ namespace btl
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dataGridView1.SelectedCells.Count == 0)
             {
-                int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
+                MessageBox.Show("Vui lòng chọn một dòng để sửa!");
+                return;
+            }
+
+            int rowIndex = dataGridView1.SelectedCells[0].RowIndex;
+            string id = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
+
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn cập nhật không?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -180,58 +188,42 @@ namespace btl
                     cmd.Parameters.AddWithValue("@TienDien", txtTienDien.Text);
                     cmd.Parameters.AddWithValue("@TienNuoc", txtTienNuoc.Text);
                     cmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Cập nhật thành công!");
-
-                    LoadData();
-                    TinhTongTien();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn dòng để sửa!");
+
+                MessageBox.Show("Cập nhật thành công!");
+                LoadData();
+                TinhTongTien();
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dataGridView1.SelectedCells.Count == 0)
             {
-                // Kiểm tra xem có dữ liệu hợp lệ ở cột ID không
-                var idCell = dataGridView1.SelectedRows[0].Cells["ID"];
-                if (idCell != null && idCell.Value != null)
-                {
-                    int id = Convert.ToInt32(idCell.Value);
-                    if (id > 0) // Đảm bảo ID hợp lệ
-                    {
-                        using (SqlConnection conn = new SqlConnection(connectionString))
-                        {
-                            conn.Open();
-                            string query = "DELETE FROM ChiPhi WHERE ID = @ID";
-                            SqlCommand cmd = new SqlCommand(query, conn);
-                            cmd.Parameters.AddWithValue("@ID", id);
-                            cmd.ExecuteNonQuery();
-
-                            MessageBox.Show("Xóa thành công!");
-                            LoadData();
-                            TinhTongTien();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("ID không hợp lệ.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Không có giá trị ID trong dòng đã chọn.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn dòng để xóa!");
+                MessageBox.Show("Vui lòng chọn một dòng để xóa!");
+                return;
             }
 
+            int rowIndex = dataGridView1.SelectedCells[0].RowIndex;
+            string id = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
+
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa không?", "Xác nhận", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("DELETE FROM ChiPhi WHERE ID = @ID", conn);
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+
+                MessageBox.Show("Xóa thành công!");
+                LoadData();
+                TinhTongTien();
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -255,6 +247,11 @@ namespace btl
                 txtTienDien.Text = row.Cells[3].Value?.ToString();
                 txtTienNuoc.Text = row.Cells[4].Value?.ToString();
             }
+        }
+
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
