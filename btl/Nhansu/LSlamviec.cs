@@ -224,5 +224,10 @@ namespace btl.Nhansu
         {
             Loadtb();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

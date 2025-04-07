@@ -164,6 +164,18 @@
     <Compile Include="Account\loadingForm.Designer.cs">
       <DependentUpon>loadingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BHKhachhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BHKhachhang.Designer.cs">
+      <DependentUpon>BHKhachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BHThemKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BHThemKH.Designer.cs">
+      <DependentUpon>BHThemKH.cs</DependentUpon>
+    </Compile>
     <Compile Include="Chinhanh\Chinhanh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +329,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Account\loadingForm.resx">
       <DependentUpon>loadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BHKhachhang.resx">
+      <DependentUpon>BHKhachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BHThemKH.resx">
+      <DependentUpon>BHThemKH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chinhanh\Chinhanh.resx">
       <DependentUpon>Chinhanh.cs</DependentUpon>
