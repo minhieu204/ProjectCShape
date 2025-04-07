@@ -85,5 +85,10 @@ namespace btl.Chinhanh
             MessageBox.Show("Thao tác Thành công!!", "Thông báo!");
             Reload();
         }
+
+        private void txtemail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
