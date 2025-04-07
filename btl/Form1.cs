@@ -152,6 +152,7 @@ namespace btl
             {
                 dashboard.Activate();
             }
+            dashboard.loadSP();
         }
 
         private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
@@ -174,6 +175,7 @@ namespace btl
             {
                 formSP.Activate();
             }
+            formSP.loadSP();
         }
 
         private void Sanpham_FormClosed(object sender, FormClosedEventArgs e)

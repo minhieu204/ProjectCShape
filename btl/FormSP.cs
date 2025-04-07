@@ -159,7 +159,7 @@ namespace btl
             txtDVT.Enabled = true;
         }
 
-        private void loadSP()
+        public void loadSP()
         {
             String sql = "select masp, tensp, tenncc, gianhap, giaban, soluong, ngaynhap, donvitinh, hoten " +
                          "from sanpham, nhacungcap, quanly " +

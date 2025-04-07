@@ -115,7 +115,7 @@ namespace btl
             txtThanhtien.Text = "....................................................";
         }
 
-        private void loadSP()
+        public void loadSP()
         {
             String sql = "select masp, tensp, donvitinh, giaban, soluong " +
                          "from sanpham " +
