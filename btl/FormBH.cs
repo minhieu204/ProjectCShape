@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iText.StyledXmlParser.Node;
 
 namespace btl
 {
@@ -18,8 +19,14 @@ namespace btl
             this.FormBorderStyle = FormBorderStyle.None;
             Thuvien.CustomDataGridView(dgvSP);
             Thuvien.CustomDataGridView(dgvHD);
+            Thuvien.CustomDisabledButton(button1);
+            radioButton1.Enabled = false;
+            radioButton2.Enabled = false;
         }
-
+        String sdt = "";
+        String name = "";
+        int diem = 0;
+        int diemtichluy = 0;
         private void checkSL()
         {   
             if (txtSLban.Text.Trim() == "")
@@ -49,8 +56,29 @@ namespace btl
 
         private void loadTongtien()
         {
-            String sql = "select sum(thanhtien) from giohang";
-            txtTongtien.Text = Thuvien.GetSingleValue(sql).ToString();
+            if (checkBox1.Checked)
+            {
+                String sql1 = "select sum(thanhtien) from giohang";
+                if (sdt != "")
+                {
+                    int tongtien = int.Parse(Thuvien.GetSingleValue(sql1).ToString());
+                    if (radioButton1.Checked)
+                    {
+                        txtTongtien.Text = (tongtien - (diem * 10)).ToString();
+                    }
+                    if (radioButton2.Checked)
+                    {
+                        diemtichluy = (int)(tongtien / 1000);
+                    }
+
+                }
+
+            }
+            else
+            {
+                String sql = "select sum(thanhtien) from giohang";
+                txtTongtien.Text = Thuvien.GetSingleValue(sql).ToString();
+            }
             if (txtTongtien.Text.Trim() == "")
             {
                 txtTongtien.Text = "....................................................";
@@ -243,6 +271,47 @@ namespace btl
                          "from sanpham " +
                          "where soluong > 0 and tensp like N'%"+ search +"%'";
             Thuvien.LoadData(sql, dgvSP);
+        }
+        private void checkkh() {
+            if (sdt != "")
+            {
+                radioButton1.Enabled = true;
+                radioButton2.Enabled = true;
+            }
+            else
+            {
+                radioButton1.Enabled = false;
+                radioButton2.Enabled = false;
+            }
+
+        }
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            if (!checkBox1.Checked)
+            {
+                sdt = "";
+                name = "";
+                diem = 0;
+                txtdiem.Text = ".......................................";
+                txtkh.Text = ".......................................";
+                Thuvien.CustomDisabledButton(button1);
+            }
+            else
+            {
+                txtdiem.Text = ".......................................";
+                txtkh.Text = ".......................................";
+                Thuvien.CustomEnabledButton(button1);
+            }
+        }
+        public void SetData(String sdt, String name, int diem)
+        {
+            this.sdt = sdt;
+            this.name = name;
+            this.diem = diem;
+            txtdiem.Text = diem.ToString();
+            txtkh.Text = name;
         }
     }
 }
