@@ -43,6 +43,8 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnIn = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label16 = new System.Windows.Forms.Label();
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
@@ -74,16 +76,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dtpThangNam = new System.Windows.Forms.DateTimePicker();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnIn = new System.Windows.Forms.Button();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabTKHang.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -262,6 +262,37 @@
             this.columnHeader6.Text = "Số lượng tồn";
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 99;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.Controls.Add(this.btnIn, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 345);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(780, 32);
+            this.tableLayoutPanel4.TabIndex = 2;
+            this.tableLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel4_Paint);
+            // 
+            // btnIn
+            // 
+            this.btnIn.BackColor = System.Drawing.Color.LawnGreen;
+            this.btnIn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIn.Location = new System.Drawing.Point(471, 3);
+            this.btnIn.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(138, 26);
+            this.btnIn.TabIndex = 1;
+            this.btnIn.Text = "In báo cáo";
+            this.btnIn.UseVisualStyleBackColor = false;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
             // tabPage1
             // 
@@ -602,37 +633,6 @@
             this.tabPage2.Text = "Thống kê";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnIn
-            // 
-            this.btnIn.BackColor = System.Drawing.Color.LawnGreen;
-            this.btnIn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIn.Location = new System.Drawing.Point(471, 3);
-            this.btnIn.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
-            this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(138, 26);
-            this.btnIn.TabIndex = 1;
-            this.btnIn.Text = "In báo cáo";
-            this.btnIn.UseVisualStyleBackColor = false;
-            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.Controls.Add(this.btnIn, 1, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 345);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(780, 32);
-            this.tableLayoutPanel4.TabIndex = 2;
-            this.tableLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel4_Paint);
-            // 
             // frmThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -647,10 +647,10 @@
             this.tabTKHang.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -63,10 +63,10 @@ namespace btl
                 listView1.Items.Clear();
                 foreach (DataRow row in dt.Rows)
                 {
-                    ListViewItem item = new ListViewItem(row[0].ToString()); // MaHang
-                    item.SubItems.Add(row[1].ToString()); // TenHang
-                    item.SubItems.Add(row[2].ToString()); // MaNCC
-                    item.SubItems.Add(row[3].ToString()); // GiaBan
+                    ListViewItem item = new ListViewItem(row[0].ToString());
+                    item.SubItems.Add(row[1].ToString());
+                    item.SubItems.Add(row[2].ToString()); 
+                    item.SubItems.Add(row[3].ToString()); 
                     item.SubItems.Add(row[4].ToString()); // TongSoLuongBan
                     item.SubItems.Add(row[5].ToString()); // SoLuongTon (hiện tại)
                     listView1.Items.Add(item);
@@ -74,7 +74,7 @@ namespace btl
             }
             else if (check == 1)
             {
-                string query = "SELECT s.masp, s.tensp, s.mancc, s.gianhap, s.giaban, s.soluong, s.ngaynhap, s.donvitinh, s.maquanly FROM sanpham AS s WHERE s.soluong > 100;";
+                string query = "SELECT s.masp, s.tensp, s.mancc, s.giaban, s.soluong FROM sanpham AS s WHERE s.soluong > 100;";
                 DataTable dt = ExecuteQuery(query);
 
                 listView1.Items.Clear();
@@ -84,14 +84,27 @@ namespace btl
                     item.SubItems.Add(dt.Rows[i][1].ToString()); // tensp
                     item.SubItems.Add(dt.Rows[i][2].ToString()); // mancc
                     item.SubItems.Add(dt.Rows[i][3].ToString()); // gianhap
-                    item.SubItems.Add(dt.Rows[i][4].ToString()); // giaban
-                    item.SubItems.Add(dt.Rows[i][5].ToString()); // soluong
+                    item.SubItems.Add(""); // giaban
+                    item.SubItems.Add(dt.Rows[i][4].ToString()); // soluong
                     listView1.Items.Add(item);
                 }
             }
             else if (check == 2)
             {
+                string query = "SELECT s.masp, s.tensp, s.mancc, s.giaban, s.soluong FROM sanpham AS s WHERE s.soluong < 50;";
+                DataTable dt = ExecuteQuery(query);
+
                 listView1.Items.Clear();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    ListViewItem item = new ListViewItem(dt.Rows[i][0].ToString()); // masp
+                    item.SubItems.Add(dt.Rows[i][1].ToString()); // tensp
+                    item.SubItems.Add(dt.Rows[i][2].ToString()); // mancc
+                    item.SubItems.Add(dt.Rows[i][3].ToString()); // gianhap
+                    item.SubItems.Add(""); // giaban
+                    item.SubItems.Add(dt.Rows[i][4].ToString()); // soluong
+                    listView1.Items.Add(item);
+                }
             }
         }
 

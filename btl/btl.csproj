@@ -230,6 +230,12 @@
     <Compile Include="FormSP.Designer.cs">
       <DependentUpon>FormSP.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmkhuyenmai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmkhuyenmai.Designer.cs">
+      <DependentUpon>frmkhuyenmai.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSP.resx">
       <DependentUpon>FormSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmkhuyenmai.resx">
+      <DependentUpon>frmkhuyenmai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThongKe.resx">
       <DependentUpon>frmThongKe.cs</DependentUpon>
