@@ -267,9 +267,21 @@ namespace btl
                 MessageBox.Show("Giỏ hàng trống, không thể thanh toán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            String tenpdf = "donhang" +txtMahd.Text.Trim() + ".pdf";
-            Thuvien.GenerateInvoice(@"D:\Downloads\" + tenpdf, Datauser.HoTen);
-            return;
+            if (checkBox1.Checked)
+            {
+                if (radioButton1.Checked)
+                {
+                    String sqld = "update khachhang set diem=diem+" + diemtichluy + " where sdt='" + sdt + "'";
+                    Thuvien.ExecuteQuery(sqld);
+                }
+                else if (radioButton2.Checked)
+                {
+                    String sqlf = "update khachhang set diem=diem-" + diem + " where sdt='" + sdt + "'";
+                    Thuvien.ExecuteQuery(sqlf);
+                }
+            }
+            string tenpdf = "donhang" + txtMahd.Text.Trim() + ".pdf";
+            Thuvien.GenerateInvoice(tenpdf, name, txtMahd.Text, txtTongtien.Text, diem.ToString());
             String sql = "insert into donhang(ngayban, tongtien, manhanvien) " +
                          "values('" + DateTime.Now.ToString() + "', '" + txtTongtien.Text.Trim() + "', '" + Datauser.ID + "')";
             Thuvien.ExecuteQuery(sql);
@@ -283,6 +295,7 @@ namespace btl
             loadGiohang();
             loadSP();
             loadMadon();
+            checkBox1.Checked = false;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
