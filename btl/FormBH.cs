@@ -281,8 +281,7 @@ namespace btl
                 }
             }
             string tenpdf = "donhang" + txtMahd.Text.Trim() + ".pdf";
-            Thuvien.GenerateInvoice(tenpdf, Datauser.HoTen);
-            return;
+            Thuvien.GenerateInvoice(tenpdf, name, txtMahd.Text, txtTongtien.Text, diem.ToString());
             String sql = "insert into donhang(ngayban, tongtien, manhanvien) " +
                          "values('" + DateTime.Now.ToString() + "', '" + txtTongtien.Text.Trim() + "', '" + Datauser.ID + "')";
             Thuvien.ExecuteQuery(sql);
@@ -296,6 +295,7 @@ namespace btl
             loadGiohang();
             loadSP();
             loadMadon();
+            checkBox1.Checked = false;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

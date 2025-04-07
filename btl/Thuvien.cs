@@ -15,6 +15,7 @@ using iText.Layout;
 using iText.IO.Font;
 using System.Diagnostics;
 using System.IO;
+using iText.Layout.Borders;
 
 namespace btl
 {
@@ -22,7 +23,7 @@ namespace btl
     {
         private static readonly string connectionString = "Data Source=.;Initial Catalog=QLSIEUTHI;User ID=sa;Password=1306;";
 
-        public static void GenerateInvoice(string tenfile, string tenkh)
+        public static void GenerateInvoice(string tenfile, string tenkh, string mahd, string tongtien, string diemdoi)
         {
             // Tạo đường dẫn thư mục HoaDon trong project
             string projectFolder = AppDomain.CurrentDomain.BaseDirectory;
@@ -66,13 +67,34 @@ namespace btl
                         .SetFontSize(12)
                         .SetFont(font));
 
-                    document.Add(new Paragraph("Khách hàng: " + tenkh)
-                        .SetTextAlignment(TextAlignment.LEFT)
+                    Table khachTable = new Table(2).UseAllAvailableWidth();
+
+                    if (!String.IsNullOrEmpty(tenkh))
+                    {
+                        Cell cellLeft = new Cell().Add(new Paragraph("Khách hàng: " + tenkh)
+                            .SetFont(font)
+                            .SetFontSize(12)
+                            .SetTextAlignment(TextAlignment.LEFT))
+                            .SetBorder(Border.NO_BORDER);
+
+
+                        khachTable.AddCell(cellLeft);
+                    }
+
+                    Cell cellRight = new Cell().Add(new Paragraph("Mã số: 21")
+                        .SetFont(font)
                         .SetFontSize(12)
-                        .SetFont(font));
+                        .SetTextAlignment(TextAlignment.RIGHT))
+                        .SetBorder(Border.NO_BORDER);
+
+                    khachTable.AddCell(cellRight);
+
+                    document.Add(khachTable);
+
+                    
 
                     float[] columnWidths = { 3, 2, 3, 2, 2 };
-                    Table table = new Table(columnWidths);
+                    Table table = new Table(columnWidths).SetWidth(UnitValue.CreatePercentValue(100));
 
                     table.AddHeaderCell(new Cell().Add(new Paragraph("Tên Sản Phẩm").SetTextAlignment(TextAlignment.CENTER).SetFont(boldFont)));
                     table.AddHeaderCell(new Cell().Add(new Paragraph("Số Lượng").SetTextAlignment(TextAlignment.CENTER).SetFont(boldFont)));
@@ -97,10 +119,17 @@ namespace btl
 
                         totalAmount += thanhtien;
                     }
-
+                    decimal tongtientt= Convert.ToDecimal(tongtien);
                     document.Add(table);
-
-                    document.Add(new Paragraph("Tổng cộng: " + String.Format("{0:N0}", totalAmount) + " VNĐ")
+                    document.Add(new Paragraph("Tổng tiền: " + String.Format("{0:N0}", totalAmount) + " VNĐ")
+                        .SetTextAlignment(TextAlignment.RIGHT)
+                        .SetFontSize(14)
+                        .SetFont(boldFont));
+                    document.Add(new Paragraph("Điểm đổi: " + diemdoi + " =>> Trừ " + String.Format("{0:N0}", Convert.ToDecimal(diemdoi) * 10) + " VNĐ")
+                        .SetTextAlignment(TextAlignment.RIGHT)
+                        .SetFontSize(14)
+                        .SetFont(boldFont));
+                    document.Add(new Paragraph("Tổng tiền thanh toán: " + String.Format("{0:N0}", tongtientt) + " VNĐ")
                         .SetTextAlignment(TextAlignment.RIGHT)
                         .SetFontSize(14)
                         .SetFont(boldFont));
