@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
@@ -91,9 +92,24 @@ namespace btl
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            string patternEmail = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            if (!Regex.IsMatch(txtEmail.Text, patternEmail))
+            {
+                MessageBox.Show("Email không hợp lệ. Vui lòng nhập lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtEmail.Focus();
+                return;
+            }
+            string patternSdt = @"^(0[1-9][0-9]{8})$";
+            if (!Regex.IsMatch(txtSdt.Text, patternSdt))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSdt.Focus();
+                return;
+            }
             if (Thuvien.CheckExist("select count(*) from nhacungcap where mancc = '" + mancc + "'"))
             {
                 MessageBox.Show("Mã nhà cung cấp đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMancc.Focus();
                 return;
             }
             String sql = "insert into nhacungcap values('" + mancc + "', N'" + tenncc + "', N'" + diachi + "', '" + email + "', '" + sdt + "')";
@@ -135,6 +151,20 @@ namespace btl
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            string patternEmail = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            if (!Regex.IsMatch(txtEmail.Text, patternEmail))
+            {
+                MessageBox.Show("Email không hợp lệ. Vui lòng nhập lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtEmail.Focus();
+                return;
+            }
+            string patternSdt = @"^(0[1-9][0-9]{8})$";
+            if (!Regex.IsMatch(txtSdt.Text, patternSdt))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSdt.Focus();
+                return;
+            }
             String sql = "update nhacungcap set tenncc = N'" + tenncc + "', diachi = N'" + diachi + "', email = '" + email + "', sdt = '" + sdt + "' where mancc = '" + mancc + "'";
             Thuvien.ExecuteQuery(sql);
             MessageBox.Show("Sửa nhà cung cấp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -174,6 +204,16 @@ namespace btl
             {
                 return; // Nếu đã tồn tại, dừng lại không thực hiện thêm mới
             }
+            string patternEmail = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            if (!Regex.IsMatch(email, patternEmail))
+            {
+                return; // Nếu email không hợp lệ, dừng lại không thực hiện thêm mới
+            }
+            string patternSdt = @"^(0[1-9][0-9]{8})$";
+            if (!Regex.IsMatch(sdt, patternSdt))
+            {
+                return; // Nếu số điện thoại không hợp lệ, dừng lại không thực hiện thêm mới
+            }
             String sql = "insert into nhacungcap values('" + mancc + "', N'" + tenncc + "', N'" + diachi + "', '" + email + "', '" + sdt + "')";
             Thuvien.ExecuteQuery(sql);
         }
@@ -190,6 +230,8 @@ namespace btl
             Microsoft.Office.Interop.Excel.Workbook workbook = Excel.Workbooks.Open(filename);
 
             List<string> duplicateCodes = new List<string>();
+            List<string> invalidEmails = new List<string>();
+            List<string> invalidPhones = new List<string>();
 
             try
             {
@@ -198,39 +240,62 @@ namespace btl
                     int i = 2;  // Bắt đầu đọc từ dòng 2 (bỏ dòng tiêu đề)
                     while (!IsRowEmpty(wsheet, i))
                     {
-                        
-                        // Xử lý số điện thoại (cột 5 - có thể mất số 0 đầu tiên)
-                        string sdt = GetCellString(wsheet.Cells[i, 5].Value);
-                        if (!string.IsNullOrEmpty(sdt) && double.TryParse(sdt, out double phoneNumber))
-                        {
-                            sdt = phoneNumber.ToString("0"); // Giữ nguyên số 0 đầu nếu có
-                        }
+                        string mancc = GetCellString(wsheet.Cells[i, 1].Value);
+                        string tenncc = GetCellString(wsheet.Cells[i, 2].Value);
+                        string diachi = GetCellString(wsheet.Cells[i, 3].Value);
+                        string email = GetCellString(wsheet.Cells[i, 4].Value);
+                        string sdt = wsheet.Cells[i, 5].Text; // Giữ định dạng số điện thoại với số 0 đầu
 
-                        string mancc = GetCellString(wsheet.Cells[i, 1].Value);  // Mã nhà cung cấp
-                        String sql = "select count(*) from nhacungcap where mancc = '" + mancc + "'";
-                        if (Thuvien.CheckExist(sql))
+                        bool isValid = true;
+
+                        // Kiểm tra mã trùng
+                        String sqlCheck = "select count(*) from nhacungcap where mancc = '" + mancc + "'";
+                        if (Thuvien.CheckExist(sqlCheck))
                         {
-                            // Nếu mã nhà cung cấp đã tồn tại, lưu vào danh sách trùng
                             duplicateCodes.Add(mancc);
+                            isValid = false;
                         }
 
-                        // Đưa dữ liệu vào DB
-                        ThemmoiNCC(
-                            GetCellString(wsheet.Cells[i, 1].Value), // Mã nhà cung cấp
-                            GetCellString(wsheet.Cells[i, 2].Value), // Tên nhà cung cấp
-                            GetCellString(wsheet.Cells[i, 3].Value), // Địa chỉ                       
-                            GetCellString(wsheet.Cells[i, 4].Value), // Email
-                            sdt  // Số điện thoại
-                        );
+                        // Kiểm tra email
+                        string patternEmail = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+                        if (!Regex.IsMatch(email, patternEmail))
+                        {
+                            invalidEmails.Add($"{mancc} - {email}");
+                            isValid = false;
+                        }
 
-                        i++; // Chuyển sang dòng tiếp theo
+                        // Kiểm tra sdt
+                        string patternSdt = @"^(0[1-9][0-9]{8})$";
+                        if (!Regex.IsMatch(sdt, patternSdt))
+                        {
+                            invalidPhones.Add($"{mancc} - {sdt}");
+                            isValid = false;
+                        }
+
+                        // Nếu dữ liệu hợp lệ mới thêm vào
+                        if (isValid)
+                        {
+                            ThemmoiNCC(mancc, tenncc, diachi, email, sdt);
+                        }
+
+                        i++; // Sang dòng tiếp theo
                     }
                 }
-                // Hiển thị thông báo tổng kết
+
+                // Hiển thị thông báo tổng hợp
+                string result = "";
                 if (duplicateCodes.Count > 0)
+                    result += "Mã nhà cung cấp đã tồn tại:\n" + string.Join("\n", duplicateCodes) + "\n\n";
+
+                if (invalidEmails.Count > 0)
+                    result += "Email không hợp lệ:\n" + string.Join("\n", invalidEmails) + "\n\n";
+
+                if (invalidPhones.Count > 0)
+                    result += "Số điện thoại không hợp lệ:\n" + string.Join("\n", invalidPhones) + "\n\n";
+
+                if (!string.IsNullOrEmpty(result))
                 {
-                    string duplicateMessage = "Các mã nhà cung cấp sau đã tồn tại và không được thêm mới:\n" + string.Join("\n", duplicateCodes);
-                    MessageBox.Show(duplicateMessage, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(result, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -239,7 +304,6 @@ namespace btl
             }
             finally
             {
-                // Đóng Workbook và Application
                 if (workbook != null)
                 {
                     workbook.Close(false);
@@ -251,7 +315,7 @@ namespace btl
                     Marshal.ReleaseComObject(Excel);
                 }
 
-                GC.Collect();  // Dọn dẹp bộ nhớ
+                GC.Collect();
                 GC.WaitForPendingFinalizers();
             }
         }
@@ -287,6 +351,14 @@ namespace btl
                 string tenfile = openFileDialog1.FileName;
                 ReadExcel(tenfile);
                 loadNCC();
+            }
+        }
+
+        private void txtSdt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

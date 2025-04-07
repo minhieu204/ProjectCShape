@@ -232,7 +232,8 @@ namespace btl
             String ngaynhap = txtNgaynhap.Value.ToString();
             String donvitinh = txtDVT.Text.Trim();
             String maquanly = Datauser.ID;
-            if (masp == "" || tensp == "" || mancc == "" || gianhap == "" || giaban == "" || soluong == "" || donvitinh == "")
+            if (String.IsNullOrEmpty(masp) || String.IsNullOrEmpty(tensp) || String.IsNullOrEmpty(mancc) || String.IsNullOrEmpty(gianhap) || String.IsNullOrEmpty(giaban) || String.IsNullOrEmpty(soluong)
+                || String.IsNullOrEmpty(donvitinh) || cbbNCC.SelectedIndex == 0)
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -260,7 +261,8 @@ namespace btl
             String soluong = txtSoluong.Text.Trim();
             String ngaynhap = txtNgaynhap.Value.ToString();
             String donvitinh = txtDVT.Text.Trim();
-            if (tensp == "" || mancc == "" || gianhap == "" || giaban == "" || soluong == "" || donvitinh == "")
+            if (String.IsNullOrEmpty(masp) || String.IsNullOrEmpty(tensp) || String.IsNullOrEmpty(mancc) || String.IsNullOrEmpty(gianhap) || String.IsNullOrEmpty(giaban) || String.IsNullOrEmpty(soluong)
+                || String.IsNullOrEmpty(donvitinh) || cbbNCC.SelectedIndex == 0)
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -315,6 +317,30 @@ namespace btl
             else
             {
                 MessageBox.Show("Không có dữ liệu để xuất", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtGianhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtGiaban_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSoluong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

@@ -240,6 +240,7 @@
             this.txtGiaban.Name = "txtGiaban";
             this.txtGiaban.Size = new System.Drawing.Size(220, 34);
             this.txtGiaban.TabIndex = 4;
+            this.txtGiaban.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaban_KeyPress);
             // 
             // label9
             // 
@@ -274,6 +275,7 @@
             this.txtGianhap.Name = "txtGianhap";
             this.txtGianhap.Size = new System.Drawing.Size(219, 34);
             this.txtGianhap.TabIndex = 4;
+            this.txtGianhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGianhap_KeyPress);
             // 
             // label8
             // 
@@ -378,6 +380,7 @@
             this.txtSoluong.Name = "txtSoluong";
             this.txtSoluong.Size = new System.Drawing.Size(222, 34);
             this.txtSoluong.TabIndex = 4;
+            this.txtSoluong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoluong_KeyPress);
             // 
             // label3
             // 
