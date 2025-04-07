@@ -259,7 +259,7 @@ namespace btl
         // Kiểm tra hàng có trống không
         private bool IsRowEmpty(Microsoft.Office.Interop.Excel.Worksheet sheet, int row)
         {
-            for (int col = 1; col <= 6; col++) // Kiểm tra 6 cột
+            for (int col = 1; col <= 5; col++) // Kiểm tra 5 cột
             {
                 if (sheet.Cells[row, col].Value != null)
                 {
