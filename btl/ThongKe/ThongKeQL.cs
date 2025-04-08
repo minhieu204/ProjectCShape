@@ -21,6 +21,7 @@ namespace btl.ThongKe
             InitializeComponent();
             Thuvien.CustomDataGridView(dataGridView1);
             this.thongKe = parent;
+            comboBox1.SelectedItem = "Hàng Bán Chạy";
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

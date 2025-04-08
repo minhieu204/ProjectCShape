@@ -65,6 +65,9 @@
             this.btnlu = new System.Windows.Forms.Button();
             this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,6 +85,7 @@
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -158,6 +162,7 @@
             this.sidebar.Controls.Add(this.panel5);
             this.sidebar.Controls.Add(this.panel7);
             this.sidebar.Controls.Add(this.panel8);
+            this.sidebar.Controls.Add(this.panel9);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.sidebar.Location = new System.Drawing.Point(0, 63);
@@ -493,7 +498,7 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.btntk);
+            this.panel7.Controls.Add(this.button2);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 493);
             this.panel7.Name = "panel7";
@@ -524,7 +529,7 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.btnlu);
+            this.panel8.Controls.Add(this.btntk);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(3, 539);
             this.panel8.Name = "panel8";
@@ -563,6 +568,37 @@
             this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
             // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.btnlu);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(3, 585);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(197, 40);
+            this.panel9.TabIndex = 12;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(125)))), ((int)(((byte)(175)))));
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Margin = new System.Windows.Forms.Padding(0);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(197, 40);
+            this.button2.TabIndex = 8;
+            this.button2.TabStop = false;
+            this.button2.Text = "         Chi Phí";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -592,6 +628,7 @@
             this.panel5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -633,6 +670,9 @@
         private System.Windows.Forms.Button btndt;
         private System.Windows.Forms.Button btnkm;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button button2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker3;
     }
 }
 

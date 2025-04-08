@@ -129,6 +129,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ChiPhi";
             this.Text = "ChiPhi";
             this.tabControlMain.ResumeLayout(false);

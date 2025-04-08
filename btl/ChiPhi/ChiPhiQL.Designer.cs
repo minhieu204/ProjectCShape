@@ -113,15 +113,15 @@
             this.suacm,
             this.xoacm});
             this.context.Name = "context";
-            this.context.Size = new System.Drawing.Size(151, 64);
+            this.context.Size = new System.Drawing.Size(150, 64);
             // 
             // suacm
             // 
             this.suacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suacm.Image = ((System.Drawing.Image)(resources.GetObject("suacm.Image")));
             this.suacm.Name = "suacm";
-            this.suacm.Size = new System.Drawing.Size(150, 30);
-            this.suacm.Text = "Sửa đối tác";
+            this.suacm.Size = new System.Drawing.Size(149, 30);
+            this.suacm.Text = "Sửa Chi Phí";
             this.suacm.Click += new System.EventHandler(this.suacm_Click);
             // 
             // xoacm
@@ -129,8 +129,8 @@
             this.xoacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xoacm.Image = ((System.Drawing.Image)(resources.GetObject("xoacm.Image")));
             this.xoacm.Name = "xoacm";
-            this.xoacm.Size = new System.Drawing.Size(150, 30);
-            this.xoacm.Text = "Xóa đối tác";
+            this.xoacm.Size = new System.Drawing.Size(188, 30);
+            this.xoacm.Text = "Xóa Chi Phí";
             this.xoacm.Click += new System.EventHandler(this.xoacm_Click);
             // 
             // tableLayoutPanel1
@@ -238,6 +238,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ChiPhiQL";
             this.Text = "ChiPhiQL";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

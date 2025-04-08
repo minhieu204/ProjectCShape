@@ -18,7 +18,7 @@ namespace btl
         FormNCC formNCC;  
         FormDH formDH;
         Account.Acc account;
-        
+        ChiPhi.ChiPhi chiPhi;
         Nhansu.Nhansu nhansu;
         Doitac.Doitac DT;
         Chinhanh.Chinhanh CN;
@@ -424,6 +424,22 @@ namespace btl
             else
             {
                 kicm.Activate();
+            }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (chiPhi == null)
+            {
+                chiPhi = new ChiPhi.ChiPhi();
+                chiPhi.FormClosed += formNCC_FormClosed;
+                chiPhi.MdiParent = this;
+                chiPhi.Dock = DockStyle.Fill;
+                chiPhi.Show();
+            }
+            else
+            {
+                chiPhi.Activate();
             }
         }
     }

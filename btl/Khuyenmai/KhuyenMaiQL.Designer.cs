@@ -109,15 +109,15 @@
             this.suacm,
             this.xoacm});
             this.context.Name = "context";
-            this.context.Size = new System.Drawing.Size(151, 64);
+            this.context.Size = new System.Drawing.Size(178, 64);
             // 
             // suacm
             // 
             this.suacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suacm.Image = ((System.Drawing.Image)(resources.GetObject("suacm.Image")));
             this.suacm.Name = "suacm";
-            this.suacm.Size = new System.Drawing.Size(150, 30);
-            this.suacm.Text = "Sửa đối tác";
+            this.suacm.Size = new System.Drawing.Size(177, 30);
+            this.suacm.Text = "Sửa khuyến mại";
             this.suacm.Click += new System.EventHandler(this.suacm_Click);
             // 
             // xoacm
@@ -125,8 +125,8 @@
             this.xoacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xoacm.Image = ((System.Drawing.Image)(resources.GetObject("xoacm.Image")));
             this.xoacm.Name = "xoacm";
-            this.xoacm.Size = new System.Drawing.Size(150, 30);
-            this.xoacm.Text = "Xóa đối tác";
+            this.xoacm.Size = new System.Drawing.Size(177, 30);
+            this.xoacm.Text = "Xóa Khuyến mại";
             this.xoacm.Click += new System.EventHandler(this.xoacm_Click);
             // 
             // tableLayoutPanel1
@@ -194,6 +194,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "KhuyenMaiQL";
             this.Text = "KhuyenMaiQL";
             this.panel3.ResumeLayout(false);

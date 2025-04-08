@@ -22,6 +22,7 @@ namespace btl.ThongKe
         {
             InitializeComponent();
             this.thongKe = parent;
+            Thuvien.CustomDataGridView(dataGridView1);
         }
 
 

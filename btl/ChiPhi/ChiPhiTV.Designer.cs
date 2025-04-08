@@ -82,7 +82,7 @@
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(1059, 74);
             this.header.TabIndex = 16;
-            this.header.Text = "Thêm khuyến mãi";
+            this.header.Text = "Thêm Chi Phí";
             this.header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btntv
@@ -288,6 +288,7 @@
             this.Controls.Add(this.header);
             this.Controls.Add(this.btntv);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ChiPhiTV";
             this.Text = "ChiPhiTV";
             this.panel6.ResumeLayout(false);
