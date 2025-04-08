@@ -370,7 +370,7 @@
             this.btnns.Size = new System.Drawing.Size(197, 40);
             this.btnns.TabIndex = 5;
             this.btnns.TabStop = false;
-            this.btnns.Text = "         Nhân sự";
+            this.btnns.Text = "         Nhân sự / Lương";
             this.btnns.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnns.UseVisualStyleBackColor = false;
             this.btnns.Click += new System.EventHandler(this.btnns_Click);
