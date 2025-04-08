@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -25,6 +27,41 @@ namespace btl.ThongKe
             Thuvien.CustomDataGridView(dataGridView1);
         }
 
+        private void TinhTongVaHienThi()
+        {
+            decimal tongLuong = 0;
+            decimal tongQuangCao = 0;
+            decimal tongChiPhi = 0;
+            decimal tongNhapHang = 0;
+            decimal tongBanHang = 0;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells["LuongNhanVien"].Value != null)
+                    tongLuong += Convert.ToDecimal(row.Cells["LuongNhanVien"].Value);
+
+                if (row.Cells["PhiQuangCao"].Value != null)
+                    tongQuangCao += Convert.ToDecimal(row.Cells["PhiQuangCao"].Value);
+
+                if (row.Cells["ChiPhi"].Value != null)
+                    tongChiPhi += Convert.ToDecimal(row.Cells["ChiPhi"].Value);
+
+                if (row.Cells["TienNhapHang"].Value != null)
+                    tongNhapHang += Convert.ToDecimal(row.Cells["TienNhapHang"].Value);
+
+                if (row.Cells["TienBanHang"].Value != null)
+                    tongBanHang += Convert.ToDecimal(row.Cells["TienBanHang"].Value);
+            }
+
+            // Gán vào label (format tiền tệ)
+            lbtongLuong.Text = tongLuong.ToString("N0") + " VNĐ";
+            lbtongQuangCao.Text = tongQuangCao.ToString("N0") + " VNĐ";
+            lbtongChiPhi.Text = tongChiPhi.ToString("N0") + " VNĐ";
+            lbtongNhapHang.Text = tongNhapHang.ToString("N0") + " VNĐ";
+            lbtongBanHang.Text = tongBanHang.ToString("N0") + " VNĐ";
+        }
+
+
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
@@ -33,70 +70,55 @@ namespace btl.ThongKe
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            string ngayBD = dateTimePicker1.Value.ToString("yyyy-MM-dd");
-            string ngayKT = dateTimePicker2.Value.ToString("yyyy-MM-dd");
+            DateTime ngayBatDau = dateTimePicker1.Value.Date;
+            DateTime ngayKetThuc = dateTimePicker2.Value.Date;
 
-            string sql = $@"
-        SELECT 
-            '{ngayBD}' AS NgayBatDau,
-            '{ngayKT}' AS NgayKetThuc,
+            string sql = "SELECT * FROM thongke WHERE NgayBatDau <= @ngayKetThuc AND NgayKetThuc >= @ngayBatDau";
 
-            -- Tổng lương nhân viên
-            ISNULL((SELECT SUM(tongluong) 
-                    FROM luong 
-                    WHERE ngaynhan BETWEEN '{ngayBD}' AND '{ngayKT}'), 0) AS LuongNhanVien,
+            SqlConnection conn = Thuvien.GetConnection();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@ngayBatDau", ngayBatDau);
+            cmd.Parameters.AddWithValue("@ngayKetThuc", ngayKetThuc);
 
-            -- Tổng phí quảng cáo
-            ISNULL((SELECT SUM(Chiphi) 
-                    FROM DoiTac 
-                    WHERE Ngaybatdau >= '{ngayBD}' AND Ngayketthuc <= '{ngayKT}'), 0) AS PhiQuangCao,
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtRaw = new DataTable();
+            da.Fill(dtRaw);
 
-            -- Chi phí điện, nước, sửa chữa
-            ISNULL((SELECT SUM(TienDien + TienNuoc + PhiSuaChua)
-                    FROM ChiPhi
-                    WHERE FORMAT(ThangNam, 'yyyy-MM') 
-                          BETWEEN FORMAT(CONVERT(date, '{ngayBD}'), 'yyyy-MM') 
-                          AND FORMAT(CONVERT(date, '{ngayKT}'), 'yyyy-MM')), 0) AS ChiPhi,
+            // Tạo bảng mới để hiển thị từng ngày
+            DataTable dtNgay = new DataTable();
+            dtNgay.Columns.Add("Ngay", typeof(DateTime));
+            dtNgay.Columns.Add("LuongNhanVien", typeof(decimal));
+            dtNgay.Columns.Add("PhiQuangCao", typeof(int));
+            dtNgay.Columns.Add("ChiPhi", typeof(int));
+            dtNgay.Columns.Add("TienNhapHang", typeof(int));
+            dtNgay.Columns.Add("TienBanHang", typeof(int));
 
-            -- Tổng tiền nhập hàng
-            ISNULL((SELECT SUM(gianhap * soluong) 
-                    FROM sanpham 
-                    WHERE ngaynhap BETWEEN '{ngayBD}' AND '{ngayKT}'), 0) AS TienNhapHang,
-
-            -- Tổng tiền bán hàng
-            ISNULL((SELECT SUM(tongtien) 
-                    FROM donhang 
-                    WHERE ngayban BETWEEN '{ngayBD}' AND '{ngayKT}'), 0) AS TienBanHang
-    ";
-
-            // Load dữ liệu vào DataGridView
-            Thuvien.LoadData(sql, dataGridView1);
-
-            // Đọc từ dòng đầu tiên (chỉ có 1 dòng)
-            if (dataGridView1.Rows.Count > 0)
+            foreach (DataRow row in dtRaw.Rows)
             {
-                DataGridViewRow row = dataGridView1.Rows[0];
+                DateTime batDau = Convert.ToDateTime(row["NgayBatDau"]);
+                DateTime ketThuc = Convert.ToDateTime(row["NgayKetThuc"]);
 
-                double tongLuong = Convert.ToDouble(row.Cells["LuongNhanVien"].Value);
-                double tongQC = Convert.ToDouble(row.Cells["PhiQuangCao"].Value);
-                double tongChiPhi = Convert.ToDouble(row.Cells["ChiPhi"].Value);
-                double tongNhap = Convert.ToDouble(row.Cells["TienNhapHang"].Value);
-                double tongBan = Convert.ToDouble(row.Cells["TienBanHang"].Value);
+                // Giới hạn trong khoảng được chọn
+                DateTime start = (batDau < ngayBatDau) ? ngayBatDau : batDau;
+                DateTime end = (ketThuc > ngayKetThuc) ? ngayKetThuc : ketThuc;
 
-                MessageBox.Show($"📊 **Tổng kết từ {ngayBD} đến {ngayKT}**:\n\n" +
-                                $"💼 Lương NV      : {tongLuong:n0} ₫\n" +
-                                $"📢 Quảng cáo     : {tongQC:n0} ₫\n" +
-                                $"🧾 Chi phí khác  : {tongChiPhi:n0} ₫\n" +
-                                $"📦 Tiền nhập     : {tongNhap:n0} ₫\n" +
-                                $"💰 Tiền bán      : {tongBan:n0} ₫",
-                                "📈 Kết quả thống kê",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                for (DateTime d = start; d <= end; d = d.AddDays(1))
+                {
+                    dtNgay.Rows.Add(d,
+                        row["LuongNhanVien"],
+                        row["PhiQuangCao"],
+                        row["ChiPhi"],
+                        row["TienNhapHang"],
+                        row["TienBanHang"]
+                    );
+                }
             }
-            else
-            {
-                MessageBox.Show("Không có dữ liệu trong khoảng thời gian đã chọn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
+            dataGridView1.DataSource = dtNgay;
+
+
+            // Gọi hàm tính tổng để hiển thị
+            TinhTongVaHienThi();
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
@@ -264,6 +286,11 @@ namespace btl.ThongKe
                 ReadExcel_ThongKe(filePath);
                 Thuvien.LoadData("SELECT * FROM ThongKe", dataGridView1);
             }
+        }
+
+        private void lbtongChiPhi_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

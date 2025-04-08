@@ -20,9 +20,7 @@ namespace btl.ChiPhi
             Thuvien.CustomDataGridView(dataGridView1);
             loadtb();
             TinhTongChiPhi();
-            txtTongSuaChua.Enabled = false;
-            txtTongTienDien.Enabled = false;
-            txtTongTienNuoc.Enabled = false;
+      
         }
         public void loadtb()
         {
@@ -50,9 +48,9 @@ namespace btl.ChiPhi
             }
 
             // Hiển thị kết quả vào các TextBox
-            txtTongSuaChua.Text = tongSuaChua.ToString("N2");
-            txtTongTienDien.Text = tongTienDien.ToString("N2");
-            txtTongTienNuoc.Text = tongTienNuoc.ToString("N2");
+            lblTongSuaChua.Text = tongSuaChua.ToString("N2");
+            lblTongTienDien.Text = tongTienDien.ToString("N2");
+            lblTongTienNuoc.Text = tongTienNuoc.ToString("N2");
         }
 
         private void dataGridView1_MouseDown(object sender, MouseEventArgs e)

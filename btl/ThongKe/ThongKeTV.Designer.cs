@@ -43,6 +43,13 @@
             this.paneltk = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lbtongLuong = new System.Windows.Forms.Label();
+            this.lbtongQuangCao = new System.Windows.Forms.Label();
+            this.lbtongChiPhi = new System.Windows.Forms.Label();
+            this.lbtongNhapHang = new System.Windows.Forms.Label();
+            this.lbtongBanHang = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -54,6 +61,7 @@
             this.paneltk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -184,18 +192,124 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 70);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1046, 556);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(1046, 519);
             this.dataGridView1.TabIndex = 1;
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.dataGridView1);
+            this.panel4.Controls.Add(this.tableLayoutPanel2);
             this.panel4.Controls.Add(this.paneltk);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1046, 626);
             this.panel4.TabIndex = 1;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tableLayoutPanel2.ColumnCount = 9;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 178F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 210F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 178F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 176F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel2.Controls.Add(this.label15, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbtongLuong, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbtongBanHang, 6, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbtongNhapHang, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbtongChiPhi, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbtongQuangCao, 3, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 589);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1046, 37);
+            this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.BackColor = System.Drawing.Color.LawnGreen;
+            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(3, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(82, 37);
+            this.label15.TabIndex = 27;
+            this.label15.Text = "Tổng Tiền: ";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbtongLuong
+            // 
+            this.lbtongLuong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbtongLuong.AutoSize = true;
+            this.lbtongLuong.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtongLuong.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbtongLuong.Location = new System.Drawing.Point(136, 8);
+            this.lbtongLuong.Name = "lbtongLuong";
+            this.lbtongLuong.Size = new System.Drawing.Size(51, 20);
+            this.lbtongLuong.TabIndex = 33;
+            this.lbtongLuong.Text = "-------";
+            // 
+            // lbtongQuangCao
+            // 
+            this.lbtongQuangCao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbtongQuangCao.AutoSize = true;
+            this.lbtongQuangCao.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtongQuangCao.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbtongQuangCao.Location = new System.Drawing.Point(321, 8);
+            this.lbtongQuangCao.Name = "lbtongQuangCao";
+            this.lbtongQuangCao.Size = new System.Drawing.Size(51, 20);
+            this.lbtongQuangCao.TabIndex = 34;
+            this.lbtongQuangCao.Text = "-------";
+            // 
+            // lbtongChiPhi
+            // 
+            this.lbtongChiPhi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbtongChiPhi.AutoSize = true;
+            this.lbtongChiPhi.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtongChiPhi.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbtongChiPhi.Location = new System.Drawing.Point(515, 8);
+            this.lbtongChiPhi.Name = "lbtongChiPhi";
+            this.lbtongChiPhi.Size = new System.Drawing.Size(51, 20);
+            this.lbtongChiPhi.TabIndex = 35;
+            this.lbtongChiPhi.Text = "-------";
+            this.lbtongChiPhi.Click += new System.EventHandler(this.lbtongChiPhi_Click);
+            // 
+            // lbtongNhapHang
+            // 
+            this.lbtongNhapHang.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbtongNhapHang.AutoSize = true;
+            this.lbtongNhapHang.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtongNhapHang.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbtongNhapHang.Location = new System.Drawing.Point(709, 8);
+            this.lbtongNhapHang.Name = "lbtongNhapHang";
+            this.lbtongNhapHang.Size = new System.Drawing.Size(51, 20);
+            this.lbtongNhapHang.TabIndex = 36;
+            this.lbtongNhapHang.Text = "-------";
+            // 
+            // lbtongBanHang
+            // 
+            this.lbtongBanHang.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbtongBanHang.AutoSize = true;
+            this.lbtongBanHang.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtongBanHang.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbtongBanHang.Location = new System.Drawing.Point(886, 8);
+            this.lbtongBanHang.Name = "lbtongBanHang";
+            this.lbtongBanHang.Size = new System.Drawing.Size(51, 20);
+            this.lbtongBanHang.TabIndex = 37;
+            this.lbtongBanHang.Text = "-------";
             // 
             // panel2
             // 
@@ -216,7 +330,7 @@
             this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(132)))), ((int)(((byte)(50)))));
             this.guna2Button3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(139, 6);
+            this.guna2Button3.Location = new System.Drawing.Point(147, 15);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(115, 57);
             this.guna2Button3.TabIndex = 2;
@@ -233,7 +347,7 @@
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(132)))), ((int)(((byte)(50)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(7, 6);
+            this.guna2Button1.Location = new System.Drawing.Point(12, 15);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(126, 57);
             this.guna2Button1.TabIndex = 0;
@@ -266,6 +380,8 @@
             this.paneltk.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -292,5 +408,12 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lbtongBanHang;
+        private System.Windows.Forms.Label lbtongNhapHang;
+        private System.Windows.Forms.Label lbtongChiPhi;
+        private System.Windows.Forms.Label lbtongQuangCao;
+        private System.Windows.Forms.Label lbtongLuong;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }
