@@ -369,6 +369,7 @@ namespace btl
             {
                 formDH.Activate();
             }
+            formDH.loadDH();
         }
 
         private void formDH_FormClosed(object sender, FormClosedEventArgs e)

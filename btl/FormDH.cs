@@ -120,7 +120,7 @@ namespace btl
             Thuvien.LoadData(sql, dgvCTDH);
         }
 
-        private void loadDH()
+        public void loadDH()
         {
             String sql = "select madon, ngayban, tongtien, quanly.hoten " +
                          "from donhang, quanly " +

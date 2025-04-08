@@ -81,7 +81,7 @@ namespace btl
                         khachTable.AddCell(cellLeft);
                     }
 
-                    Cell cellRight = new Cell().Add(new Paragraph("Mã số: 21")
+                    Cell cellRight = new Cell().Add(new Paragraph("Mã số: " + mahd)
                         .SetFont(font)
                         .SetFontSize(12)
                         .SetTextAlignment(TextAlignment.RIGHT))

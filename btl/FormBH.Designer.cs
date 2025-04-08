@@ -164,7 +164,7 @@
             this.groupBox5.Location = new System.Drawing.Point(584, 22);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox5.Size = new System.Drawing.Size(1074, 322);
             this.groupBox5.TabIndex = 19;
             this.groupBox5.TabStop = false;
@@ -590,7 +590,7 @@
             this.groupBox3.Location = new System.Drawing.Point(584, 499);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox3.Size = new System.Drawing.Size(1074, 278);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
@@ -901,7 +901,7 @@
             this.btnThanhtoan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThanhtoan.ForeColor = System.Drawing.Color.White;
             this.btnThanhtoan.Location = new System.Drawing.Point(304, 141);
-            this.btnThanhtoan.Margin = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            this.btnThanhtoan.Margin = new System.Windows.Forms.Padding(20);
             this.btnThanhtoan.Name = "btnThanhtoan";
             this.btnThanhtoan.Padding = new System.Windows.Forms.Padding(29, 0, 29, 0);
             this.btnThanhtoan.Size = new System.Drawing.Size(245, 82);
@@ -917,7 +917,7 @@
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Location = new System.Drawing.Point(20, 141);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(20);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Padding = new System.Windows.Forms.Padding(29, 0, 29, 0);
             this.btnXoa.Size = new System.Drawing.Size(244, 82);
@@ -933,7 +933,7 @@
             this.btnNhaplai.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhaplai.ForeColor = System.Drawing.Color.White;
             this.btnNhaplai.Location = new System.Drawing.Point(304, 20);
-            this.btnNhaplai.Margin = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            this.btnNhaplai.Margin = new System.Windows.Forms.Padding(20);
             this.btnNhaplai.Name = "btnNhaplai";
             this.btnNhaplai.Padding = new System.Windows.Forms.Padding(29, 0, 29, 0);
             this.btnNhaplai.Size = new System.Drawing.Size(245, 81);
@@ -949,7 +949,7 @@
             this.btnThemmoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemmoi.ForeColor = System.Drawing.Color.White;
             this.btnThemmoi.Location = new System.Drawing.Point(20, 20);
-            this.btnThemmoi.Margin = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            this.btnThemmoi.Margin = new System.Windows.Forms.Padding(20);
             this.btnThemmoi.Name = "btnThemmoi";
             this.btnThemmoi.Padding = new System.Windows.Forms.Padding(29, 0, 29, 0);
             this.btnThemmoi.Size = new System.Drawing.Size(244, 81);
@@ -970,7 +970,7 @@
             this.panel16.Controls.Add(this.checkBox1);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel16.Location = new System.Drawing.Point(4, 350);
-            this.panel16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel16.Margin = new System.Windows.Forms.Padding(4);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(573, 143);
             this.panel16.TabIndex = 20;
@@ -1027,7 +1027,7 @@
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(307, 10);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(215, 64);
             this.button1.TabIndex = 3;
@@ -1040,7 +1040,7 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton2.Location = new System.Drawing.Point(152, 42);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(109, 29);
             this.radioButton2.TabIndex = 2;
@@ -1054,7 +1054,7 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton1.Location = new System.Drawing.Point(21, 42);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(115, 29);
             this.radioButton1.TabIndex = 1;
@@ -1068,7 +1068,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(4, 4);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(216, 32);
             this.checkBox1.TabIndex = 0;

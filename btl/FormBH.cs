@@ -24,6 +24,11 @@ namespace btl
             radioButton2.Enabled = false;
             checkBox1.Enabled = false;
         }
+        private void deleteGiohang()
+        {
+            String sql = "delete from giohang";
+            Thuvien.ExecuteQuery(sql);
+        }
         String sdt = "";
         String name = "";
         int diem = 0;
@@ -36,20 +41,26 @@ namespace btl
             }
             int slban = int.Parse(txtSLban.Text.Trim());
             int slco = int.Parse(txtSLco.Text.Trim());
+            if (slban <= 0)
+            {
+                MessageBox.Show("Số lượng bán phải > 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSLban.Text = "";
+                return;
+            }
             if (Thuvien.CheckExist("select count(*) from giohang where masp='" + txtMasp.Text.Trim() + "'"))
             {
                 String sql = "select soluongnhap from giohang where masp='" + txtMasp.Text.Trim() + "'";
                 int sldachon = int.Parse(Thuvien.GetSingleValue(sql).ToString());
                 if (slban > slco - sldachon)
                 {
-                    MessageBox.Show("Số lượng bán không được lớn hơn số lượng có", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Không đủ hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtSLban.Text = "";
                     return;
                 }
             }
             if (slban > slco)
             {
-                MessageBox.Show("Số lượng bán không được lớn hơn số lượng có", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Không đủ hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSLban.Text = "";
                 return;
             }
@@ -129,31 +140,6 @@ namespace btl
             Thuvien.LoadData(sql, dgvHD);
         }
 
-        private void insertGiohang()
-        {
-            String masp = txtMasp.Text.Trim();
-            String tensp = txtTensp.Text.Trim();
-            String dvt = txtDVT.Text.Trim();
-            String giaban = txtGiaban.Text.Trim();
-            String slban = txtSLban.Text.Trim();
-            String thanhtien = txtThanhtien.Text.Trim();
-            if (slban == "")
-            {
-                MessageBox.Show("Bạn chưa nhập số lượng bán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            String check = "select count(*) from giohang where masp = '" + masp + "'";
-            if (!Thuvien.CheckExist(check))
-            {
-                String sql = "insert into giohang values('"+ masp +"', N'"+ tensp +"', '"+ giaban +"', N'"+ dvt +"', '"+ slban +"', '"+ thanhtien +"')";
-                Thuvien.ExecuteQuery(sql);
-            }
-            else
-            {
-                String sql = "update giohang set thanhtien=thanhtien+'" + thanhtien + "', soluongnhap=soluongnhap+'" + slban + "' where masp='" + masp + "'";
-                Thuvien.ExecuteQuery(sql);
-            }
-        }
 
         private void loadMadon()
         {
@@ -164,6 +150,7 @@ namespace btl
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            deleteGiohang();
             loadSP();
             loadMadon();
             loadGiohang();
@@ -222,7 +209,29 @@ namespace btl
 
         private void btnThemmoi_Click(object sender, EventArgs e)
         {
-            insertGiohang();
+            String masp = txtMasp.Text.Trim();
+            String tensp = txtTensp.Text.Trim();
+            String dvt = txtDVT.Text.Trim();
+            String giaban = txtGiaban.Text.Trim();
+            String slban = txtSLban.Text.Trim();
+            String thanhtien = txtThanhtien.Text.Trim();
+            if (slban == "")
+            {
+                MessageBox.Show("Bạn chưa nhập số lượng bán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSLban.Focus();
+                return;
+            }
+            String check = "select count(*) from giohang where masp = '" + masp + "'";
+            if (!Thuvien.CheckExist(check))
+            {
+                String sql = "insert into giohang values('" + masp + "', N'" + tensp + "', '" + giaban + "', N'" + dvt + "', '" + slban + "', '" + thanhtien + "')";
+                Thuvien.ExecuteQuery(sql);
+            }
+            else
+            {
+                String sql = "update giohang set thanhtien=thanhtien+'" + thanhtien + "', soluongnhap=soluongnhap+'" + slban + "' where masp='" + masp + "'";
+                Thuvien.ExecuteQuery(sql);
+            }
             loadGiohang();  
             resetText();
             Thuvien.CustomDisabledButton(btnThemmoi);
