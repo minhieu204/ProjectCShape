@@ -33,13 +33,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.context = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.suacm = new System.Windows.Forms.ToolStripMenuItem();
             this.xoacm = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3.SuspendLayout();
@@ -80,6 +80,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 48);
             this.panel1.TabIndex = 12;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Hàng Bán Chạy",
+            "Hàng còn Tồn Nhiều",
+            "Hàng sắp hết"});
+            this.comboBox1.Location = new System.Drawing.Point(109, 14);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(165, 21);
+            this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -129,6 +142,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(94, 40);
             this.guna2Button1.TabIndex = 0;
             this.guna2Button1.Text = "Nhập";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2Button2
             // 
@@ -145,6 +159,7 @@
             this.guna2Button2.Size = new System.Drawing.Size(94, 40);
             this.guna2Button2.TabIndex = 1;
             this.guna2Button2.Text = "Xuất";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // panel2
             // 
@@ -154,19 +169,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 52);
             this.panel2.TabIndex = 13;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Hàng Bán Chạy",
-            "Hàng còn Tồn Nhiều",
-            "Hàng sắp hết"});
-            this.comboBox1.Location = new System.Drawing.Point(109, 14);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(165, 21);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // suacm
             // 

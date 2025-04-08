@@ -210,7 +210,7 @@ namespace btl
                 return false;
             }
         }
-        private static SqlConnection GetConnection()
+        public static SqlConnection GetConnection()
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();

@@ -489,6 +489,7 @@
             this.btnkm.Text = "         Khuyến mại";
             this.btnkm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnkm.UseVisualStyleBackColor = false;
+            this.btnkm.Click += new System.EventHandler(this.btnkm_Click);
             // 
             // panel7
             // 

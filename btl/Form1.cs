@@ -23,6 +23,9 @@ namespace btl
         Doitac.Doitac DT;
         Chinhanh.Chinhanh CN;
         Khachhang.Khachhang khachhang;
+
+        ThongKe.ThongKe tke;
+        Khuyenmai.KhuyenMai kicm;
         public Form1()
         {
             InitializeComponent();
@@ -258,7 +261,17 @@ namespace btl
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            if (tke == null)
+            {
+                tke = new ThongKe.ThongKe();
+                tke.MdiParent = this;
+                tke.Dock = DockStyle.Fill;
+                tke.Show();
+            }
+            else
+            {
+                tke.Activate();
+            }
         }
 
         private void btnlu_Click(object sender, EventArgs e)
@@ -395,6 +408,22 @@ namespace btl
             else
             {
                 khachhang.Activate();
+            }
+        }
+
+        private void btnkm_Click(object sender, EventArgs e)
+        {
+            if (kicm == null)
+            {
+                kicm = new Khuyenmai.KhuyenMai();
+                kicm.FormClosed += formNCC_FormClosed;
+                kicm.MdiParent = this;
+                kicm.Dock = DockStyle.Fill;
+                kicm.Show();
+            }
+            else
+            {
+                kicm.Activate();
             }
         }
     }

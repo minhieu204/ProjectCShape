@@ -194,6 +194,24 @@
     <Compile Include="Chinhanh\Chinhanhtv.Designer.cs">
       <DependentUpon>Chinhanhtv.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChiPhi\ChiPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiPhi\ChiPhi.Designer.cs">
+      <DependentUpon>ChiPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChiPhi\ChiPhiQL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiPhi\ChiPhiQL.Designer.cs">
+      <DependentUpon>ChiPhiQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChiPhi\ChiPhiTV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiPhi\ChiPhiTV.Designer.cs">
+      <DependentUpon>ChiPhiTV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Doitac\Doitac.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +272,24 @@
     <Compile Include="Khachhang\UpdateKH.Designer.cs">
       <DependentUpon>UpdateKH.cs</DependentUpon>
     </Compile>
+    <Compile Include="Khuyenmai\KhuyenMai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Khuyenmai\KhuyenMai.Designer.cs">
+      <DependentUpon>KhuyenMai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Khuyenmai\KhuyenMaiQL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Khuyenmai\KhuyenMaiQL.Designer.cs">
+      <DependentUpon>KhuyenMaiQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Khuyenmai\KhuyenMaiTV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Khuyenmai\KhuyenMaiTV.Designer.cs">
+      <DependentUpon>KhuyenMaiTV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Loadfrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +341,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThongKe\ThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKe\ThongKe.Designer.cs">
+      <DependentUpon>ThongKe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKe\ThongKeQL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKe\ThongKeQL.Designer.cs">
+      <DependentUpon>ThongKeQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKe\ThongKeTV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKe\ThongKeTV.Designer.cs">
+      <DependentUpon>ThongKeTV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Thuvien.cs" />
     <EmbeddedResource Include="Account\Acc.resx">
       <DependentUpon>Acc.cs</DependentUpon>
@@ -332,6 +386,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Chinhanh\Chinhanhtv.resx">
       <DependentUpon>Chinhanhtv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChiPhi\ChiPhi.resx">
+      <DependentUpon>ChiPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChiPhi\ChiPhiQL.resx">
+      <DependentUpon>ChiPhiQL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChiPhi\ChiPhiTV.resx">
+      <DependentUpon>ChiPhiTV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Doitac\Doitac.resx">
       <DependentUpon>Doitac.cs</DependentUpon>
@@ -363,6 +426,15 @@
     <EmbeddedResource Include="Khachhang\UpdateKH.resx">
       <DependentUpon>UpdateKH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Khuyenmai\KhuyenMai.resx">
+      <DependentUpon>KhuyenMai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Khuyenmai\KhuyenMaiQL.resx">
+      <DependentUpon>KhuyenMaiQL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Khuyenmai\KhuyenMaiTV.resx">
+      <DependentUpon>KhuyenMaiTV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Loadfrm.resx">
       <DependentUpon>Loadfrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -391,6 +463,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\ThongKe.resx">
+      <DependentUpon>ThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\ThongKeQL.resx">
+      <DependentUpon>ThongKeQL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\ThongKeTV.resx">
+      <DependentUpon>ThongKeTV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

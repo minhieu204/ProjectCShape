@@ -36,12 +36,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.context = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.suacm = new System.Windows.Forms.ToolStripMenuItem();
+            this.xoacm = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.suacm = new System.Windows.Forms.ToolStripMenuItem();
-            this.xoacm = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -109,7 +109,25 @@
             this.suacm,
             this.xoacm});
             this.context.Name = "context";
-            this.context.Size = new System.Drawing.Size(189, 86);
+            this.context.Size = new System.Drawing.Size(151, 64);
+            // 
+            // suacm
+            // 
+            this.suacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.suacm.Image = ((System.Drawing.Image)(resources.GetObject("suacm.Image")));
+            this.suacm.Name = "suacm";
+            this.suacm.Size = new System.Drawing.Size(150, 30);
+            this.suacm.Text = "Sửa đối tác";
+            this.suacm.Click += new System.EventHandler(this.suacm_Click);
+            // 
+            // xoacm
+            // 
+            this.xoacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xoacm.Image = ((System.Drawing.Image)(resources.GetObject("xoacm.Image")));
+            this.xoacm.Name = "xoacm";
+            this.xoacm.Size = new System.Drawing.Size(150, 30);
+            this.xoacm.Text = "Xóa đối tác";
+            this.xoacm.Click += new System.EventHandler(this.xoacm_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -140,6 +158,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(94, 40);
             this.guna2Button1.TabIndex = 0;
             this.guna2Button1.Text = "Nhập";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2Button2
             // 
@@ -156,6 +175,7 @@
             this.guna2Button2.Size = new System.Drawing.Size(94, 40);
             this.guna2Button2.TabIndex = 1;
             this.guna2Button2.Text = "Xuất";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // panel2
             // 
@@ -165,24 +185,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 52);
             this.panel2.TabIndex = 10;
-            // 
-            // suacm
-            // 
-            this.suacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.suacm.Image = ((System.Drawing.Image)(resources.GetObject("suacm.Image")));
-            this.suacm.Name = "suacm";
-            this.suacm.Size = new System.Drawing.Size(188, 30);
-            this.suacm.Text = "Sửa đối tác";
-            this.suacm.Click += new System.EventHandler(this.suacm_Click);
-            // 
-            // xoacm
-            // 
-            this.xoacm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xoacm.Image = ((System.Drawing.Image)(resources.GetObject("xoacm.Image")));
-            this.xoacm.Name = "xoacm";
-            this.xoacm.Size = new System.Drawing.Size(188, 30);
-            this.xoacm.Text = "Xóa đối tác";
-            this.xoacm.Click += new System.EventHandler(this.xoacm_Click);
             // 
             // KhuyenMaiQL
             // 
