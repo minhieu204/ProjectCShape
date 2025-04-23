@@ -104,6 +104,15 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.txtThanhtoan = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.txtTrutien = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -131,6 +140,9 @@
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel16.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -680,13 +692,16 @@
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.panel14, 1, 1);
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel4.Controls.Add(this.panel19, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.panel14, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.panel17, 2, 1);
             this.tableLayoutPanel4.Controls.Add(this.panel13, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.panel12, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.panel11, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.panel12, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.panel11, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 33);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -702,10 +717,10 @@
             this.panel14.Controls.Add(this.txtNgaynhap);
             this.panel14.Controls.Add(this.label14);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(537, 73);
+            this.panel14.Location = new System.Drawing.Point(643, 17);
             this.panel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(528, 37);
+            this.panel14.Size = new System.Drawing.Size(422, 37);
             this.panel14.TabIndex = 11;
             // 
             // txtNgaynhap
@@ -714,10 +729,10 @@
             this.txtNgaynhap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNgaynhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNgaynhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtNgaynhap.Location = new System.Drawing.Point(151, 0);
+            this.txtNgaynhap.Location = new System.Drawing.Point(124, 0);
             this.txtNgaynhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNgaynhap.Name = "txtNgaynhap";
-            this.txtNgaynhap.Size = new System.Drawing.Size(377, 30);
+            this.txtNgaynhap.Size = new System.Drawing.Size(298, 30);
             this.txtNgaynhap.TabIndex = 5;
             // 
             // label14
@@ -728,10 +743,10 @@
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.label14.Location = new System.Drawing.Point(0, 0);
             this.label14.Name = "label14";
-            this.label14.Padding = new System.Windows.Forms.Padding(20, 2, 20, 2);
-            this.label14.Size = new System.Drawing.Size(151, 32);
+            this.label14.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.label14.Size = new System.Drawing.Size(124, 32);
             this.label14.TabIndex = 3;
-            this.label14.Text = "  Ngày bán:";
+            this.label14.Text = "   Ngày bán:";
             // 
             // panel13
             // 
@@ -741,7 +756,7 @@
             this.panel13.Location = new System.Drawing.Point(3, 73);
             this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(528, 37);
+            this.panel13.Size = new System.Drawing.Size(421, 37);
             this.panel13.TabIndex = 10;
             // 
             // panel15
@@ -749,10 +764,10 @@
             this.panel15.Controls.Add(this.txtTongtien);
             this.panel15.Controls.Add(this.label16);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(164, 0);
+            this.panel15.Location = new System.Drawing.Point(117, 0);
             this.panel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(364, 37);
+            this.panel15.Size = new System.Drawing.Size(304, 37);
             this.panel15.TabIndex = 7;
             // 
             // txtTongtien
@@ -763,7 +778,7 @@
             this.txtTongtien.Location = new System.Drawing.Point(0, 0);
             this.txtTongtien.Name = "txtTongtien";
             this.txtTongtien.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.txtTongtien.Size = new System.Drawing.Size(296, 37);
+            this.txtTongtien.Size = new System.Drawing.Size(236, 37);
             this.txtTongtien.TabIndex = 4;
             this.txtTongtien.Text = "....................................................";
             // 
@@ -773,7 +788,7 @@
             this.label16.Dock = System.Windows.Forms.DockStyle.Right;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(296, 0);
+            this.label16.Location = new System.Drawing.Point(236, 0);
             this.label16.Name = "label16";
             this.label16.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.label16.Size = new System.Drawing.Size(68, 32);
@@ -788,30 +803,30 @@
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.label13.Location = new System.Drawing.Point(0, 0);
             this.label13.Name = "label13";
-            this.label13.Padding = new System.Windows.Forms.Padding(20, 2, 20, 2);
-            this.label13.Size = new System.Drawing.Size(164, 32);
+            this.label13.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.label13.Size = new System.Drawing.Size(117, 32);
             this.label13.TabIndex = 3;
-            this.label13.Text = "     Tổng tiền:";
+            this.label13.Text = "  Tổng tiền:";
             // 
             // panel12
             // 
             this.panel12.Controls.Add(this.txtNguoiban);
             this.panel12.Controls.Add(this.label12);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel12.Location = new System.Drawing.Point(537, 17);
+            this.panel12.Location = new System.Drawing.Point(3, 17);
             this.panel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(528, 37);
+            this.panel12.Size = new System.Drawing.Size(421, 37);
             this.panel12.TabIndex = 9;
             // 
             // txtNguoiban
             // 
             this.txtNguoiban.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNguoiban.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNguoiban.Location = new System.Drawing.Point(150, 0);
+            this.txtNguoiban.Location = new System.Drawing.Point(118, 0);
             this.txtNguoiban.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNguoiban.Name = "txtNguoiban";
-            this.txtNguoiban.Size = new System.Drawing.Size(378, 34);
+            this.txtNguoiban.Size = new System.Drawing.Size(303, 34);
             this.txtNguoiban.TabIndex = 4;
             // 
             // label12
@@ -822,8 +837,8 @@
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.label12.Location = new System.Drawing.Point(0, 0);
             this.label12.Name = "label12";
-            this.label12.Padding = new System.Windows.Forms.Padding(20, 2, 20, 2);
-            this.label12.Size = new System.Drawing.Size(150, 32);
+            this.label12.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.label12.Size = new System.Drawing.Size(118, 32);
             this.label12.TabIndex = 3;
             this.label12.Text = "Người bán:";
             // 
@@ -832,20 +847,20 @@
             this.panel11.Controls.Add(this.txtMahd);
             this.panel11.Controls.Add(this.label11);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel11.Location = new System.Drawing.Point(3, 17);
+            this.panel11.Location = new System.Drawing.Point(430, 17);
             this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(528, 37);
+            this.panel11.Size = new System.Drawing.Size(207, 37);
             this.panel11.TabIndex = 8;
             // 
             // txtMahd
             // 
             this.txtMahd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtMahd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMahd.Location = new System.Drawing.Point(162, 0);
+            this.txtMahd.Location = new System.Drawing.Point(126, 0);
             this.txtMahd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMahd.Name = "txtMahd";
-            this.txtMahd.Size = new System.Drawing.Size(366, 34);
+            this.txtMahd.Size = new System.Drawing.Size(81, 34);
             this.txtMahd.TabIndex = 4;
             // 
             // label11
@@ -856,8 +871,8 @@
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.label11.Location = new System.Drawing.Point(0, 0);
             this.label11.Name = "label11";
-            this.label11.Padding = new System.Windows.Forms.Padding(20, 2, 20, 2);
-            this.label11.Size = new System.Drawing.Size(162, 32);
+            this.label11.Padding = new System.Windows.Forms.Padding(0, 2, 4, 2);
+            this.label11.Size = new System.Drawing.Size(126, 32);
             this.label11.TabIndex = 3;
             this.label11.Text = "Mã hóa đơn:";
             // 
@@ -1076,6 +1091,116 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.panel18);
+            this.panel17.Controls.Add(this.label19);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel17.Location = new System.Drawing.Point(643, 73);
+            this.panel17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(422, 37);
+            this.panel17.TabIndex = 12;
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.txtThanhtoan);
+            this.panel18.Controls.Add(this.label17);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel18.Location = new System.Drawing.Point(122, 0);
+            this.panel18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(300, 37);
+            this.panel18.TabIndex = 7;
+            // 
+            // txtThanhtoan
+            // 
+            this.txtThanhtoan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtThanhtoan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtThanhtoan.ForeColor = System.Drawing.Color.Black;
+            this.txtThanhtoan.Location = new System.Drawing.Point(0, 0);
+            this.txtThanhtoan.Name = "txtThanhtoan";
+            this.txtThanhtoan.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.txtThanhtoan.Size = new System.Drawing.Size(232, 37);
+            this.txtThanhtoan.TabIndex = 4;
+            this.txtThanhtoan.Text = "....................................................";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(232, 0);
+            this.label17.Name = "label17";
+            this.label17.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.label17.Size = new System.Drawing.Size(68, 32);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "   VNĐ";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.label19.Location = new System.Drawing.Point(0, 0);
+            this.label19.Name = "label19";
+            this.label19.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.label19.Size = new System.Drawing.Size(122, 32);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "Thanh toán:";
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.label22);
+            this.panel19.Controls.Add(this.txtTrutien);
+            this.panel19.Controls.Add(this.label21);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel19.Location = new System.Drawing.Point(430, 73);
+            this.panel19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(207, 37);
+            this.panel19.TabIndex = 13;
+            // 
+            // txtTrutien
+            // 
+            this.txtTrutien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTrutien.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTrutien.ForeColor = System.Drawing.Color.Black;
+            this.txtTrutien.Location = new System.Drawing.Point(0, 0);
+            this.txtTrutien.Name = "txtTrutien";
+            this.txtTrutien.Padding = new System.Windows.Forms.Padding(16, 2, 0, 2);
+            this.txtTrutien.Size = new System.Drawing.Size(144, 37);
+            this.txtTrutien.TabIndex = 4;
+            this.txtTrutien.Text = "0";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(144, 0);
+            this.label21.Name = "label21";
+            this.label21.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.label21.Size = new System.Drawing.Size(63, 32);
+            this.label21.TabIndex = 5;
+            this.label21.Text = "  VNĐ";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(0, 0);
+            this.label22.Name = "label22";
+            this.label22.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.label22.Size = new System.Drawing.Size(20, 32);
+            this.label22.TabIndex = 6;
+            this.label22.Text = "-";
+            // 
             // FormBH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1128,6 +1253,12 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1210,5 +1341,14 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label txtkh;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Label txtThanhtoan;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label txtTrutien;
+        private System.Windows.Forms.Label label21;
     }
 }

@@ -41,7 +41,7 @@ namespace btl
             oSheet.Name = sheetname;
 
             // Tạo phần đầu nếu muốn
-            Microsoft.Office.Interop.Excel.Range head = oSheet.get_Range("A1", "I1");
+            Microsoft.Office.Interop.Excel.Range head = oSheet.get_Range("A1", "K1");
             head.MergeCells = true;
             head.Value2 = "DANH SÁCH SẢN PHẨM";
             head.Font.Bold = true;
@@ -60,26 +60,33 @@ namespace btl
             cl3.Value2 = "NHÀ CUNG CẤP";
             cl3.ColumnWidth = 20.0;
             Microsoft.Office.Interop.Excel.Range cl4 = oSheet.get_Range("D3", "D3");
-            cl4.Value2 = "GIÁ NHẬP";
-            cl4.ColumnWidth = 15.0;
+            cl4.Value2 = "NGÀY SẢN XUẤT";
+            cl4.ColumnWidth = 20.0;
             Microsoft.Office.Interop.Excel.Range cl5 = oSheet.get_Range("E3", "E3");
-            cl5.Value2 = "GIÁ BÁN";
-            cl5.ColumnWidth = 15.0;
+            cl5.Value2 = "HẠN SỬ DỤNG";
+            cl5.ColumnWidth = 20.0;
             Microsoft.Office.Interop.Excel.Range cl6 = oSheet.get_Range("F3", "F3");
-            cl6.Value2 = "SỐ LƯỢNG";
-            cl6.ColumnWidth = 10.0;
+            cl6.Value2 = "GIÁ NHẬP";
+            cl6.ColumnWidth = 15.0;
             Microsoft.Office.Interop.Excel.Range cl7 = oSheet.get_Range("G3", "G3");
-            cl7.Value2 = "NGÀY NHẬP";
-            cl7.ColumnWidth = 20.0;
+            cl7.Value2 = "GIÁ BÁN";
+            cl7.ColumnWidth = 15.0;
             Microsoft.Office.Interop.Excel.Range cl8 = oSheet.get_Range("H3", "H3");
-            cl8.Value2 = "ĐƠN VỊ TÍNH";
-            cl8.ColumnWidth = 15.0;
+            cl8.Value2 = "SỐ LƯỢNG";
+            cl8.ColumnWidth = 10.0;
             Microsoft.Office.Interop.Excel.Range cl9 = oSheet.get_Range("I3", "I3");
-            cl9.Value2 = "NGƯỜI NHẬP";
-            cl9.ColumnWidth = 30.0;
+            cl9.Value2 = "NGÀY NHẬP";
+            cl9.ColumnWidth = 20.0;
+            Microsoft.Office.Interop.Excel.Range cl10 = oSheet.get_Range("J3", "J3");
+            cl10.Value2 = "ĐƠN VỊ TÍNH";
+            cl10.ColumnWidth = 15.0;
+            Microsoft.Office.Interop.Excel.Range cl11 = oSheet.get_Range("K3", "K3");
+            cl11.Value2 = "NGƯỜI NHẬP";
+            cl11.ColumnWidth = 30.0;
+            
 
             // Kẻ viền cho header
-            Microsoft.Office.Interop.Excel.Range rowHead = oSheet.get_Range("A3", "I3");
+            Microsoft.Office.Interop.Excel.Range rowHead = oSheet.get_Range("A3", "K3");
             rowHead.Font.Bold = true;
             rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
             rowHead.Interior.ColorIndex = 15;
@@ -116,8 +123,12 @@ namespace btl
             range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
 
             // Định dạng ngày tháng cho cột Ngày nhập
-            Microsoft.Office.Interop.Excel.Range cl_ngs = oSheet.get_Range("G" + rowStart, "G" + rowEnd);
+            Microsoft.Office.Interop.Excel.Range cl_ngs = oSheet.get_Range("D" + rowStart, "D" + rowEnd);
             cl_ngs.Columns.NumberFormat = "dd/mm/yyyy";
+            Microsoft.Office.Interop.Excel.Range cl_ngs1 = oSheet.get_Range("E" + rowStart, "E" + rowEnd);
+            cl_ngs1.Columns.NumberFormat = "dd/mm/yyyy";
+            Microsoft.Office.Interop.Excel.Range cl_ngs2 = oSheet.get_Range("J" + rowStart, "J" + rowEnd);
+            cl_ngs2.Columns.NumberFormat = "dd/mm/yyyy";
         }
 
 
@@ -131,7 +142,8 @@ namespace btl
             txtSoluong.Text = "";
             txtNgaynhap.Value = DateTime.Now;
             txtDVT.Text = "";
-            txtNguoinhap.Text = Datauser.HoTen;
+            txtNsx.Value = DateTime.Now;
+            txtHsd.Value = DateTime.Now;
         }
 
         private void setDisable()
@@ -144,7 +156,8 @@ namespace btl
             txtSoluong.Enabled = false;
             txtNgaynhap.Enabled = false;
             txtDVT.Enabled = false;
-            txtNguoinhap.Enabled = false;
+            txtNsx.Enabled = false;
+            txtHsd.Enabled = false;
         }
 
         private void setEnable()
@@ -157,11 +170,13 @@ namespace btl
             txtSoluong.Enabled = true;
             txtNgaynhap.Enabled = true;
             txtDVT.Enabled = true;
+            txtNsx.Enabled = true;
+            txtHsd.Enabled = true;
         }
 
         public void loadSP()
         {
-            String sql = "select masp, tensp, tenncc, gianhap, giaban, soluong, ngaynhap, donvitinh, hoten " +
+            String sql = "select masp, tensp, tenncc, ngaysx, hansd, gianhap, giaban, soluong, ngaynhap, donvitinh, hoten " +
                          "from sanpham, nhacungcap, quanly " +
                          "where sanpham.mancc = nhacungcap.mancc and sanpham.maquanly = quanly.maquanly";
             Thuvien.LoadData(sql, dataGridView1);
@@ -178,7 +193,6 @@ namespace btl
         {
             loadSP();
             loadCbbNCC();
-            txtNguoinhap.Text = Datauser.HoTen;
             setDisable();
             Thuvien.CustomDisabledButton(btnXoa);
             Thuvien.CustomDisabledButton(btnSua);
@@ -198,12 +212,13 @@ namespace btl
                 txtMasp.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
                 txtTensp.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
                 cbbNCC.SelectedValue = Thuvien.GetValueFromCode("select * from nhacungcap", dataGridView1.Rows[i].Cells[2].Value.ToString(), "mancc", "tenncc");
-                txtGianhap.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
-                txtGiaban.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
-                txtSoluong.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
-                txtNgaynhap.Value = DateTime.Parse(dataGridView1.Rows[i].Cells[6].Value.ToString());
-                txtDVT.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();
-                txtNguoinhap.Text = dataGridView1.Rows[i].Cells[8].Value.ToString();
+                txtNsx.Value = DateTime.Parse(dataGridView1.Rows[i].Cells[3].Value.ToString());
+                txtHsd.Value = DateTime.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
+                txtGianhap.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
+                txtGiaban.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
+                txtSoluong.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();
+                txtNgaynhap.Value = DateTime.Parse(dataGridView1.Rows[i].Cells[8].Value.ToString());
+                txtDVT.Text = dataGridView1.Rows[i].Cells[9].Value.ToString();
                 Thuvien.CustomEnabledButton(btnXoa);
                 Thuvien.CustomEnabledButton(btnSua);
                 Thuvien.CustomDisabledButton(btnLuu);
@@ -226,6 +241,8 @@ namespace btl
             String masp = txtMasp.Text.Trim();
             String tensp = txtTensp.Text.Trim();
             String mancc = cbbNCC.SelectedValue.ToString();
+            String ngaysx = txtNsx.Value.ToString();
+            String hansd = txtHsd.Value.ToString();
             String gianhap = txtGianhap.Text.Trim();
             String giaban = txtGiaban.Text.Trim();
             String soluong = txtSoluong.Text.Trim();
@@ -243,7 +260,7 @@ namespace btl
                 MessageBox.Show("Mã sản phẩm không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            String sql = "insert into sanpham values('" + masp + "', N'" + tensp + "', '" + mancc + "', '" + gianhap + "', '" + giaban + "', '" + soluong + "', '" + ngaynhap + "', N'" + donvitinh + "', '" + maquanly + "')";
+            String sql = "insert into sanpham values('" + masp + "', N'" + tensp + "', '" + mancc + "', '" + gianhap + "', '" + giaban + "', '" + soluong + "', '" + ngaynhap + "', N'" + donvitinh + "', '" + maquanly + "', '" + ngaysx + "', '" + hansd + "')";
             Thuvien.ExecuteQuery(sql);
             MessageBox.Show("Lưu sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             loadSP();
@@ -256,6 +273,8 @@ namespace btl
             String masp = txtMasp.Text.Trim();
             String tensp = txtTensp.Text.Trim();
             String mancc = cbbNCC.SelectedValue.ToString();
+            String ngaysx = txtNsx.Value.ToString();
+            String hansd = txtHsd.Value.ToString();
             String gianhap = txtGianhap.Text.Trim();
             String giaban = txtGiaban.Text.Trim();
             String soluong = txtSoluong.Text.Trim();
@@ -267,7 +286,7 @@ namespace btl
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            String sql = "update sanpham set tensp = N'" + tensp + "', mancc = '" + mancc + "', gianhap = '" + gianhap + "', giaban = '" + giaban + "', soluong = '" + soluong + "', ngaynhap = '" + ngaynhap + "', donvitinh = N'" + donvitinh + "' where masp = '" + masp + "'";
+            String sql = "update sanpham set tensp = N'" + tensp + "', mancc = '" + mancc + "', gianhap = '" + gianhap + "', giaban = '" + giaban + "', soluong = '" + soluong + "', ngaynhap = '" + ngaynhap + "', donvitinh = N'" + donvitinh + "', ngaysx = '" + ngaysx + "', hansd = '" + hansd + "' where masp = '" + masp + "'";
             Thuvien.ExecuteQuery(sql);
             MessageBox.Show("Sửa sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             loadSP();
@@ -293,7 +312,7 @@ namespace btl
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             String search = txtSearch.Text;
-            String sql = "select masp, tensp, tenncc, gianhap, giaban, soluong, ngaynhap, donvitinh, hoten " +
+            String sql = "select masp, tensp, tenncc, ngaysx, hansd, gianhap, giaban, soluong, ngaynhap, donvitinh, hoten " +
                          "from sanpham, nhacungcap, quanly " +
                          "where sanpham.mancc = nhacungcap.mancc and sanpham.maquanly = quanly.maquanly "+
                          "and tensp like N'%"+ search +"%'";
@@ -304,7 +323,7 @@ namespace btl
         private void btnXuat_Click(object sender, EventArgs e)
         {
             String search = txtSearch.Text;
-            String sql = "select masp, tensp, tenncc, gianhap, giaban, soluong, ngaynhap, donvitinh, hoten " +
+            String sql = "select masp, tensp, tenncc, ngaysx, hansd, gianhap, giaban, soluong, ngaynhap, donvitinh, hoten " +
                          "from sanpham, nhacungcap, quanly " +
                          "where sanpham.mancc = nhacungcap.mancc and sanpham.maquanly = quanly.maquanly " +
                          "and tensp like N'%" + search + "%'";

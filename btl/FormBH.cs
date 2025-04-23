@@ -79,34 +79,38 @@ namespace btl
             {
                 tongtien = temp;
             }
+            txtTongtien.Text = tongtien > 0 ? tongtien.ToString() : "....................................................";
             if (checkBox1.Checked)
             {
                 if (!string.IsNullOrWhiteSpace(sdt) && tongtien > 0)
                 {
                     if (radioButton2.Checked)
                     {
+                        txtTrutien.Text = (diem * 10).ToString();
                         tongtien -= diem * 10;
                         if (tongtien < 0) tongtien = 0;
-                        txtTongtien.Text = tongtien.ToString();
+                        txtThanhtoan.Text = tongtien.ToString();
                     }
                     else if (radioButton1.Checked)
                     {
                         diemtichluy = tongtien / 1000;
-                        txtTongtien.Text = tongtien.ToString();
+                        txtThanhtoan.Text = tongtien.ToString();
+                        txtTrutien.Text = "0";
                     }
                     else
                     {
-                        txtTongtien.Text = tongtien.ToString();
+                        txtThanhtoan.Text = tongtien.ToString();
                     }
                 }
                 else
                 {
-                    txtTongtien.Text = tongtien > 0 ? tongtien.ToString() : "....................................................";
+                    txtThanhtoan.Text = tongtien > 0 ? tongtien.ToString() : "....................................................";
                 }
             }
             else
             {
-                txtTongtien.Text = tongtien > 0 ? tongtien.ToString() : "....................................................";
+                txtThanhtoan.Text = tongtien > 0 ? tongtien.ToString() : "....................................................";
+                txtTrutien.Text = "0";
             }
             if (txtTongtien.Text == "....................................................")
             {
@@ -290,7 +294,7 @@ namespace btl
                 }
             }
             string tenpdf = "donhang" + txtMahd.Text.Trim() + ".pdf";
-            Thuvien.GenerateInvoice(tenpdf, name, txtMahd.Text, txtTongtien.Text, diem.ToString());
+            Thuvien.GenerateInvoice(tenpdf, name, txtMahd.Text, txtThanhtoan.Text, diem.ToString());
             String sql = "insert into donhang(ngayban, tongtien, manhanvien) " +
                          "values('" + DateTime.Now.ToString() + "', '" + txtTongtien.Text.Trim() + "', '" + Datauser.ID + "')";
             Thuvien.ExecuteQuery(sql);
