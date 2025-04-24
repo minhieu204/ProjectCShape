@@ -121,7 +121,7 @@
   <data name="btnload.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAAnpJREFUSEvNl71rFEEYh0+JkSAoYppAxE4NChJjpyik1cJY+Cf4N6ghim0SYhOx
+        DAAACwwBP0AiyAAAAnpJREFUSEvNl71rFEEYh0+JkSAoYppAxE4NChJjpyik1cJY+Cf4N6ghim0SYhOx
         sUkhNjYGQgpBECSNH4U2gt+I2Ikiit+X5zfz7t7s3uxd5rIBH3i42/edmTe7Ozczafz3NJvNbXgSZ/EW
         3sd7eAdncAJ3WPP1w2B78Qb+wG58xwUcse7p0Lkfp/EvpvIH53DAhnNwPYTDdtkOyd34GKvQnb3Cl/hN
         gQqeoCvEp4o+xzFXpAyJPfgWy3zASTyEfdZc7TfhCF7AWD/9gUdQRUV7YYKaQE9dusUvnMIt1qwS2uj1
@@ -135,4 +135,19 @@
         SUVORK5CYII=
 </value>
   </data>
+  <metadata name="Chon.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="MaSP.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TenSP.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="GiaGoc.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="GiaSau.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

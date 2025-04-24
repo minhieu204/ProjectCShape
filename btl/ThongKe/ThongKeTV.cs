@@ -73,51 +73,76 @@ namespace btl.ThongKe
             DateTime ngayBatDau = dateTimePicker1.Value.Date;
             DateTime ngayKetThuc = dateTimePicker2.Value.Date;
 
-            string sql = "SELECT * FROM thongke WHERE NgayBatDau <= @ngayKetThuc AND NgayKetThuc >= @ngayBatDau";
-
             SqlConnection conn = Thuvien.GetConnection();
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@ngayBatDau", ngayBatDau);
-            cmd.Parameters.AddWithValue("@ngayKetThuc", ngayKetThuc);
 
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dtRaw = new DataTable();
-            da.Fill(dtRaw);
+            // Xóa dữ liệu cũ trong khoảng ngày đã chọn (nếu cần)
+            SqlCommand deleteCmd = new SqlCommand("DELETE FROM thongke WHERE Ngay BETWEEN @start AND @end", conn);
+            deleteCmd.Parameters.AddWithValue("@start", ngayBatDau);
+            deleteCmd.Parameters.AddWithValue("@end", ngayKetThuc);
+            deleteCmd.ExecuteNonQuery();
 
-            // Tạo bảng mới để hiển thị từng ngày
+            // Tạo DataTable để hiển thị
             DataTable dtNgay = new DataTable();
             dtNgay.Columns.Add("Ngay", typeof(DateTime));
-            dtNgay.Columns.Add("LuongNhanVien", typeof(decimal));
+            dtNgay.Columns.Add("LuongNhanVien", typeof(double));
             dtNgay.Columns.Add("PhiQuangCao", typeof(int));
             dtNgay.Columns.Add("ChiPhi", typeof(int));
             dtNgay.Columns.Add("TienNhapHang", typeof(int));
             dtNgay.Columns.Add("TienBanHang", typeof(int));
 
-            foreach (DataRow row in dtRaw.Rows)
+            for (DateTime day = ngayBatDau; day <= ngayKetThuc; day = day.AddDays(1))
             {
-                DateTime batDau = Convert.ToDateTime(row["NgayBatDau"]);
-                DateTime ketThuc = Convert.ToDateTime(row["NgayKetThuc"]);
+                double luong = 0;
+                int quangcao = 0;
+                int chiphi = 0;
+                int nhap = 0;
+                int ban = 0;
 
-                // Giới hạn trong khoảng được chọn
-                DateTime start = (batDau < ngayBatDau) ? ngayBatDau : batDau;
-                DateTime end = (ketThuc > ngayKetThuc) ? ngayKetThuc : ketThuc;
+                // Tính lương
+                SqlCommand cmdLuong = new SqlCommand("SELECT ISNULL(SUM(tienduocnhan), 0) FROM luong WHERE ngaynhan = @ngay", conn);
+                cmdLuong.Parameters.AddWithValue("@ngay", day);
+                luong = Convert.ToDouble(cmdLuong.ExecuteScalar());
 
-                for (DateTime d = start; d <= end; d = d.AddDays(1))
-                {
-                    dtNgay.Rows.Add(d,
-                        row["LuongNhanVien"],
-                        row["PhiQuangCao"],
-                        row["ChiPhi"],
-                        row["TienNhapHang"],
-                        row["TienBanHang"]
-                    );
-                }
+                // Tính phí quảng cáo còn hiệu lực trong ngày
+                SqlCommand cmdQC = new SqlCommand("SELECT ISNULL(SUM(chiphi), 0) FROM DoiTac WHERE @ngay BETWEEN ngaybatdau AND ngayketthuc", conn);
+                cmdQC.Parameters.AddWithValue("@ngay", day);
+                quangcao = Convert.ToInt32(cmdQC.ExecuteScalar());
+
+                // Tính chi phí trong tháng
+                SqlCommand cmdChiPhi = new SqlCommand("SELECT ISNULL(SUM(PhiSuaChua + TienDien + TienNuoc), 0) FROM ChiPhi WHERE MONTH(ThangNam) = @thang AND YEAR(ThangNam) = @nam", conn);
+                cmdChiPhi.Parameters.AddWithValue("@thang", day.Month);
+                cmdChiPhi.Parameters.AddWithValue("@nam", day.Year);
+                chiphi = Convert.ToInt32(cmdChiPhi.ExecuteScalar());
+
+                // Tính tiền bán hàng
+                SqlCommand cmdBan = new SqlCommand("SELECT ISNULL(SUM(tongtien), 0) FROM donhang WHERE ngayban = @ngay", conn);
+                cmdBan.Parameters.AddWithValue("@ngay", day);
+                ban = Convert.ToInt32(cmdBan.ExecuteScalar());
+
+                // Tiền nhập hàng (tạm thời là 0 nếu chưa có bảng riêng)
+                nhap = 0;
+
+                // Chèn vào bảng thongke theo từng ngày
+                SqlCommand insertCmd = new SqlCommand("INSERT INTO thongke (Ngay, LuongNhanVien, PhiQuangCao, ChiPhi, TienNhapHang, TienBanHang) " +
+                                                       "VALUES (@Ngay, @Luong, @QC, @Chi, @Nhap, @Ban)", conn);
+                insertCmd.Parameters.AddWithValue("@Ngay", day);
+                insertCmd.Parameters.AddWithValue("@Luong", luong);
+                insertCmd.Parameters.AddWithValue("@QC", quangcao);
+                insertCmd.Parameters.AddWithValue("@Chi", chiphi);
+                insertCmd.Parameters.AddWithValue("@Nhap", nhap);
+                insertCmd.Parameters.AddWithValue("@Ban", ban);
+                insertCmd.ExecuteNonQuery();
+
+                // Thêm vào bảng hiển thị
+                dtNgay.Rows.Add(day, luong, quangcao, chiphi, nhap, ban);
             }
 
+            conn.Close();
+
+            // Hiển thị trên datagridview
             dataGridView1.DataSource = dtNgay;
 
-
-            // Gọi hàm tính tổng để hiển thị
+            // Gọi hàm tính tổng nếu có
             TinhTongVaHienThi();
         }
 
@@ -127,6 +152,7 @@ namespace btl.ThongKe
             String sql = "select * from thongke";
             Thuvien.LoadExcel(sql, dt);
             ExportExcel_ThongKe(dt);
+            
         }
 
         public void ExportExcel_ThongKe(DataTable tb)
@@ -267,10 +293,12 @@ namespace btl.ThongKe
                     i++;
                 }
                 MessageBox.Show("Đã thêm dữ liệu vào bảng Thống Kê thành công!");
+                TinhTongVaHienThi();
             }
 
             workbook.Close(false);
             Excel.Quit();
+            
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -287,7 +315,7 @@ namespace btl.ThongKe
                 Thuvien.LoadData("SELECT * FROM ThongKe", dataGridView1);
             }
         }
-
+        
         private void lbtongChiPhi_Click(object sender, EventArgs e)
         {
 

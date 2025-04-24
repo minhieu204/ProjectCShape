@@ -18,35 +18,7 @@ namespace btl.Khuyenmai
         {
             InitializeComponent();
             this.khuyenMai = parent;
-            //LoadComboBoxMaSP(); 
-            txtgiasugiam.Enabled = false;
-            txtgiagoc.Enabled = false;
         }
-
-        private void TinhGiaSauGiam()
-        {
-            if (decimal.TryParse(txtgiagoc.Text, out decimal giaGoc) &&
-                decimal.TryParse(txtgiamgia.Text, out decimal phanTram))
-            {
-                decimal giaSauGiam = giaGoc * (1 - phanTram / 100);
-                txtgiasugiam.Text = giaSauGiam.ToString("N0");
-            }
-            else
-            {
-                txtgiasugiam.Clear();
-            }
-        }
-
-        //private void LoadComboBoxMaSP()
-        //{
-        //    string sql = "SELECT MaSP, MaSP + ' - ' + TenSP AS TenHienThi FROM SanPham";
-        //    Thuvien.LoadComboBox(sql, comboBox1, "MaSP", "TenHienThi");
-        //    comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-        //    comboBox1.SelectedIndex = 0;
-
-            //}
-
-
 
 
         public void SetData(string ma, string ten, DateTime bd, DateTime kt, string cbo , string ggoc , string giamgia , string gsaugiam)
@@ -55,11 +27,7 @@ namespace btl.Khuyenmai
             txtten.Text = ten;
             dateTimePicker1.Value = bd;
             dateTimePicker2.Value = kt;
-            comboBox1.SelectedValue = cbo;
             txtma.Enabled = false;
-            txtgiagoc.Text = ggoc;
-            txtgiamgia.Text = giamgia;
-            txtgiasugiam.Text = gsaugiam;
             btntv.Text = "Cập nhật";
             header.Text = "Cập nhật khuyến mãi";
         }
@@ -68,99 +36,54 @@ namespace btl.Khuyenmai
         {
             txtma.Text = "";
             txtten.Text = "";
-            txtgiagoc.Text = "";
-            txtgiamgia.Text = "";
-            txtgiasugiam.Text = "";
-            comboBox1.SelectedValue = 0;
             txtma.Enabled = true;
             btntv.Text = "Thêm";
             header.Text = "Thêm khuyến mãi";
         }
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void btntv_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btntv_Click_1(object sender, EventArgs e)
         {
-            if (txtma.Text == "" || txtten.Text == "" || comboBox1.SelectedValue == null ||
-    txtgiagoc.Text == "" || txtgiamgia.Text == "" || txtgiasugiam.Text == "")
+            string maKM = textBox1.Text;
+            string tenKM = txtten.Text;
+            DateTime ngayBD = dateTimePicker1.Value;
+            DateTime ngayKT = dateTimePicker2.Value;
+            float giamGia;
+
+            if (string.IsNullOrWhiteSpace(maKM) || string.IsNullOrWhiteSpace(tenKM) ||
+                !float.TryParse(textBox2.Text, out giamGia))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                MessageBox.Show("Vui lòng nhập đầy đủ và đúng định dạng thông tin.");
                 return;
             }
 
-            string ma = txtma.Text;
-            string ten = txtten.Text;
-            DateTime bd = dateTimePicker1.Value;
-            DateTime kt = dateTimePicker2.Value;
-            string masp = comboBox1.SelectedValue.ToString();
-            int giagoc = int.Parse(txtgiagoc.Text.Replace(",", "").Trim());
-            int giamgia = int.Parse(txtgiamgia.Text.Replace("%", "").Trim());
-            int giasaugiam = int.Parse(txtgiasugiam.Text.Replace(",", "").Trim());
-
-            if (btntv.Text == "Thêm")
+            using (SqlConnection conn = Thuvien.GetConnection())
             {
-                if (!Thuvien.CheckExist("SELECT COUNT(*) FROM KhuyenMai WHERE MaKhuyenMai = '" + ma + "'"))
-                {
-                    string query = "INSERT INTO KhuyenMai VALUES (@Ma, @Ten, @NgayBD, @NgayKT, @MaSP, @GiaGoc, @GiamGia, @GiaSau)";
-                    using (SqlConnection conn = Thuvien.GetConnection())
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@Ma", ma);
-                        cmd.Parameters.AddWithValue("@Ten", ten);
-                        cmd.Parameters.AddWithValue("@NgayBD", bd);
-                        cmd.Parameters.AddWithValue("@NgayKT", kt);
-                        cmd.Parameters.AddWithValue("@MaSP", masp);
-                        cmd.Parameters.AddWithValue("@GiaGoc", giagoc);
-                        cmd.Parameters.AddWithValue("@GiamGia", giamgia);
-                        cmd.Parameters.AddWithValue("@GiaSau", giasaugiam);
 
-                        
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
-                    }
+                string query = @"INSERT INTO KhuyenMai (MaKhuyenMai, TenKhuyenMai, NgayBatDau, NgayKetThuc, GiamGia)
+                         VALUES (@MaKhuyenMai, @TenKhuyenMai, @NgayBD, @NgayKT, @GiamGia)";
 
-                    MessageBox.Show("Thêm thành công!");
-                }
-                else
-                {
-                    MessageBox.Show("Mã khuyến mãi đã tồn tại");
-                    return;
-                }
-            }
-            else // Sửa
-            {
-                string query = "UPDATE KhuyenMai SET TenKhuyenMai = @Ten, NgayBatDau = @NgayBD, NgayKetThuc = @NgayKT, MaSanPham = @MaSP, GiaGoc = @GiaGoc, GiamGia = @GiamGia, GiaSauGiam = @GiaSau WHERE MaKhuyenMai = @Ma";
-                using (SqlConnection conn = Thuvien.GetConnection())
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@Ma", ma);
-                    cmd.Parameters.AddWithValue("@Ten", ten);
-                    cmd.Parameters.AddWithValue("@NgayBD", bd);
-                    cmd.Parameters.AddWithValue("@NgayKT", kt);
-                    cmd.Parameters.AddWithValue("@MaSP", masp);
-                    cmd.Parameters.AddWithValue("@GiaGoc", giagoc);
-                    cmd.Parameters.AddWithValue("@GiamGia", giamgia);
-                    cmd.Parameters.AddWithValue("@GiaSau", giasaugiam);
+                    cmd.Parameters.AddWithValue("@MaKhuyenMai", maKM);
+                    cmd.Parameters.AddWithValue("@TenKhuyenMai", tenKM);
+                    cmd.Parameters.AddWithValue("@NgayBD", ngayBD);
+                    cmd.Parameters.AddWithValue("@NgayKT", ngayKT);
+                    cmd.Parameters.AddWithValue("@GiamGia", giamGia);
 
-                   
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-
-                    MessageBox.Show("Cập nhật thành công!");
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Thêm khuyến mãi thành công!");
+                       // LoadData(); // Gọi lại hàm load danh sách nếu có
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
                 }
             }
-
-            khuyenMai.khuyenMaiQL.loadtb(); // làm mới bảng dữ liệu
-            khuyenMai.SwitchToTab(0);        // chuyển tab hiển thị
-            Reload();                        // làm mới form
-
         }
 
         private void btnload_Click(object sender, EventArgs e)
@@ -168,42 +91,58 @@ namespace btl.Khuyenmai
             Reload();
         }
 
-        private void txtgiasugiam_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBox1.SelectedIndex > 0)
-            {
-                DataRowView drv = comboBox1.SelectedItem as DataRowView;
-                if (drv != null)
-                {
-                    decimal gia = Convert.ToDecimal(drv["giaban"]);
-                    txtgiagoc.Text = gia.ToString("N0"); // Format có dấu phẩy
-                    TinhGiaSauGiam(); ; // Gọi luôn hàm tính nếu đã nhập %
-                }
-            }
-            else
-            {
-                txtgiagoc.Clear();
-                txtgiasugiam.Clear();
-            }
-        }
 
         private void KhuyenMaiTV_Load(object sender, EventArgs e)
         {
-           
-            string sql = "SELECT MaSP, TenSP, giaban FROM SanPham";
-            Thuvien.LoadComboBox(sql, comboBox1, "MaSP", "TenSP");
-        
+            string sql = "SELECT MaSP, TenSP, GiaBan FROM SanPham";
+            using (SqlConnection conn = Thuvien.GetConnection())
+            using (SqlDataAdapter adapter = new SqlDataAdapter(sql, conn))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+                // Tắt chế độ tự sinh cột
+                dataGridView1.AutoGenerateColumns = false;
+            }
+        }
 
-    }
-
-        private void txtgiamgia_TextChanged(object sender, EventArgs e)
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            TinhGiaSauGiam();
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (!decimal.TryParse(textBox2.Text.Replace("%", "").Trim(), out decimal phanTramGiam))
+            {
+                return; // Nếu không phải số, thoát
+            }
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                // Chỉ xử lý nếu dòng được chọn (ô "Chon" được tick)
+                bool isSelected = row.Cells["Chon"].Value != null && (bool)row.Cells["Chon"].Value;
+
+                if (isSelected && decimal.TryParse(row.Cells["GiaGoc"].Value?.ToString().Replace(",", "").Trim(), out decimal giaGoc))
+                {
+                    decimal giaSau = giaGoc * (1 - phanTramGiam / 100);
+                    row.Cells["GiaSau"].Value = giaSau.ToString("N0");
+                }
+                else
+                {
+                    row.Cells["GiaSau"].Value = ""; // Nếu không được chọn thì để trống
+                }
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Chon")
+            {
+                textBox2_TextChanged(null, null); // Gọi lại cập nhật giá
+            }
         }
     }
 }
