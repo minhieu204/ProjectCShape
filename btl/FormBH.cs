@@ -132,9 +132,9 @@ namespace btl
 
         public void loadSP()
         {
-            String sql = "select masp, tensp, donvitinh, giaban, soluong " +
+            String sql = "select masp, tensp, donvitinh, giaban, soluong, hansd " +
                          "from sanpham " +
-                         "where soluong > 0";
+                         "where soluong > 0 and hansd > dateadd(day, 7, getdate())";
             Thuvien.LoadData(sql, dgvSP);
         }
 
@@ -314,9 +314,9 @@ namespace btl
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             String search = txtSearch.Text;
-            String sql = "select masp, tensp, donvitinh, giaban, soluong " +
+            String sql = "select masp, tensp, donvitinh, giaban, soluong, hansd " +
                          "from sanpham " +
-                         "where soluong > 0 and tensp like N'%"+ search +"%'";
+                         "where soluong > 0 and hansd > dateadd(day, 7, getdate()) and tensp like N'%"+ search +"%'";
             Thuvien.LoadData(sql, dgvSP);
         }
         public void checkkh() {
