@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThongKeTV));
             this.xoacm = new System.Windows.Forms.ToolStripMenuItem();
             this.context = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.suacm = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,14 +47,14 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
             this.lbtongLuong = new System.Windows.Forms.Label();
-            this.lbtongQuangCao = new System.Windows.Forms.Label();
-            this.lbtongChiPhi = new System.Windows.Forms.Label();
-            this.lbtongNhapHang = new System.Windows.Forms.Label();
             this.lbtongBanHang = new System.Windows.Forms.Label();
+            this.lbtongNhapHang = new System.Windows.Forms.Label();
+            this.lbtongChiPhi = new System.Windows.Forms.Label();
+            this.lbtongQuangCao = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnload = new Guna.UI2.WinForms.Guna2Button();
             this.context.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -262,17 +263,29 @@
             this.lbtongLuong.TabIndex = 33;
             this.lbtongLuong.Text = "-------";
             // 
-            // lbtongQuangCao
+            // lbtongBanHang
             // 
-            this.lbtongQuangCao.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbtongQuangCao.AutoSize = true;
-            this.lbtongQuangCao.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbtongQuangCao.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lbtongQuangCao.Location = new System.Drawing.Point(321, 8);
-            this.lbtongQuangCao.Name = "lbtongQuangCao";
-            this.lbtongQuangCao.Size = new System.Drawing.Size(51, 20);
-            this.lbtongQuangCao.TabIndex = 34;
-            this.lbtongQuangCao.Text = "-------";
+            this.lbtongBanHang.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbtongBanHang.AutoSize = true;
+            this.lbtongBanHang.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtongBanHang.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbtongBanHang.Location = new System.Drawing.Point(886, 8);
+            this.lbtongBanHang.Name = "lbtongBanHang";
+            this.lbtongBanHang.Size = new System.Drawing.Size(51, 20);
+            this.lbtongBanHang.TabIndex = 37;
+            this.lbtongBanHang.Text = "-------";
+            // 
+            // lbtongNhapHang
+            // 
+            this.lbtongNhapHang.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbtongNhapHang.AutoSize = true;
+            this.lbtongNhapHang.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtongNhapHang.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbtongNhapHang.Location = new System.Drawing.Point(709, 8);
+            this.lbtongNhapHang.Name = "lbtongNhapHang";
+            this.lbtongNhapHang.Size = new System.Drawing.Size(51, 20);
+            this.lbtongNhapHang.TabIndex = 36;
+            this.lbtongNhapHang.Text = "-------";
             // 
             // lbtongChiPhi
             // 
@@ -287,29 +300,17 @@
             this.lbtongChiPhi.Text = "-------";
             this.lbtongChiPhi.Click += new System.EventHandler(this.lbtongChiPhi_Click);
             // 
-            // lbtongNhapHang
+            // lbtongQuangCao
             // 
-            this.lbtongNhapHang.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbtongNhapHang.AutoSize = true;
-            this.lbtongNhapHang.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbtongNhapHang.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lbtongNhapHang.Location = new System.Drawing.Point(709, 8);
-            this.lbtongNhapHang.Name = "lbtongNhapHang";
-            this.lbtongNhapHang.Size = new System.Drawing.Size(51, 20);
-            this.lbtongNhapHang.TabIndex = 36;
-            this.lbtongNhapHang.Text = "-------";
-            // 
-            // lbtongBanHang
-            // 
-            this.lbtongBanHang.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbtongBanHang.AutoSize = true;
-            this.lbtongBanHang.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbtongBanHang.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lbtongBanHang.Location = new System.Drawing.Point(886, 8);
-            this.lbtongBanHang.Name = "lbtongBanHang";
-            this.lbtongBanHang.Size = new System.Drawing.Size(51, 20);
-            this.lbtongBanHang.TabIndex = 37;
-            this.lbtongBanHang.Text = "-------";
+            this.lbtongQuangCao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbtongQuangCao.AutoSize = true;
+            this.lbtongQuangCao.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtongQuangCao.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbtongQuangCao.Location = new System.Drawing.Point(321, 8);
+            this.lbtongQuangCao.Name = "lbtongQuangCao";
+            this.lbtongQuangCao.Size = new System.Drawing.Size(51, 20);
+            this.lbtongQuangCao.TabIndex = 34;
+            this.lbtongQuangCao.Text = "-------";
             // 
             // panel2
             // 
@@ -330,39 +331,40 @@
             this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(132)))), ((int)(((byte)(50)))));
             this.guna2Button3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(147, 15);
+            this.guna2Button3.Location = new System.Drawing.Point(11, 15);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(115, 57);
             this.guna2Button3.TabIndex = 2;
             this.guna2Button3.Text = "Xuất Excel";
             this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(132)))), ((int)(((byte)(50)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(12, 15);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(126, 57);
-            this.guna2Button1.TabIndex = 0;
-            this.guna2Button1.Text = "Nhập từ Excel";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnload);
             this.panel1.Controls.Add(this.guna2Button3);
-            this.panel1.Controls.Add(this.guna2Button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 626);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1046, 84);
             this.panel1.TabIndex = 4;
+            // 
+            // btnload
+            // 
+            this.btnload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnload.BorderRadius = 10;
+            this.btnload.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnload.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnload.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnload.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnload.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(132)))), ((int)(((byte)(50)))));
+            this.btnload.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.btnload.ForeColor = System.Drawing.Color.White;
+            this.btnload.Image = ((System.Drawing.Image)(resources.GetObject("btnload.Image")));
+            this.btnload.Location = new System.Drawing.Point(140, 15);
+            this.btnload.Name = "btnload";
+            this.btnload.Size = new System.Drawing.Size(115, 57);
+            this.btnload.TabIndex = 12;
+            this.btnload.Click += new System.EventHandler(this.btnload_Click);
             // 
             // ThongKeTV
             // 
@@ -403,7 +405,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
@@ -415,5 +416,6 @@
         private System.Windows.Forms.Label lbtongQuangCao;
         private System.Windows.Forms.Label lbtongLuong;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private Guna.UI2.WinForms.Guna2Button btnload;
     }
 }

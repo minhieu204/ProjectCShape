@@ -109,9 +109,8 @@ namespace btl.ThongKe
                 quangcao = Convert.ToInt32(cmdQC.ExecuteScalar());
 
                 // Tính chi phí trong tháng
-                SqlCommand cmdChiPhi = new SqlCommand("SELECT ISNULL(SUM(PhiSuaChua + TienDien + TienNuoc), 0) FROM ChiPhi WHERE MONTH(ThangNam) = @thang AND YEAR(ThangNam) = @nam", conn);
-                cmdChiPhi.Parameters.AddWithValue("@thang", day.Month);
-                cmdChiPhi.Parameters.AddWithValue("@nam", day.Year);
+                SqlCommand cmdChiPhi = new SqlCommand("SELECT ISNULL(SUM(PhiSuaChua + TienDien + TienNuoc), 0) FROM ChiPhi WHERE CONVERT(date, ThangNam) = @ngay", conn);
+                cmdChiPhi.Parameters.AddWithValue("@ngay", day.Date);
                 chiphi = Convert.ToInt32(cmdChiPhi.ExecuteScalar());
 
                 // Tính tiền bán hàng
@@ -122,19 +121,23 @@ namespace btl.ThongKe
                 // Tiền nhập hàng (tạm thời là 0 nếu chưa có bảng riêng)
                 nhap = 0;
 
-                // Chèn vào bảng thongke theo từng ngày
-                SqlCommand insertCmd = new SqlCommand("INSERT INTO thongke (Ngay, LuongNhanVien, PhiQuangCao, ChiPhi, TienNhapHang, TienBanHang) " +
-                                                       "VALUES (@Ngay, @Luong, @QC, @Chi, @Nhap, @Ban)", conn);
-                insertCmd.Parameters.AddWithValue("@Ngay", day);
-                insertCmd.Parameters.AddWithValue("@Luong", luong);
-                insertCmd.Parameters.AddWithValue("@QC", quangcao);
-                insertCmd.Parameters.AddWithValue("@Chi", chiphi);
-                insertCmd.Parameters.AddWithValue("@Nhap", nhap);
-                insertCmd.Parameters.AddWithValue("@Ban", ban);
-                insertCmd.ExecuteNonQuery();
+                // Kiểm tra nếu có ít nhất một loại chi phí khác 0 mới thêm
+                if (luong != 0 || quangcao != 0 || chiphi != 0 || nhap != 0 || ban != 0)
+                {
+                    // Chèn vào bảng thongke theo từng ngày
+                    SqlCommand insertCmd = new SqlCommand("INSERT INTO thongke (Ngay, LuongNhanVien, PhiQuangCao, ChiPhi, TienNhapHang, TienBanHang) " +
+                                                           "VALUES (@Ngay, @Luong, @QC, @Chi, @Nhap, @Ban)", conn);
+                    insertCmd.Parameters.AddWithValue("@Ngay", day);
+                    insertCmd.Parameters.AddWithValue("@Luong", luong);
+                    insertCmd.Parameters.AddWithValue("@QC", quangcao);
+                    insertCmd.Parameters.AddWithValue("@Chi", chiphi);
+                    insertCmd.Parameters.AddWithValue("@Nhap", nhap);
+                    insertCmd.Parameters.AddWithValue("@Ban", ban);
+                    insertCmd.ExecuteNonQuery();
 
-                // Thêm vào bảng hiển thị
-                dtNgay.Rows.Add(day, luong, quangcao, chiphi, nhap, ban);
+                    // Thêm vào bảng hiển thị
+                    dtNgay.Rows.Add(day, luong, quangcao, chiphi, nhap, ban);
+                }
             }
 
             conn.Close();
@@ -163,162 +166,139 @@ namespace btl.ThongKe
                 return;
             }
 
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Excel Workbook|*.xlsx";
-            sfd.Title = "Lưu file Excel";
-            sfd.FileName = "DanhSachThongKe.xlsx";
-
-            if (sfd.ShowDialog() != DialogResult.OK)
-                return;
-
-            var oExcel = new Microsoft.Office.Interop.Excel.Application();
-            var oBook = oExcel.Workbooks.Add(Type.Missing);
-            var oSheet = (Microsoft.Office.Interop.Excel.Worksheet)oBook.Worksheets[1];
-            oExcel.Visible = false;
-            oExcel.DisplayAlerts = false;
-            oSheet.Name = "THONGKE";
-
-            oSheet.get_Range("A1", "H1").MergeCells = true;
-            oSheet.Cells[1, 1] = "DANH SÁCH THỐNG KÊ";
-            oSheet.Cells[1, 1].Font.Size = 18;
-            oSheet.Cells[1, 1].Font.Bold = true;
-            oSheet.Cells[1, 1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-
-            string[] headers = { "ID", "NGÀY BẮT ĐẦU", "NGÀY KẾT THÚC", "LƯƠNG NHÂN VIÊN", "PHÍ QUẢNG CÁO", "CHI PHÍ", "TIỀN NHẬP HÀNG", "TIỀN BÁN HÀNG" };
-            for (int i = 0; i < headers.Length; i++)
+            using (SaveFileDialog sfd = new SaveFileDialog())
             {
-                oSheet.Cells[3, i + 1] = headers[i];
-                var cell = oSheet.Cells[3, i + 1];
-                cell.Font.Bold = true;
-                cell.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
-                cell.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                ((Microsoft.Office.Interop.Excel.Range)cell).ColumnWidth = 20;
-            }
+                sfd.Filter = "Excel Workbook|*.xlsx";
+                sfd.Title = "Lưu file Excel";
+                sfd.FileName = "ThongKe.xlsx";
 
-            object[,] data = new object[tb.Rows.Count, headers.Length];
-            for (int i = 0; i < tb.Rows.Count; i++)
-            {
-                data[i, 0] = tb.Rows[i]["id"];
-                data[i, 1] = Convert.ToDateTime(tb.Rows[i]["NgayBatDau"]).ToString("dd/MM/yyyy");
-                data[i, 2] = Convert.ToDateTime(tb.Rows[i]["NgayKetThuc"]).ToString("dd/MM/yyyy");
-                data[i, 3] = tb.Rows[i]["LuongNhanVien"];
-                data[i, 4] = tb.Rows[i]["PhiQuangCao"];
-                data[i, 5] = tb.Rows[i]["ChiPhi"];
-                data[i, 6] = tb.Rows[i]["TienNhapHang"];
-                data[i, 7] = tb.Rows[i]["TienBanHang"];
-            }
+                if (sfd.ShowDialog() != DialogResult.OK)
+                    return;
 
-            var startCell = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[4, 1];
-            var endCell = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[3 + tb.Rows.Count, headers.Length];
-            var writeRange = oSheet.get_Range(startCell, endCell);
-            writeRange.Value2 = data;
-            writeRange.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+                var oExcel = new Microsoft.Office.Interop.Excel.Application();
+                var oBook = oExcel.Workbooks.Add(Type.Missing);
+                var oSheet = (Microsoft.Office.Interop.Excel.Worksheet)oBook.Sheets[1];
 
-            try
-            {
-                oBook.SaveAs(sfd.FileName);
-                MessageBox.Show("Xuất Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Process.Start(sfd.FileName);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi lưu file: " + ex.Message);
-            }
-            finally
-            {
-                oBook.Close(false);
-                oExcel.Quit();
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oSheet);
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oBook);
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oExcel);
-            }
+                oExcel.Visible = false;
+                oExcel.DisplayAlerts = false;
+                oSheet.Name = "ThongKe";
 
+                var head = oSheet.get_Range("A1", "I1");
+                head.MergeCells = true;
+                head.Value2 = "BÁO CÁO THỐNG KÊ";
+                head.Font.Bold = true;
+                head.Font.Name = "Tahoma";
+                head.Font.Size = 18;
+                head.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
+                string[] columnNames = { "ID", "NGÀY BẮT ĐẦU", "NGÀY KẾT THÚC", "NGÀY", "LƯƠNG NHÂN VIÊN", "PHÍ QUẢNG CÁO", "CHI PHÍ", "TIỀN NHẬP HÀNG", "TIỀN BÁN HÀNG" };
+                string[] columnLetters = { "A", "B", "C", "D", "E", "F", "G", "H", "I" };
+                double[] columnWidths = { 10, 20, 20, 20, 20, 20, 20, 20, 20 };
 
-        }
-
-
-        private void ReadExcel_ThongKe(string filename)
-        {
-            if (filename == null)
-            {
-                MessageBox.Show("Chưa chọn file");
-                return;
-            }
-
-            xls.Application Excel = new xls.Application();
-            xls.Workbook workbook = Excel.Workbooks.Open(filename);
-            xls.Worksheet sheet = workbook.Sheets[1];
-            int i = 2;
-
-            List<int> errorRows = new List<int>();
-            StringBuilder log = new StringBuilder();
-            bool hasError = false;
-
-            while (sheet.Cells[i, 1].Value != null)
-            {
-                string id = sheet.Cells[i, 1].Value.ToString();
-                string checkSql = $"SELECT COUNT(*) FROM ThongKe WHERE id = '{id}'";
-                if (Thuvien.CheckExist(checkSql))
+                for (int i = 0; i < columnNames.Length; i++)
                 {
-                    log.AppendLine($"Dòng {i} bị trùng: ID đã tồn tại.");
-                    hasError = true;
+                    var col = oSheet.get_Range(columnLetters[i] + "3");
+                    col.Value2 = columnNames[i];
+                    col.ColumnWidth = columnWidths[i];
+                    col.Font.Bold = true;
+                    col.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+                    col.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                 }
-                i++;
-            }
 
-            if (hasError)
-            {
-                string logPath = Path.Combine(Application.StartupPath, "Logs", "thongke_log.txt");
-                Directory.CreateDirectory(Path.GetDirectoryName(logPath));
-                File.AppendAllText(logPath, $"Log lúc {DateTime.Now}\n" + log.ToString() + "====================\n");
-                MessageBox.Show("Có dữ liệu trùng, xem chi tiết tại: " + logPath);
-            }
-            else
-            {
-                i = 2;
-                while (sheet.Cells[i, 1].Value != null)
+                // Format ngày
+                oSheet.get_Range("B4", "D1000").NumberFormat = "dd/MM/yyyy";
+
+                // Format số tiền
+                oSheet.get_Range("E4", "I1000").NumberFormat = "#,##0";
+
+                object[,] arr = new object[tb.Rows.Count, columnNames.Length];
+                for (int r = 0; r < tb.Rows.Count; r++)
                 {
-                    string id = sheet.Cells[i, 1].Value.ToString();
-                    string ngaybd = DateTime.Parse(sheet.Cells[i, 2].Value.ToString()).ToString("yyyy-MM-dd");
-                    string ngaykt = DateTime.Parse(sheet.Cells[i, 3].Value.ToString()).ToString("yyyy-MM-dd");
-                    string luongnv = sheet.Cells[i, 4].Value.ToString();
-                    string phiqc = sheet.Cells[i, 5].Value.ToString();
-                    string chiphi = sheet.Cells[i, 6].Value.ToString();
-                    string tiennhap = sheet.Cells[i, 7].Value.ToString();
-                    string tienban = sheet.Cells[i, 8].Value.ToString();
-
-                    string sql = $"INSERT INTO ThongKe VALUES({id}, '{ngaybd}', '{ngaykt}', {luongnv}, {phiqc}, {chiphi}, {tiennhap}, {tienban})";
-                    Thuvien.ExecuteQuery(sql);
-                    i++;
+                    arr[r, 0] = tb.Rows[r]["id"];
+                    arr[r, 1] = tb.Rows[r]["NgayBatDau"] == DBNull.Value ? "" : ((DateTime)tb.Rows[r]["NgayBatDau"]).ToString("dd/MM/yyyy");
+                    arr[r, 2] = tb.Rows[r]["NgayKetThuc"] == DBNull.Value ? "" : ((DateTime)tb.Rows[r]["NgayKetThuc"]).ToString("dd/MM/yyyy");
+                    arr[r, 3] = tb.Rows[r]["Ngay"] == DBNull.Value ? "" : ((DateTime)tb.Rows[r]["Ngay"]).ToString("dd/MM/yyyy");
+                    arr[r, 4] = tb.Rows[r]["LuongNhanVien"];
+                    arr[r, 5] = tb.Rows[r]["PhiQuangCao"];
+                    arr[r, 6] = tb.Rows[r]["ChiPhi"];
+                    arr[r, 7] = tb.Rows[r]["TienNhapHang"];
+                    arr[r, 8] = tb.Rows[r]["TienBanHang"];
                 }
-                MessageBox.Show("Đã thêm dữ liệu vào bảng Thống Kê thành công!");
-                TinhTongVaHienThi();
-            }
 
-            workbook.Close(false);
-            Excel.Quit();
-            
+                int rowStart = 4;
+                int rowEnd = rowStart + tb.Rows.Count - 1;
+
+                var c1 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowStart, 1];
+                var c2 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, columnNames.Length];
+                var range = oSheet.get_Range(c1, c2);
+                range.Value2 = arr;
+                range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+
+                try
+                {
+                    oBook.SaveAs(sfd.FileName);
+                    MessageBox.Show("Xuất Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Process.Start(sfd.FileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi lưu file: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    oBook.Close(false);
+                    oExcel.Quit();
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSheet);
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oBook);
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oExcel);
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                }
+            }
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Excel Files|*.xls;*.xlsx|All Files|*.*";
-            openFileDialog.RestoreDirectory = true;
-            openFileDialog.Title = "Chọn file Excel";
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string filePath = openFileDialog.FileName;
-                ReadExcel_ThongKe(filePath);
-                Thuvien.LoadData("SELECT * FROM ThongKe", dataGridView1);
-            }
-        }
+
+        
         
         private void lbtongChiPhi_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnload_Click(object sender, EventArgs e)
+        {
+            // Xác nhận xóa dữ liệu
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xóa tất cả dữ liệu thống kê?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    // Xóa toàn bộ dữ liệu trong bảng ThongKe
+                    using (SqlConnection conn = Thuvien.GetConnection())
+                    {
+                        SqlCommand cmd = new SqlCommand("DELETE FROM ThongKe", conn);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Làm mới DataGridView
+                    dataGridView1.DataSource = null;
+                    dataGridView1.Rows.Clear();
+
+                    // Xóa các label tổng
+                    lbtongLuong.Text = "0 VNĐ";
+                    lbtongQuangCao.Text = "0 VNĐ";
+                    lbtongChiPhi.Text = "0 VNĐ";
+                    lbtongNhapHang.Text = "0 VNĐ";
+                    lbtongBanHang.Text = "0 VNĐ";
+
+                    MessageBox.Show("Đã xóa toàn bộ dữ liệu và làm mới bảng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi xóa dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

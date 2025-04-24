@@ -55,9 +55,8 @@ namespace btl.ChiPhi
 
             string sql = "";
 
-            // Chuyển về ngày đầu tháng để quản lý theo tháng
-            DateTime ngayDauThang = new DateTime(thangNam.Year, thangNam.Month, 1);
-            string ngaySQL = ngayDauThang.ToString("dd-MM-yyyy");
+            
+            string ngaySQL = thangNam.ToString("dd-MM-yyyy");
 
             if (btntv.Text == "Thêm")
             {
