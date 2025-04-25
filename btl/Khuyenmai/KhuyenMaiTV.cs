@@ -47,41 +47,46 @@ namespace btl.Khuyenmai
         {
             string maKM = textBox1.Text;
             string tenKM = txtten.Text;
-            DateTime ngayBD = dateTimePicker1.Value;
-            DateTime ngayKT = dateTimePicker2.Value;
-            float giamGia;
-
-            if (string.IsNullOrWhiteSpace(maKM) || string.IsNullOrWhiteSpace(tenKM) ||
-                !float.TryParse(textBox2.Text, out giamGia))
-            {
-                MessageBox.Show("Vui lòng nhập đầy đủ và đúng định dạng thông tin.");
-                return;
-            }
+            DateTime batDau = dateTimePicker1.Value;
+            DateTime ketThuc = dateTimePicker2.Value;
+            float giamGia = float.Parse(textBox2.Text);
 
             using (SqlConnection conn = Thuvien.GetConnection())
             {
-
-                string query = @"INSERT INTO KhuyenMai (MaKhuyenMai, TenKhuyenMai, NgayBatDau, NgayKetThuc, GiamGia)
-                         VALUES (@MaKhuyenMai, @TenKhuyenMai, @NgayBD, @NgayKT, @GiamGia)";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                SqlTransaction tran = conn.BeginTransaction();
+                try
                 {
-                    cmd.Parameters.AddWithValue("@MaKhuyenMai", maKM);
-                    cmd.Parameters.AddWithValue("@TenKhuyenMai", tenKM);
-                    cmd.Parameters.AddWithValue("@NgayBD", ngayBD);
-                    cmd.Parameters.AddWithValue("@NgayKT", ngayKT);
-                    cmd.Parameters.AddWithValue("@GiamGia", giamGia);
+                    SqlCommand cmdKM = new SqlCommand("INSERT INTO KhuyenMai VALUES (@Ma, @Ten, @BD, @KT, @GG)", conn, tran);
+                    cmdKM.Parameters.AddWithValue("@Ma", maKM);
+                    cmdKM.Parameters.AddWithValue("@Ten", tenKM);
+                    cmdKM.Parameters.AddWithValue("@BD", batDau);
+                    cmdKM.Parameters.AddWithValue("@KT", ketThuc);
+                    cmdKM.Parameters.AddWithValue("@GG", giamGia);
+                    cmdKM.ExecuteNonQuery();
 
-                    try
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Thêm khuyến mãi thành công!");
-                       // LoadData(); // Gọi lại hàm load danh sách nếu có
+                        if (Convert.ToBoolean(row.Cells["Chon"].Value))
+                        {
+                            string maSP = row.Cells["MaSP"].Value.ToString();
+                            decimal giaGoc = Convert.ToDecimal(row.Cells["GiaGoc"].Value);
+                            decimal giaSau = Convert.ToDecimal(row.Cells["GiaSauGiam"].Value);
+
+                            SqlCommand cmdCT = new SqlCommand("INSERT INTO ChiTietKhuyenMai VALUES (@MaKM, @MaSP, @GiaSau)", conn, tran);
+                            cmdCT.Parameters.AddWithValue("@MaKM", maKM);
+                            cmdCT.Parameters.AddWithValue("@MaSP", maSP);
+                            cmdCT.Parameters.AddWithValue("@GiaSau", giaSau);
+                            cmdCT.ExecuteNonQuery();
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi: " + ex.Message);
-                    }
+
+                    tran.Commit();
+                    MessageBox.Show("Thêm khuyến mãi thành công");
+                }
+                catch
+                {
+                    tran.Rollback();
+                    MessageBox.Show("Lỗi khi thêm khuyến mãi");
                 }
             }
         }
@@ -128,11 +133,11 @@ namespace btl.Khuyenmai
                 if (isSelected && decimal.TryParse(row.Cells["GiaGoc"].Value?.ToString().Replace(",", "").Trim(), out decimal giaGoc))
                 {
                     decimal giaSau = giaGoc * (1 - phanTramGiam / 100);
-                    row.Cells["GiaSau"].Value = giaSau.ToString("N0");
+                    row.Cells["GiaSauGiam"].Value = giaSau.ToString("N0");
                 }
                 else
                 {
-                    row.Cells["GiaSau"].Value = ""; // Nếu không được chọn thì để trống
+                    row.Cells["GiaSauGiam"].Value = ""; // Nếu không được chọn thì để trống
                 }
             }
         }

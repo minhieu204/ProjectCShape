@@ -22,12 +22,12 @@ namespace btl.ChiPhi
             this.chiPhi = parent;
             Thuvien.CustomDataGridView(dataGridView1);
             loadtb();
-            TinhTongChiPhi();
-      
+            
         }
         public void loadtb()
         {
             Thuvien.LoadData("select * from ChiPhi", dataGridView1);
+            TinhTongChiPhi();
         }
 
         private void TinhTongChiPhi()
@@ -76,6 +76,7 @@ namespace btl.ChiPhi
                 chiPhi.chiPhiTV.SetData(id, tienDien, tienNuoc, thangNam, phiSuaChua);
 
                 chiPhi.SwitchToTab(1);
+                TinhTongChiPhi();
             }
 
         }
@@ -121,6 +122,7 @@ namespace btl.ChiPhi
             String sql = "select * from chiphi";
             Thuvien.LoadExcel(sql, dt);
             ExportExcel_ChiPhi(dt);
+            TinhTongChiPhi();
         }
 
         public void ExportExcel_ChiPhi(DataTable tb)
@@ -171,7 +173,7 @@ namespace btl.ChiPhi
                 }
 
                 // Format ngày tháng
-                oSheet.get_Range("B4", "B1000").NumberFormat = "dd/MM/yyyy";
+                oSheet.get_Range("B4", "B1000").NumberFormat = "yyyy/MM/dd";
 
                 // Format số tiền
                 oSheet.get_Range("C4", "E1000").NumberFormat = "#,##0.00";
@@ -180,7 +182,7 @@ namespace btl.ChiPhi
                 for (int r = 0; r < tb.Rows.Count; r++)
                 {
                     arr[r, 0] = tb.Rows[r]["ID"];
-                    arr[r, 1] = ((DateTime)tb.Rows[r]["ThangNam"]).ToString("dd/MM/yyyy");
+                    arr[r, 1] = ((DateTime)tb.Rows[r]["ThangNam"]).ToString("yyyy/MM/dd");
                     arr[r, 2] = tb.Rows[r]["PhiSuaChua"];
                     arr[r, 3] = tb.Rows[r]["TienDien"];
                     arr[r, 4] = tb.Rows[r]["TienNuoc"];
