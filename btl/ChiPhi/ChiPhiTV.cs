@@ -56,7 +56,7 @@ namespace btl.ChiPhi
             string sql = "";
 
             
-            string ngaySQL = thangNam.ToString("dd-MM-yyyy");
+            string ngaySQL = thangNam.ToString("yyyy/MM/dd");
 
             if (btntv.Text == "Thêm")
             {

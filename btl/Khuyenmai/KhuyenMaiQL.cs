@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -232,6 +233,30 @@ namespace btl.Khuyenmai
             }
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string maCanTim = textBox1.Text.Trim();
 
+            if (string.IsNullOrEmpty(maCanTim))
+            {
+                loadtb(); // nếu để trống thì load lại tất cả
+                return;
+            }
+
+            string query = "SELECT * FROM KhuyenMai WHERE MaKM LIKE @MaKM or TenKM LIKE @TenKM";
+            using (SqlConnection conn = Thuvien.GetConnection())
+            using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
+            {
+                adapter.SelectCommand.Parameters.AddWithValue("@MaKM", "%" + maCanTim + "%");
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy khuyến mãi nào với mã: " + maCanTim);
+                }
+            }
+        }
     }
 }
