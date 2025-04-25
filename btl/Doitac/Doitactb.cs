@@ -235,5 +235,11 @@ namespace btl.Doitac
             Thuvien.LoadExcel(sql, dt);
             ExportExcel_DoiTac(dt);
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            String sql = "select * from DoiTac where Madoitac like '%" + txttk.Text + "%' or Tenquangcao like N'%" + txttk.Text + "%'";
+            Thuvien.LoadData(sql, dataGridView1);
+        }
     }
 }

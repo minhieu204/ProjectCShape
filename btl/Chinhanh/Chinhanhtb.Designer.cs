@@ -37,7 +37,7 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txttk = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.context = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.suacm = new System.Windows.Forms.ToolStripMenuItem();
@@ -135,7 +135,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txttk);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -144,16 +144,17 @@
             this.panel1.Size = new System.Drawing.Size(1098, 74);
             this.panel1.TabIndex = 9;
             // 
-            // textBox1
+            // txttk
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txttk.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(177, 14);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(901, 37);
-            this.textBox1.TabIndex = 1;
+            this.txttk.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttk.Location = new System.Drawing.Point(177, 14);
+            this.txttk.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txttk.Name = "txttk";
+            this.txttk.Size = new System.Drawing.Size(901, 37);
+            this.txttk.TabIndex = 1;
+            this.txttk.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -223,7 +224,7 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txttk;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip context;
         private System.Windows.Forms.ToolStripMenuItem suacm;

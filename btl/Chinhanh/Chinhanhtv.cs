@@ -67,7 +67,7 @@ namespace btl.Chinhanh
             {
                 if (!Thuvien.CheckExist("select count(*) from ChiNhanh where Machinhanh='" + ma + "' "))
                 {
-                    sql = String.Format("insert into Doitac values('{0}', N'{1}', '{2}', '{3}', '{4}')", ma, ten, dt, em, dc);
+                    sql = String.Format("insert into Chinhanh values('{0}', N'{1}', N'{2}', '{3}', '{4}')", ma, ten, dc, em, dt);
                 }
                 else
                 {
@@ -77,7 +77,7 @@ namespace btl.Chinhanh
             }
             else
             {
-                sql = String.Format("update ChiNhanh set Tenchinhanh = N'{0}', SDT = '{1}', Email = '{2}', Diachi = '{3}' where Machinhanh = '{4}'", ten, dt, em, dc, ma);
+                sql = String.Format("update ChiNhanh set Tenchinhanh = N'{0}', SDT = '{1}', Email = '{2}', Diachi = N'{3}' where Machinhanh = '{4}'", ten, dt, em, dc, ma);
             }
             Thuvien.ExecuteQuery(sql);
             Chinhanh.chinhanhtb.loadtb();

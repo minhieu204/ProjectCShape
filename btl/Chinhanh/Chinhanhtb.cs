@@ -285,5 +285,11 @@ namespace btl.Chinhanh
             Thuvien.LoadExcel(sql, dt);
             ExportExcel_ChiNhanh(dt);
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            String sql = "select * from Chinhanh where Machinhanh like '%" + txttk.Text + "%' or Tenchinhanh like N'%" + txttk.Text + "%' or SDT like N'%" + txttk.Text + "%' or Email like N'%" + txttk.Text + "%'";
+            Thuvien.LoadData(sql, dataGridView1);
+        }
     }
 }
